@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reta Final ENEM 2026 — Matemática | Prof. André Pedrosa</title>
-  <meta name="description" content="Revise Matemática para o ENEM 2026 com questões, gabarito e resoluções comentadas do material Reta Final ENEM, do Prof. André Pedrosa.">
+  <meta name="description" content="Revise Matemática para o ENEM 2026 com teoria essencial, questões comentadas e estratégias de prova do Prof. André Pedrosa.">
   <meta property="og:title" content="Reta Final ENEM 2026 — Matemática | Prof. André Pedrosa">
-  <meta property="og:description" content="Revise Matemática para o ENEM 2026 com questões, gabarito e resoluções comentadas.">
+  <meta property="og:description" content="Foco, prática, estratégia e resultado na preparação para o ENEM 2026.">
   <meta property="og:type" content="product">
-  <meta property="og:image" content="assets/gabarito-questoes-1-a-5.png">
+  <meta property="og:image" content="assets/banner-master-reta-final.jpg">
 
-  <!-- Google Fonts: Archivo Black & Inter -->
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS v3 via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -29,30 +29,30 @@
             'xl': '1280px',
           },
           colors: {
-            brand: {
+            dark: {
+              950: '#090B0E',
+              900: '#0E1117',
+              850: '#141821',
+              800: '#1B212D',
+              700: '#2A3344',
+              600: '#3D495F'
+            },
+            accent: {
+              yellow: '#FBBF24',
+              amber: '#F59E0B',
               orange: '#FF7E00',
-              purple: '#6B1AFF',
-              black: '#171717',
-              cream: '#FFF8ED',
-              gray: '#5F5B62',
-              lightOrange: '#FFE8D1',
-              lightPurple: '#EFE7FF',
-              darkBg: '#0F0F0F'
+              gold: '#EAB308',
+              purple: '#8B5CF6'
             }
           },
           fontFamily: {
-            heading: ['"Archivo Black"', 'sans-serif'],
-            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif']
+            heading: ['"Plus Jakarta Sans"', 'sans-serif'],
+            sans: ['Inter', 'sans-serif']
           },
           boxShadow: {
-            'brutal-sm': '3px 3px 0px #171717',
-            'brutal': '4px 4px 0px #171717',
-            'brutal-md': '6px 6px 0px #171717',
-            'brutal-lg': '8px 8px 0px #171717',
-            'brutal-xl': '12px 12px 0px #171717',
-            'brutal-purple': '6px 6px 0px #6B1AFF',
-            'brutal-orange': '6px 6px 0px #FF7E00',
-            'brutal-white': '4px 4px 0px #FFFFFF',
+            'glow-amber': '0 0 50px -10px rgba(245, 158, 11, 0.25)',
+            'glow-card': '0 20px 40px -15px rgba(0, 0, 0, 0.35)',
+            'pill': '0 2px 10px rgba(0, 0, 0, 0.08)'
           }
         }
       }
@@ -60,417 +60,466 @@
   </script>
 
   <style>
-    /* Neobrutalist Base Styles & Mobile Touch Optimizations */
-    :root {
-      --color-orange: #FF7E00;
-      --color-purple: #6B1AFF;
-      --color-black: #171717;
-      --color-cream: #FFF8ED;
-      --color-gray: #5F5B62;
-    }
-
     html, body {
       overflow-x: clip;
       max-width: 100vw;
       -webkit-text-size-adjust: 100%;
       -webkit-tap-highlight-color: transparent;
-    }
-
-    body {
-      background-color: #FFFFFF;
-      color: #171717;
       font-family: 'Inter', sans-serif;
     }
 
     h1, h2, h3, .font-heading {
-      font-family: 'Archivo Black', sans-serif;
-      letter-spacing: -0.02em;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       text-wrap: balance;
       word-break: break-word;
-      hyphens: auto;
     }
 
     button, a {
       touch-action: manipulation;
     }
 
-    /* Tactile Neobrutalist Buttons */
-    .btn-brutal {
-      transition: transform 0.12s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.12s cubic-bezier(0.2, 0.8, 0.2, 1);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-    }
-    .btn-brutal:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 7px 7px 0px #171717;
-    }
-    .btn-brutal:active {
-      transform: translate(3px, 3px);
-      box-shadow: 0px 0px 0px #171717 !important;
+    /* Ambient Hero Radial Glow */
+    .hero-glow {
+      background: radial-gradient(circle at 50% 35%, rgba(245, 158, 11, 0.16) 0%, rgba(139, 92, 246, 0.08) 35%, rgba(14, 17, 23, 0) 70%);
     }
 
-    .btn-brutal-purple:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 7px 7px 0px #6B1AFF;
-    }
-    .btn-brutal-purple:active {
-      transform: translate(3px, 3px);
-      box-shadow: 0px 0px 0px #6B1AFF !important;
+    .badge-glow {
+      box-shadow: 0 0 25px -4px rgba(251, 191, 36, 0.3);
     }
 
-    /* Card Hover elevation */
-    .card-brutal-interactive {
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    /* Custom scrollbar for modal */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
     }
-    .card-brutal-interactive:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 8px 8px 0px #171717;
+    ::-webkit-scrollbar-track {
+      background: #0E1117;
     }
-
-    /* Floating Math Symbols */
-    @keyframes floatGentleA {
-      0%, 100% { transform: translateY(0px) rotate(-3deg); }
-      50% { transform: translateY(-8px) rotate(2deg); }
-    }
-    @keyframes floatGentleB {
-      0%, 100% { transform: translateY(0px) rotate(4deg); }
-      50% { transform: translateY(-10px) rotate(-1deg); }
-    }
-    @keyframes floatGentleC {
-      0%, 100% { transform: translateY(0px) rotate(-2deg); }
-      50% { transform: translateY(6px) rotate(3deg); }
-    }
-    .math-float-a { animation: floatGentleA 6s ease-in-out infinite; }
-    .math-float-b { animation: floatGentleB 7.5s ease-in-out infinite; }
-    .math-float-c { animation: floatGentleC 6.8s ease-in-out infinite; }
-
-    /* Dot grid background */
-    .bg-grid-dots {
-      background-image: radial-gradient(#171717 1px, transparent 1px);
-      background-size: 20px 20px;
+    ::-webkit-scrollbar-thumb {
+      background: #2A3344;
+      border-radius: 9999px;
     }
 
-    /* Reduced Motion */
-    @media (prefers-reduced-motion: reduce) {
-      .math-float-a, .math-float-b, .math-float-c,
-      .reveal-on-scroll {
-        animation: none !important;
-        transition: none !important;
-      }
-      .btn-brutal:hover, .card-brutal-interactive:hover {
-        transform: none !important;
-      }
-    }
-
-    /* Accordion Details Animation */
-    details > summary {
-      list-style: none;
-    }
-    details > summary::-webkit-details-marker {
-      display: none;
-    }
-
-    /* Modal Backdrop */
     .modal-active {
       overflow: hidden;
     }
   </style>
 </head>
-<body class="selection:bg-brand-orange selection:text-brand-black pb-28 md:pb-0">
+<body class="bg-dark-950 text-slate-100 selection:bg-accent-amber selection:text-dark-950 pb-28 md:pb-0">
 
   <!-- Accessible Skip Link -->
-  <a href="#conteudo-principal" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-brand-orange focus:text-brand-black focus:font-bold focus:px-4 focus:py-2 focus:border-2 focus:border-brand-black focus:shadow-brutal">
+  <a href="#conteudo-principal" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-accent-amber focus:text-dark-950 focus:font-bold focus:px-4 focus:py-2 focus:rounded-full shadow-lg">
     Pular para o conteúdo principal
   </a>
 
-  <!-- TOP BRAND TICKER / HEADER -->
-  <header class="w-full bg-brand-black text-white border-b-[3px] border-brand-black sticky top-0 z-30">
-    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-13 sm:h-14 flex items-center justify-between gap-2">
-      <div class="flex items-center space-x-1.5 sm:space-x-2 min-w-0">
-        <span class="bg-brand-orange text-brand-black text-[10px] sm:text-xs font-heading px-1.5 sm:px-2 py-0.5 border border-white flex-shrink-0">ENEM 2026</span>
-        <span class="text-xs sm:text-sm font-bold tracking-tight truncate">Prof. André Pedrosa <span class="hidden sm:inline">• Reta Final Matemática</span></span>
-      </div>
-      <nav aria-label="Navegação rápida" class="flex-shrink-0">
-        <a href="#oferta" class="checkout-cta-btn btn-brutal bg-brand-orange text-brand-black font-heading text-[11px] sm:text-xs uppercase px-2.5 sm:px-3 py-1.5 border-2 border-white shadow-[2px_2px_0px_#ffffff] hover:bg-white" data-location="header_nav">
-          Acessar Material
-        </a>
+  <!-- =========================================================================
+       FLOATING PILL NAVBAR (Inspired by Reference Design)
+       ========================================================================= -->
+  <div class="fixed top-3 sm:top-5 left-0 right-0 z-40 px-3 sm:px-6 pointer-events-none">
+    <div class="max-w-5xl mx-auto flex items-center justify-between pointer-events-auto bg-dark-900/90 backdrop-blur-md border border-white/10 rounded-full px-3.5 sm:px-6 py-2 sm:py-2.5 shadow-2xl">
+      
+      <!-- Brand Name / Logo -->
+      <a href="#" class="flex items-center space-x-2 text-white font-heading font-extrabold text-sm sm:text-base tracking-tight hover:text-accent-yellow transition-colors">
+        <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-tr from-accent-orange to-accent-yellow flex items-center justify-center text-dark-950 font-black text-xs sm:text-sm shadow-md">
+          AP
+        </span>
+        <span class="hidden xs:inline">Prof. André Pedrosa</span>
+      </a>
+
+      <!-- Navigation Links (Desktop) -->
+      <nav class="hidden md:flex items-center space-x-6 text-xs lg:text-sm font-medium text-slate-300">
+        <a href="#sobre" class="hover:text-white transition-colors">Sobre</a>
+        <a href="#pilares" class="hover:text-white transition-colors">Pilares</a>
+        <a href="#amostras" class="hover:text-white transition-colors">Amostras</a>
+        <a href="#conteudos" class="hover:text-white transition-colors">Conteúdo</a>
+        <a href="#metodo" class="hover:text-white transition-colors">Método</a>
+        <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
       </nav>
+
+      <!-- CTA Button -->
+      <a href="#oferta" class="checkout-cta-btn inline-flex items-center space-x-1.5 bg-gradient-to-r from-accent-amber to-accent-yellow text-dark-950 font-heading font-bold text-xs sm:text-sm px-3.5 sm:px-5 py-2 rounded-full hover:brightness-110 active:scale-95 transition-all shadow-md" data-location="navbar_pill">
+        <span>Acessar Material</span>
+        <span class="text-xs">↗</span>
+      </a>
+
     </div>
-  </header>
+  </div>
 
   <main id="conteudo-principal">
 
     <!-- =========================================================================
-         SECTION 1 — HERO
+         SECTION 1 — HERO SECTION (Reference-Inspired with Authority Focus)
          ========================================================================= -->
-    <section class="relative bg-white border-b-[3px] border-brand-black py-10 sm:py-16 md:py-20 lg:py-24 overflow-hidden">
-      <!-- Background subtle math symbols -->
-      <div class="absolute inset-0 pointer-events-none opacity-5 select-none font-heading text-4xl sm:text-6xl flex flex-wrap justify-between p-4 sm:p-8" aria-hidden="true">
-        <span>∫</span> <span>∑</span> <span>√</span> <span>π</span> <span>%</span> <span>Δ</span> <span>f(x)</span> <span>÷</span>
-      </div>
+    <section class="relative bg-gradient-to-b from-dark-900 via-dark-950 to-dark-900 pt-24 sm:pt-32 pb-16 sm:pb-24 overflow-hidden border-b border-white/5 hero-glow">
+      
+      <!-- Ambient Backlight -->
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-accent-amber/10 rounded-full blur-[100px] pointer-events-none" aria-hidden="true"></div>
 
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-          
-          <!-- Left Column: Copy & CTA -->
-          <div class="lg:col-span-7 flex flex-col items-start">
-            
-            <!-- Tag/Label with slight rotation -->
-            <div class="inline-block transform -rotate-1 mb-4 sm:mb-5">
-              <span class="bg-brand-purple text-white font-heading text-[11px] sm:text-sm uppercase tracking-wider px-3 sm:px-3.5 py-1 sm:py-1.5 border-2 border-brand-black shadow-brutal-sm sm:shadow-brutal">
-                MATEMÁTICA • ENEM 2026
-              </span>
-            </div>
-
-            <!-- Main Title (Fluid for mobile 320px+) -->
-            <h1 class="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[2.9rem] leading-[1.12] sm:leading-[1.08] font-heading text-brand-black mb-4 sm:mb-6">
-              A reta final do ENEM não é hora de estudar no escuro.
-            </h1>
-
-            <!-- Subtitle -->
-            <p class="text-base sm:text-lg md:text-xl text-brand-gray font-medium leading-relaxed mb-6 sm:mb-8 max-w-2xl">
-              Revise Matemática com questões, gabarito e resoluções comentadas para entender os caminhos de cada problema e estudar com mais estratégia.
-            </p>
-
-            <!-- 3 Short Benefits -->
-            <ul class="space-y-3 sm:space-y-3.5 mb-7 sm:mb-9 w-full max-w-xl">
-              <li class="flex items-start space-x-2.5 sm:space-x-3">
-                <span class="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-none bg-brand-orange border-2 border-brand-black shadow-[1.5px_1.5px_0px_#171717] flex items-center justify-center text-brand-black font-black text-xs sm:text-sm mt-0.5">
-                  ✓
-                </span>
-                <span class="text-sm sm:text-base md:text-lg font-semibold text-brand-black leading-snug">
-                  Revise conteúdos importantes de Matemática.
-                </span>
-              </li>
-              <li class="flex items-start space-x-2.5 sm:space-x-3">
-                <span class="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-none bg-brand-orange border-2 border-brand-black shadow-[1.5px_1.5px_0px_#171717] flex items-center justify-center text-brand-black font-black text-xs sm:text-sm mt-0.5">
-                  ✓
-                </span>
-                <span class="text-sm sm:text-base md:text-lg font-semibold text-brand-black leading-snug">
-                  Entenda o raciocínio por trás das questões.
-                </span>
-              </li>
-              <li class="flex items-start space-x-2.5 sm:space-x-3">
-                <span class="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-none bg-brand-orange border-2 border-brand-black shadow-[1.5px_1.5px_0px_#171717] flex items-center justify-center text-brand-black font-black text-xs sm:text-sm mt-0.5">
-                  ✓
-                </span>
-                <span class="text-sm sm:text-base md:text-lg font-semibold text-brand-black leading-snug">
-                  Organize sua preparação com um material direto ao ponto.
-                </span>
-              </li>
-            </ul>
-
-            <!-- CTA Button & Helper text -->
-            <div class="w-full sm:w-auto flex flex-col items-stretch sm:items-start gap-2.5">
-              <a href="#oferta" class="checkout-cta-btn btn-brutal w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-brand-orange text-brand-black font-heading text-sm sm:text-base md:text-lg uppercase tracking-wide border-[3px] border-brand-black shadow-brutal sm:shadow-brutal-md text-center" data-location="hero">
-                QUERO MEU MATERIAL DE REVISÃO
-              </a>
-              <p class="text-xs sm:text-sm text-brand-gray font-semibold flex items-center justify-center sm:justify-start gap-1.5 sm:ml-1">
-                <svg class="w-4 h-4 text-brand-black inline" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-                Material digital em PDF.
-              </p>
-            </div>
-
+        
+        <!-- Top Pill Tag -->
+        <div class="text-center mb-6">
+          <div class="inline-flex items-center space-x-2 bg-white/5 border border-white/10 rounded-full px-3.5 py-1.5 backdrop-blur-sm">
+            <span class="w-2 h-2 rounded-full bg-accent-yellow animate-pulse"></span>
+            <span class="text-[11px] sm:text-xs font-heading font-semibold uppercase tracking-wider text-slate-200">
+              MATEMÁTICA • RETA FINAL ENEM 2026
+            </span>
           </div>
+        </div>
 
-          <!-- Right Column: High-Impact CSS Mockup of the PDF Product (Fluid Mobile Layout) -->
-          <div class="lg:col-span-5 relative flex justify-center items-center py-4 sm:py-6 w-full">
+        <!-- Main Headline -->
+        <div class="max-w-4xl mx-auto text-center mb-8 sm:mb-12">
+          <h1 class="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-heading font-extrabold tracking-tight text-white leading-[1.12]">
+            Sua Preparação em Matemática na <br class="hidden sm:inline">
+            <span class="bg-gradient-to-r from-accent-yellow via-accent-amber to-accent-orange bg-clip-text text-transparent">
+              Reta Final do ENEM 2026
+            </span>
+          </h1>
+          <p class="mt-5 text-base sm:text-lg md:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl mx-auto">
+            Revise com teoria direta ao ponto, questões resolvidas passo a passo e o raciocínio prático que define a sua pontuação na prova.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+            <a href="#oferta" class="checkout-cta-btn w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-accent-amber via-accent-yellow to-accent-amber text-dark-950 font-heading font-extrabold text-sm sm:text-base px-8 py-4 rounded-full shadow-glow-amber hover:brightness-110 active:scale-95 transition-all" data-location="hero_primary">
+              <span>QUERO MEU MATERIAL DE REVISÃO</span>
+              <span class="text-lg">↗</span>
+            </a>
+            <a href="#amostras" class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-white/5 hover:bg-white/10 text-white border border-white/10 font-heading font-semibold text-sm sm:text-base px-6 py-4 rounded-full backdrop-blur-sm transition-colors">
+              <span>Ver Amostras Reais</span>
+              <span>↓</span>
+            </a>
+          </div>
+          <p class="text-xs text-slate-400 mt-3 font-medium">
+            Material digital em PDF de alta resolução • Acesso imediato
+          </p>
+        </div>
+
+        <!-- Central Authority Composition (Professor Front & Center with Badges) -->
+        <div class="relative max-w-4xl mx-auto mt-6 sm:mt-10">
+          
+          <!-- Backing glow circle -->
+          <div class="absolute inset-0 bg-gradient-to-t from-dark-950 via-accent-amber/5 to-transparent rounded-3xl -z-10"></div>
+
+          <div class="relative flex flex-col items-center justify-center">
             
-            <!-- Floating Decorative Math Badges (Safe bounds on mobile) -->
-            <div class="absolute -top-2 left-2 sm:left-4 z-20 math-float-a" aria-hidden="true">
-              <span class="inline-block bg-brand-purple text-white text-[10px] sm:text-xs font-mono font-black px-2 sm:px-3 py-1 sm:py-1.5 border-2 border-brand-black shadow-brutal-sm transform -rotate-6">
-                f(x) = ax + b
-              </span>
-            </div>
-            
-            <div class="absolute top-1/4 right-1 sm:-right-2 z-20 math-float-b" aria-hidden="true">
-              <span class="inline-block bg-brand-orange text-brand-black text-[10px] sm:text-xs font-mono font-black px-2 sm:px-3 py-1 border-2 border-brand-black shadow-brutal-sm transform rotate-6">
-                π ≅ 3,14
-              </span>
-            </div>
-
-            <div class="absolute bottom-6 left-1 sm:-left-3 z-20 math-float-c" aria-hidden="true">
-              <span class="inline-block bg-brand-cream text-brand-black text-[10px] sm:text-xs font-mono font-black px-2 sm:px-3 py-1 border-2 border-brand-black shadow-brutal-sm transform rotate-3">
-                % de Lucro
-              </span>
+            <!-- Floating Social Proof / Status Pills (Desktop & Mobile) -->
+            <div class="w-full flex items-center justify-between px-2 sm:px-6 mb-2 pointer-events-none">
+              <!-- Left Pill -->
+              <div class="hidden sm:inline-flex items-center space-x-2 bg-dark-900/90 border border-white/10 rounded-full px-4 py-2 shadow-xl backdrop-blur-md">
+                <span class="text-accent-yellow text-sm">🎯</span>
+                <span class="text-xs font-heading font-bold text-white">Método Comprovado ENEM</span>
+              </div>
+              <!-- Right Pill -->
+              <div class="inline-flex items-center space-x-2 bg-dark-900/90 border border-white/10 rounded-full px-3.5 py-1.5 sm:px-4 sm:py-2 shadow-xl backdrop-blur-md mx-auto sm:mx-0">
+                <div class="flex text-accent-yellow text-xs">★★★★★</div>
+                <span class="text-[11px] sm:text-xs font-heading font-bold text-slate-200">100% Focado na Prova</span>
+              </div>
             </div>
 
-            <div class="absolute -bottom-2 right-3 sm:right-6 z-20 math-float-a" aria-hidden="true">
-              <span class="inline-block bg-white text-brand-purple text-[10px] sm:text-xs font-mono font-black px-2 sm:px-2.5 py-1 border-2 border-brand-black shadow-brutal-sm transform -rotate-3">
-                V = π · r² · h
-              </span>
-            </div>
-
-            <!-- Layered PDF Stack Mockup -->
-            <div class="relative w-full max-w-[270px] xs:max-w-[310px] sm:max-w-[360px] mx-auto">
+            <!-- Master Image Frame -->
+            <div class="relative w-full max-w-[320px] xs:max-w-[380px] sm:max-w-[460px] md:max-w-[520px] rounded-2xl overflow-hidden border border-white/10 bg-dark-900/50 shadow-glow-card">
+              <img src="assets/professor-terno.png" alt="Prof. André Pedrosa - Professor de Matemática ENEM 2026" class="w-full h-auto object-cover transform hover:scale-102 transition-transform duration-300">
               
-              <!-- Back Stack Sheet 2 -->
-              <div class="absolute inset-0 bg-[#D4C4FB] border-[2.5px] sm:border-[3px] border-brand-black transform -rotate-3 sm:-rotate-6 translate-x-1.5 sm:translate-x-3 translate-y-1.5 sm:translate-y-3 shadow-brutal-sm sm:shadow-brutal"></div>
-              
-              <!-- Back Stack Sheet 1 -->
-              <div class="absolute inset-0 bg-brand-lightOrange border-[2.5px] sm:border-[3px] border-brand-black transform rotate-2 sm:rotate-3 translate-x-1 sm:translate-x-1 translate-y-1 sm:translate-y-1 shadow-brutal-sm sm:shadow-brutal"></div>
+              <!-- Gradient Overlay at bottom for seamless blending -->
+              <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-dark-950 via-dark-950/70 to-transparent"></div>
 
-              <!-- Main Front Sheet (A5 Ratio Book Cover) -->
-              <div class="relative bg-white border-[2.5px] sm:border-[3px] border-brand-black p-4 sm:p-6 shadow-brutal-lg sm:shadow-brutal-xl">
-                
-                <!-- Top Ribbon of the PDF -->
-                <div class="flex items-center justify-between border-b-2 border-brand-black pb-2.5 sm:pb-3 mb-3 sm:mb-4">
-                  <span class="font-heading text-[9px] sm:text-xs uppercase tracking-wider text-brand-black bg-brand-orange px-1.5 sm:px-2 py-0.5 border border-brand-black">
-                    PDF DIGITAL A5
-                  </span>
-                  <span class="text-[10px] sm:text-[11px] font-bold text-brand-gray tracking-tight">
-                    ENEM 2026 • REVISÃO
-                  </span>
-                </div>
-
-                <!-- Cover Badge & Seal -->
-                <div class="text-center my-2 sm:my-3">
-                  <div class="inline-block bg-brand-black text-white px-2.5 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-heading tracking-widest uppercase mb-1.5 sm:mb-2 border border-brand-black">
-                    PROF. ANDRÉ PEDROSA
-                  </div>
-                  <div class="bg-brand-cream border-2 border-brand-black p-3 sm:p-4 shadow-brutal-sm relative my-1.5 sm:my-2">
-                    <p class="text-[10px] sm:text-xs uppercase font-bold text-brand-purple tracking-wider mb-0.5 sm:mb-1">Caderno Estratégico</p>
-                    <h2 class="text-xl sm:text-2xl md:text-3xl font-heading text-brand-black leading-none">
-                      RETA FINAL<br>
-                      <span class="text-brand-orange">ENEM 2026</span>
-                    </h2>
-                    <p class="text-[11px] sm:text-xs font-bold text-brand-black mt-1.5 sm:mt-2 tracking-tight">
-                      MATEMÁTICA COMENTADA
-                    </p>
-                  </div>
-                </div>
-
-                <!-- Graphic Schema inside cover -->
-                <div class="border-2 border-dashed border-brand-black p-2.5 sm:p-3 my-3 sm:my-4 bg-gray-50 flex items-center justify-between">
-                  <div class="space-y-1 text-left">
-                    <div class="text-[9px] sm:text-[10px] font-extrabold uppercase text-brand-black flex items-center gap-1">
-                      <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-brand-purple inline-block"></span> 10 Questões-Chave
-                    </div>
-                    <div class="text-[9px] sm:text-[10px] font-extrabold uppercase text-brand-black flex items-center gap-1">
-                      <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-brand-orange inline-block"></span> Gabarito Detalhado
-                    </div>
-                    <div class="text-[9px] sm:text-[10px] font-extrabold uppercase text-brand-black flex items-center gap-1">
-                      <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-brand-black inline-block"></span> Macetes & Procedimentos
-                    </div>
-                  </div>
-                  <div class="w-10 h-10 sm:w-14 sm:h-14 bg-white border-2 border-brand-black flex items-center justify-center font-heading text-base sm:text-xl text-brand-purple shadow-[1.5px_1.5px_0px_#171717] sm:shadow-[2px_2px_0px_#171717]">
-                    ∑
-                  </div>
-                </div>
-
-                <!-- Footer elements inside cover -->
-                <div class="flex items-center justify-between pt-2 border-t border-gray-200">
-                  <div class="text-[8px] sm:text-[9px] text-brand-gray font-mono">
-                    ISBN DIGITAL • MAT-2026
-                  </div>
-                  <span class="text-[9px] sm:text-[10px] font-black bg-brand-purple text-white px-1.5 sm:px-2 py-0.5 border border-brand-black">
-                    RESOLUÇÕES COMPLETAS
-                  </span>
-                </div>
-
+              <!-- Name Plaque Overlay -->
+              <div class="absolute bottom-4 inset-x-4 text-center">
+                <p class="font-heading font-extrabold text-lg sm:text-xl text-white">Prof. André Pedrosa</p>
+                <p class="text-xs font-semibold uppercase tracking-wider text-accent-yellow">Especialista em Matemática ENEM</p>
               </div>
             </div>
 
           </div>
 
+          <!-- Bottom Stats Bar (Modeled Exactly after Reference Image) -->
+          <div class="mt-8 sm:mt-12 bg-dark-900/80 border border-white/10 rounded-2xl sm:rounded-full p-4 sm:p-6 backdrop-blur-md shadow-2xl">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-white/10">
+              
+              <div class="pt-2 sm:pt-0">
+                <div class="text-2xl sm:text-3xl font-heading font-extrabold text-white flex items-center justify-center gap-1">
+                  <span>10</span><span class="text-accent-yellow">+</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-400 font-medium mt-1">Tópicos Mais Cobrados</p>
+              </div>
+
+              <div class="pt-2 sm:pt-0">
+                <div class="text-2xl sm:text-3xl font-heading font-extrabold text-white flex items-center justify-center gap-1">
+                  <span>26</span><span class="text-accent-yellow">+</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-400 font-medium mt-1">Questões Mapeadas Recentes</p>
+              </div>
+
+              <div class="pt-2 sm:pt-0">
+                <div class="text-2xl sm:text-3xl font-heading font-extrabold text-white flex items-center justify-center gap-1">
+                  <span>100</span><span class="text-accent-yellow">%</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-400 font-medium mt-1">Resoluções Passo a Passo</p>
+              </div>
+
+              <div class="pt-2 sm:pt-0">
+                <div class="text-2xl sm:text-3xl font-heading font-extrabold text-white flex items-center justify-center gap-1">
+                  <span>A5</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-400 font-medium mt-1">Diagramação p/ Celular</p>
+              </div>
+
+            </div>
+          </div>
+
         </div>
+
       </div>
     </section>
 
     <!-- =========================================================================
-         SECTION 2 — PROBLEM IDENTIFICATION (Cream Background)
+         SECTION 2 — MASTER BANNER SHOWCASE
          ========================================================================= -->
-    <section class="bg-brand-cream border-b-[3px] border-brand-black py-16 md:py-24">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="py-12 sm:py-20 bg-dark-900 border-b border-white/5 relative">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <!-- Header -->
-        <div class="max-w-3xl mb-12">
-          <div class="inline-block transform rotate-1 mb-3">
-            <span class="bg-white text-brand-black font-heading text-xs uppercase tracking-wider px-3 py-1 border-2 border-brand-black shadow-brutal-sm">
-              DIAGNÓSTICO DE PREPARAÇÃO
-            </span>
-          </div>
-          <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading text-brand-black leading-tight mb-6">
-            Você não precisa revisar tudo de qualquer jeito.
+        <div class="text-center mb-8 sm:mb-12">
+          <span class="text-xs font-heading font-bold uppercase tracking-wider text-accent-yellow bg-accent-yellow/10 border border-accent-yellow/20 px-3.5 py-1.5 rounded-full">
+            Visão Geral Oficial
+          </span>
+          <h2 class="text-2xl sm:text-4xl font-heading font-extrabold text-white mt-3">
+            Foco, Prática, Estratégia e Resultado.
           </h2>
-          <div class="space-y-4 text-base sm:text-lg text-brand-black font-medium leading-relaxed">
-            <p>
-              Na reta final, é comum tentar resolver dezenas de questões sem compreender por que uma alternativa está correta e as outras não. O resultado pode ser uma revisão desorganizada, com fórmulas esquecidas e dúvidas que continuam aparecendo.
-            </p>
-            <p class="text-brand-gray">
-              O material <strong class="text-brand-black">Reta Final ENEM 2026 — Matemática</strong> foi pensado para ajudar você a organizar essa revisão, visualizar os procedimentos e compreender como aplicar os conceitos matemáticos em questões contextualizadas.
-            </p>
+          <p class="text-slate-400 text-sm sm:text-base mt-2 max-w-xl mx-auto">
+            Tudo o que você precisa para chegar no ENEM 2026 com confiança e garantir uma nota de excelência em Matemática.
+          </p>
+        </div>
+
+        <!-- Master Banner Image -->
+        <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-dark-950 group">
+          <img src="assets/banner-master-reta-final.jpg" alt="Reta Final ENEM 2026 Matemática - Professor André Pedrosa" class="w-full h-auto object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center p-6">
+            <span class="bg-accent-yellow text-dark-950 font-heading font-bold text-xs uppercase px-4 py-2 rounded-full shadow-lg">
+              Material Oficial 2026
+            </span>
           </div>
         </div>
 
-        <!-- 3 Cards -->
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 3 — OS 4 PILARES DA PREPARAÇÃO (From Image 5 Reference)
+         ========================================================================= -->
+    <section class="py-16 sm:py-24 bg-dark-950 border-b border-white/5" id="pilares">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <span class="text-xs font-heading font-bold uppercase tracking-wider text-accent-yellow bg-accent-yellow/10 border border-accent-yellow/20 px-3.5 py-1.5 rounded-full">
+            ESTRUTURA DO PRODUTO
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-white mt-4">
+            Como o Material Organiza Seus Estudos
+          </h2>
+          <p class="text-slate-400 text-base mt-2">
+            Quatro pilares fundamentais para transformar dúvidas em pontos garantidos no caderno do ENEM.
+          </p>
+        </div>
+
+        <!-- 4 Cards Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Pillar 1 -->
+          <div class="bg-dark-900 border border-white/10 rounded-2xl p-6 sm:p-7 hover:border-accent-yellow/40 transition-all hover:-translate-y-1 group">
+            <div class="w-12 h-12 rounded-xl bg-accent-amber/10 border border-accent-amber/30 text-accent-yellow flex items-center justify-center font-heading text-xl mb-5 group-hover:bg-accent-amber group-hover:text-dark-950 transition-colors">
+              📖
+            </div>
+            <h3 class="text-lg font-heading font-bold text-white mb-2">
+              Aulas Diretas ao Ponto
+            </h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Teoria essencial sem enrolação. Vá direto aos conceitos matemáticos fundamentais que o ENEM cobra todos os anos.
+            </p>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="bg-dark-900 border border-white/10 rounded-2xl p-6 sm:p-7 hover:border-accent-yellow/40 transition-all hover:-translate-y-1 group">
+            <div class="w-12 h-12 rounded-xl bg-accent-amber/10 border border-accent-amber/30 text-accent-yellow flex items-center justify-center font-heading text-xl mb-5 group-hover:bg-accent-amber group-hover:text-dark-950 transition-colors">
+              📝
+            </div>
+            <h3 class="text-lg font-heading font-bold text-white mb-2">
+              Questões Comentadas
+            </h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Passo a passo detalhado com explicações claras e objetivas, mostrando onde a maioria erra e como acertar rápido.
+            </p>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="bg-dark-900 border border-white/10 rounded-2xl p-6 sm:p-7 hover:border-accent-yellow/40 transition-all hover:-translate-y-1 group">
+            <div class="w-12 h-12 rounded-xl bg-accent-amber/10 border border-accent-amber/30 text-accent-yellow flex items-center justify-center font-heading text-xl mb-5 group-hover:bg-accent-amber group-hover:text-dark-950 transition-colors">
+              📊
+            </div>
+            <h3 class="text-lg font-heading font-bold text-white mb-2">
+              Simulados e Plano
+            </h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Estrutura prática de estudos para você acompanhar sua evolução semanal e chegar seguro no dia do exame.
+            </p>
+          </div>
+
+          <!-- Pillar 4 -->
+          <div class="bg-dark-900 border border-white/10 rounded-2xl p-6 sm:p-7 hover:border-accent-yellow/40 transition-all hover:-translate-y-1 group">
+            <div class="w-12 h-12 rounded-xl bg-accent-amber/10 border border-accent-amber/30 text-accent-yellow flex items-center justify-center font-heading text-xl mb-5 group-hover:bg-accent-amber group-hover:text-dark-950 transition-colors">
+              💬
+            </div>
+            <h3 class="text-lg font-heading font-bold text-white mb-2">
+              Suporte com o Professor
+            </h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Tire suas dúvidas e mantenha o foco até a prova com a orientação de quem domina o padrão de questões do ENEM.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 4 — REAL SAMPLES GALLERY (Replacing Gabarito with D:\pdf page images)
+         Modeled after Reference "Some Of My Works" with Cards & ↗ Arrows
+         ========================================================================= -->
+    <section class="py-16 sm:py-24 bg-dark-900 border-b border-white/5" id="amostras">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-4">
+          <div>
+            <span class="text-xs font-heading font-bold uppercase tracking-wider text-accent-yellow bg-accent-yellow/10 border border-accent-yellow/20 px-3.5 py-1.5 rounded-full">
+              AMOSTRAS DO MATERIAL
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-white mt-3">
+              Veja as Páginas Oficiais do Material
+            </h2>
+            <p class="text-slate-400 text-base mt-2 max-w-xl">
+              Confira a qualidade visual e didática das páginas desenvolvidas para acelerar sua compreensão.
+            </p>
+          </div>
+          <div class="text-xs sm:text-sm text-slate-400 font-medium">
+            Toque em qualquer página para ampliar em tela cheia ↗
+          </div>
+        </div>
+
+        <!-- 3 Sample Cards Grid (Matching Reference Image Style) -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           
-          <!-- Card 1 -->
-          <div class="card-brutal-interactive bg-white border-[3px] border-brand-black p-6 sm:p-7 shadow-brutal flex flex-col justify-between">
+          <!-- Sample Card 1: Geometria Espacial -->
+          <div class="bg-dark-950 border border-white/10 rounded-2xl overflow-hidden hover:border-accent-yellow/50 transition-all hover:-translate-y-1 group flex flex-col justify-between">
             <div>
-              <div class="w-12 h-12 bg-brand-lightOrange border-2 border-brand-black shadow-brutal-sm flex items-center justify-center mb-5">
-                <!-- SVG Icon Clipboard -->
-                <svg class="w-6 h-6 text-brand-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-                </svg>
+              <!-- Image Preview -->
+              <button type="button" class="gallery-trigger w-full block relative aspect-[1/1.38] overflow-hidden bg-dark-900 focus:outline-none" data-index="0" aria-label="Ampliar Infográfico de Geometria Espacial">
+                <img src="assets/amostra-geometria-espacial.png" alt="Infográfico de Geometria Espacial - Fórmulas do ENEM" class="w-full h-full object-contain p-2 group-hover:scale-103 transition-transform duration-300" loading="lazy">
+                <div class="absolute inset-0 bg-dark-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <span class="bg-accent-yellow text-dark-950 font-heading font-bold text-xs uppercase px-4 py-2 rounded-full shadow-lg">
+                    Ampliar 🔍
+                  </span>
+                </div>
+              </button>
+
+              <!-- Card Content -->
+              <div class="p-5 sm:p-6">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-[11px] font-heading font-bold uppercase tracking-wider text-accent-yellow bg-accent-yellow/10 px-2.5 py-1 rounded-full border border-accent-yellow/20">
+                    GEOMETRIA ESPACIAL
+                  </span>
+                  <span class="text-xs text-slate-500 font-medium">ENEM Recente</span>
+                </div>
+                <h3 class="text-lg font-heading font-bold text-white mt-1">
+                  Mapeamento de 26 Questões
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-400 mt-2 leading-relaxed">
+                  Fórmulas completas de volume para prismas, cilindros, pirâmides e cones com análise estatística de incidência.
+                </p>
               </div>
-              <h3 class="text-xl font-heading text-brand-black mb-3">
-                Falta de organização
-              </h3>
-              <p class="text-sm sm:text-base text-brand-gray leading-relaxed">
-                Tenha um material estruturado para orientar sua revisão.
-              </p>
             </div>
-            <div class="mt-6 pt-4 border-t-2 border-gray-100 font-bold text-xs text-brand-orange uppercase tracking-wider">
-              Solução: Roteiro estruturado
+
+            <div class="p-5 sm:p-6 pt-0 flex items-center justify-between border-t border-white/5">
+              <span class="text-xs text-slate-400 font-semibold">Infográfico Estratégico</span>
+              <button type="button" class="gallery-trigger w-9 h-9 rounded-full bg-white/5 hover:bg-accent-yellow hover:text-dark-950 text-white flex items-center justify-center transition-colors text-sm" data-index="0">
+                ↗
+              </button>
             </div>
           </div>
 
-          <!-- Card 2 -->
-          <div class="card-brutal-interactive bg-white border-[3px] border-brand-black p-6 sm:p-7 shadow-brutal flex flex-col justify-between">
+          <!-- Sample Card 2: Função Quadrática -->
+          <div class="bg-dark-950 border border-white/10 rounded-2xl overflow-hidden hover:border-accent-yellow/50 transition-all hover:-translate-y-1 group flex flex-col justify-between">
             <div>
-              <div class="w-12 h-12 bg-brand-lightPurple border-2 border-brand-black shadow-brutal-sm flex items-center justify-center mb-5">
-                <!-- SVG Icon Search / Magnifier -->
-                <svg class="w-6 h-6 text-brand-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
+              <!-- Image Preview -->
+              <button type="button" class="gallery-trigger w-full block relative aspect-[1/1.38] overflow-hidden bg-dark-900 focus:outline-none" data-index="1" aria-label="Ampliar Função Quadrática">
+                <img src="assets/amostra-funcao-quadratica.png" alt="Função Quadrática - Raiz, Gráfico e Vértice" class="w-full h-full object-contain p-2 group-hover:scale-103 transition-transform duration-300" loading="lazy">
+                <div class="absolute inset-0 bg-dark-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <span class="bg-accent-yellow text-dark-950 font-heading font-bold text-xs uppercase px-4 py-2 rounded-full shadow-lg">
+                    Ampliar 🔍
+                  </span>
+                </div>
+              </button>
+
+              <!-- Card Content -->
+              <div class="p-5 sm:p-6">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-[11px] font-heading font-bold uppercase tracking-wider text-accent-yellow bg-accent-yellow/10 px-2.5 py-1 rounded-full border border-accent-yellow/20">
+                    ÁLGEBRA & FUNÇÕES
+                  </span>
+                  <span class="text-xs text-slate-500 font-medium">Clássico do ENEM</span>
+                </div>
+                <h3 class="text-lg font-heading font-bold text-white mt-1">
+                  Função Quadrática & Parábolas
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-400 mt-2 leading-relaxed">
+                  Cálculo de raízes com Bhaskara, interpretação de gráficos, concavidade e coordenadas do vértice (Xv e Yv).
+                </p>
               </div>
-              <h3 class="text-xl font-heading text-brand-black mb-3">
-                Dificuldade para interpretar questões
-              </h3>
-              <p class="text-sm sm:text-base text-brand-gray leading-relaxed">
-                Observe os dados, identifique o que o enunciado pede e acompanhe o raciocínio.
-              </p>
             </div>
-            <div class="mt-6 pt-4 border-t-2 border-gray-100 font-bold text-xs text-brand-purple uppercase tracking-wider">
-              Solução: Leitura guiada
+
+            <div class="p-5 sm:p-6 pt-0 flex items-center justify-between border-t border-white/5">
+              <span class="text-xs text-slate-400 font-semibold">Resumo Visual</span>
+              <button type="button" class="gallery-trigger w-9 h-9 rounded-full bg-white/5 hover:bg-accent-yellow hover:text-dark-950 text-white flex items-center justify-center transition-colors text-sm" data-index="1">
+                ↗
+              </button>
             </div>
           </div>
 
-          <!-- Card 3 -->
-          <div class="card-brutal-interactive bg-white border-[3px] border-brand-black p-6 sm:p-7 shadow-brutal flex flex-col justify-between">
+          <!-- Sample Card 3: Volume da Esfera & Planificação -->
+          <div class="bg-dark-950 border border-white/10 rounded-2xl overflow-hidden hover:border-accent-yellow/50 transition-all hover:-translate-y-1 group flex flex-col justify-between">
             <div>
-              <div class="w-12 h-12 bg-brand-cream border-2 border-brand-black shadow-brutal-sm flex items-center justify-center mb-5">
-                <!-- SVG Icon Abacus / Calculator -->
-                <svg class="w-6 h-6 text-brand-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                </svg>
+              <!-- Image Preview -->
+              <button type="button" class="gallery-trigger w-full block relative aspect-[1/1.38] overflow-hidden bg-dark-900 focus:outline-none" data-index="2" aria-label="Ampliar Volume da Esfera e Planificação">
+                <img src="assets/amostra-volume-esfera.png" alt="Volume da Esfera e Planificação de Sólidos" class="w-full h-full object-contain p-2 group-hover:scale-103 transition-transform duration-300" loading="lazy">
+                <div class="absolute inset-0 bg-dark-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <span class="bg-accent-yellow text-dark-950 font-heading font-bold text-xs uppercase px-4 py-2 rounded-full shadow-lg">
+                    Ampliar 🔍
+                  </span>
+                </div>
+              </button>
+
+              <!-- Card Content -->
+              <div class="p-5 sm:p-6">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-[11px] font-heading font-bold uppercase tracking-wider text-accent-yellow bg-accent-yellow/10 px-2.5 py-1 rounded-full border border-accent-yellow/20">
+                    SÓLIDOS & PLANIFICAÇÃO
+                  </span>
+                  <span class="text-xs text-slate-500 font-medium">Visão Espacial</span>
+                </div>
+                <h3 class="text-lg font-heading font-bold text-white mt-1">
+                  Volume da Esfera & Planificação
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-400 mt-2 leading-relaxed">
+                  Fórmula volumétrica da esfera e projeção planificada das faces de figuras tridimensionais (cubo e poliedros).
+                </p>
               </div>
-              <h3 class="text-xl font-heading text-brand-black mb-3">
-                Dúvidas na hora de calcular
-              </h3>
-              <p class="text-sm sm:text-base text-brand-gray leading-relaxed">
-                Consulte as resoluções comentadas para entender as etapas dos cálculos.
-              </p>
             </div>
-            <div class="mt-6 pt-4 border-t-2 border-gray-100 font-bold text-xs text-brand-black uppercase tracking-wider">
-              Solução: Cálculo passo a passo
+
+            <div class="p-5 sm:p-6 pt-0 flex items-center justify-between border-t border-white/5">
+              <span class="text-xs text-slate-400 font-semibold">Aplicação Direta</span>
+              <button type="button" class="gallery-trigger w-9 h-9 rounded-full bg-white/5 hover:bg-accent-yellow hover:text-dark-950 text-white flex items-center justify-center transition-colors text-sm" data-index="2">
+                ↗
+              </button>
             </div>
           </div>
 
@@ -480,762 +529,380 @@
     </section>
 
     <!-- =========================================================================
-         SECTION 3 — PRODUCT PRESENTATION (White Background)
+         SECTION 5 — ABOUT THE PROFESSOR (High Emphasis on Prof. André Pedrosa)
+         Modeled after Reference "About Me - Built On Integrity, Driven By Justice"
          ========================================================================= -->
-    <section class="bg-white border-b-[3px] border-brand-black py-16 md:py-24" id="material">
+    <section class="py-16 sm:py-24 bg-dark-950 border-b border-white/5 relative overflow-hidden" id="sobre">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <!-- Header -->
-        <div class="text-center max-w-3xl mx-auto mb-16">
-          <div class="inline-block transform -rotate-1 mb-3">
-            <span class="bg-brand-orange text-brand-black font-heading text-xs uppercase tracking-wider px-3.5 py-1.5 border-2 border-brand-black shadow-brutal-sm">
-              VISÃO GERAL DO CONTEÚDO
-            </span>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          <!-- Left Column: Double Authority Photos (Stage + Studio) -->
+          <div class="lg:col-span-5 relative">
+            
+            <!-- Main Stage Photo -->
+            <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-dark-900 max-w-[360px] mx-auto lg:mx-0">
+              <img src="assets/professor-palco.png" alt="Prof. André Pedrosa palestrando sobre Matemática para o ENEM" class="w-full h-auto object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-dark-950/90 via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4 text-left">
+                <span class="text-[10px] font-heading font-bold uppercase tracking-wider text-accent-yellow bg-dark-950/80 px-2.5 py-1 rounded-full border border-white/10">
+                  Palco & Auditório
+                </span>
+                <p class="text-sm font-heading font-bold text-white mt-1">Aulas com Alta Didática</p>
+              </div>
+            </div>
+
+            <!-- Overlapping Secondary Card (Prof Suit) -->
+            <div class="hidden sm:block absolute -bottom-6 -right-4 w-44 rounded-xl overflow-hidden border-2 border-dark-950 shadow-2xl bg-dark-900">
+              <img src="assets/professor-terno.png" alt="Prof. André Pedrosa" class="w-full h-auto object-cover">
+              <div class="p-2 text-center bg-dark-900">
+                <p class="text-[11px] font-heading font-bold text-white">Prof. André Pedrosa</p>
+                <p class="text-[9px] text-accent-yellow font-semibold uppercase">Matemática ENEM</p>
+              </div>
+            </div>
+
           </div>
-          <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading text-brand-black mb-4">
-            Conheça o seu material de revisão.
+
+          <!-- Right Column: Editorial Copy -->
+          <div class="lg:col-span-7">
+            
+            <div class="inline-flex items-center space-x-2 bg-white/5 border border-white/10 rounded-full px-3.5 py-1.5 mb-5">
+              <span class="text-xs font-heading font-semibold uppercase tracking-wider text-accent-yellow">
+                QUEM ACOMPANHA SUA REVISÃO
+              </span>
+            </div>
+
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-white leading-tight mb-6">
+              Dedicação, Estratégia e <br>
+              <span class="text-accent-yellow">Clareza em Cada Questão.</span>
+            </h2>
+
+            <!-- Exact Quote Text -->
+            <div class="bg-dark-900 border border-white/10 rounded-2xl p-6 sm:p-8 mb-6 relative">
+              <span class="text-4xl font-serif text-accent-yellow/40 leading-none absolute top-4 left-4">“</span>
+              <p class="text-base sm:text-lg text-slate-200 font-medium leading-relaxed pl-6">
+                Sou o Prof. André Pedrosa, e este material foi organizado para ajudar estudantes a revisar Matemática com mais clareza, atenção aos procedimentos e foco na preparação para o ENEM.
+              </p>
+            </div>
+
+            <!-- Equation of Success (from Image 5) -->
+            <div class="flex flex-wrap gap-2.5 sm:gap-3 mb-8">
+              <span class="bg-white/5 border border-white/10 text-white font-heading font-semibold text-xs sm:text-sm px-4 py-2 rounded-full">
+                Disciplina
+              </span>
+              <span class="text-accent-yellow font-bold text-sm self-center">+</span>
+              <span class="bg-white/5 border border-white/10 text-white font-heading font-semibold text-xs sm:text-sm px-4 py-2 rounded-full">
+                Estratégia
+              </span>
+              <span class="text-accent-yellow font-bold text-sm self-center">+</span>
+              <span class="bg-white/5 border border-white/10 text-white font-heading font-semibold text-xs sm:text-sm px-4 py-2 rounded-full">
+                Confiança
+              </span>
+              <span class="text-accent-yellow font-bold text-sm self-center">=</span>
+              <span class="bg-gradient-to-r from-accent-amber to-accent-yellow text-dark-950 font-heading font-extrabold text-xs sm:text-sm px-4 py-2 rounded-full shadow-md">
+                Resultado
+              </span>
+            </div>
+
+            <!-- Action Link -->
+            <a href="#oferta" class="checkout-cta-btn inline-flex items-center space-x-2 text-accent-yellow font-heading font-bold text-sm sm:text-base hover:underline" data-location="about_section">
+              <span>Garantir acesso ao material do professor</span>
+              <span>↗</span>
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 6 — 9 TOPIC GRID (ENEM Essential Content)
+         ========================================================================= -->
+    <section class="py-16 sm:py-24 bg-dark-900 border-b border-white/5" id="conteudos">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <span class="text-xs font-heading font-bold uppercase tracking-wider text-accent-yellow bg-accent-yellow/10 border border-accent-yellow/20 px-3.5 py-1.5 rounded-full">
+            GRADE PROGRAMÁTICA
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-white mt-4">
+            Matemática Fica Mais Clara Quando Você Entende o Caminho
           </h2>
-          <p class="text-lg sm:text-xl text-brand-gray font-medium">
-            Um material digital para acompanhar seus estudos de Matemática na preparação para o ENEM 2026.
+          <p class="text-slate-400 text-base mt-2">
+            Os conteúdos mais recorrentes da prova trabalhados de forma objetiva no material.
           </p>
         </div>
 
-        <!-- 6 Features with Icons -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           
-          <div class="flex items-start p-4 bg-brand-cream border-2 border-brand-black shadow-brutal-sm">
-            <div class="flex-shrink-0 w-10 h-10 bg-brand-orange border-2 border-brand-black flex items-center justify-center font-bold text-brand-black mr-4 shadow-[2px_2px_0px_#171717]">
+          <div class="bg-dark-950 border border-white/10 rounded-2xl p-6 hover:border-accent-yellow/30 transition-all">
+            <div class="text-accent-yellow font-heading text-lg font-bold mb-2 flex items-center justify-between">
+              <span>Razão, Proporção e Escala</span>
+              <span class="text-xs text-slate-500 font-mono">01</span>
+            </div>
+            <p class="text-sm text-slate-400">Relações diretas, escalas de mapas e proporcionalidade aplicada a problemas reais.</p>
+          </div>
+
+          <div class="bg-dark-950 border border-white/10 rounded-2xl p-6 hover:border-accent-yellow/30 transition-all">
+            <div class="text-accent-yellow font-heading text-lg font-bold mb-2 flex items-center justify-between">
+              <span>Volume e Conversão</span>
+              <span class="text-xs text-slate-500 font-mono">02</span>
+            </div>
+            <p class="text-sm text-slate-400">Transformações entre litros, cm³ e m³ com precisão para não errar contas básicas.</p>
+          </div>
+
+          <div class="bg-dark-950 border border-white/10 rounded-2xl p-6 hover:border-accent-yellow/30 transition-all">
+            <div class="text-accent-yellow font-heading text-lg font-bold mb-2 flex items-center justify-between">
+              <span>Estatística e Mediana</span>
+              <span class="text-xs text-slate-500 font-mono">03</span>
+            </div>
+            <p class="text-sm text-slate-400">Organização de rol, média ponderada, moda e interpretação correta de mediana.</p>
+          </div>
+
+          <div class="bg-dark-950 border border-white/10 rounded-2xl p-6 hover:border-accent-yellow/30 transition-all">
+            <div class="text-accent-yellow font-heading text-lg font-bold mb-2 flex items-center justify-between">
+              <span>Porcentagem e Receita</span>
+              <span class="text-xs text-slate-500 font-mono">04</span>
+            </div>
+            <p class="text-sm text-slate-400">Aumentos, descontos sucessivos, faturamento comercial e raciocínio de lucro.</p>
+          </div>
+
+          <div class="bg-dark-950 border border-white/10 rounded-2xl p-6 hover:border-accent-yellow/30 transition-all">
+            <div class="text-accent-yellow font-heading text-lg font-bold mb-2 flex items-center justify-between">
+              <span>Geometria Plana e Áreas</span>
+              <span class="text-xs text-slate-500 font-mono">05</span>
+            </div>
+            <p class="text-sm text-slate-400">Decomposição de figuras geométricas e cálculo prático de superfícies planas.</p>
+          </div>
+
+          <div class="bg-dark-950 border border-white/10 rounded-2xl p-6 hover:border-accent-yellow/30 transition-all">
+            <div class="text-accent-yellow font-heading text-lg font-bold mb-2 flex items-center justify-between">
+              <span>Cilindros e Sólidos 3D</span>
+              <span class="text-xs text-slate-500 font-mono">06</span>
+            </div>
+            <p class="text-sm text-slate-400">Capacidade de recipientes cilíndricos, prismas e sólidos espaciais frequentes.</p>
+          </div>
+
+          <div class="bg-dark-950 border border-white/10 rounded-2xl p-6 hover:border-accent-yellow/30 transition-all">
+            <div class="text-accent-yellow font-heading text-lg font-bold mb-2 flex items-center justify-between">
+              <span>Volume Deslocado</span>
+              <span class="text-xs text-slate-500 font-mono">07</span>
+            </div>
+            <p class="text-sm text-slate-400">Princípio de Arquimedes, variação de altura de líquidos e imersão de objetos.</p>
+          </div>
+
+          <div class="bg-dark-950 border border-white/10 rounded-2xl p-6 hover:border-accent-yellow/30 transition-all">
+            <div class="text-accent-yellow font-heading text-lg font-bold mb-2 flex items-center justify-between">
+              <span>Função Afim e Gráficos</span>
+              <span class="text-xs text-slate-500 font-mono">08</span>
+            </div>
+            <p class="text-sm text-slate-400">Coeficiente angular, taxa de variação constante e leitura estratégica de retas.</p>
+          </div>
+
+          <div class="bg-dark-950 border border-white/10 rounded-2xl p-6 hover:border-accent-yellow/30 transition-all">
+            <div class="text-accent-yellow font-heading text-lg font-bold mb-2 flex items-center justify-between">
+              <span>Faixas de Consumo</span>
+              <span class="text-xs text-slate-500 font-mono">09</span>
+            </div>
+            <p class="text-sm text-slate-400">Funções definidas por partes, cobranças escalonadas de água e energia elétrica.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 7 — METHOD IN 3 STEPS
+         ========================================================================= -->
+    <section class="py-16 sm:py-24 bg-dark-950 border-b border-white/5" id="metodo">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-xs font-heading font-bold uppercase tracking-wider text-accent-yellow bg-accent-yellow/10 border border-accent-yellow/20 px-3.5 py-1.5 rounded-full">
+            MÉTODO ESTRATÉGICO
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-white mt-4">
+            Não Fique Apenas Olhando o Gabarito. Entenda a Resolução.
+          </h2>
+          <p class="text-slate-400 text-base mt-2">
+            Aprenda a reconhecer padrões e reproduzir procedimentos em qualquer questão do exame.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-14">
+          
+          <div class="bg-dark-900 border border-white/10 rounded-2xl p-7 text-center relative">
+            <div class="w-12 h-12 rounded-full bg-accent-amber/10 border border-accent-amber/30 text-accent-yellow font-heading font-extrabold text-lg flex items-center justify-center mx-auto mb-5">
               01
             </div>
-            <div>
-              <h3 class="text-base font-bold text-brand-black">Questões de Matemática para revisão</h3>
-              <p class="text-xs sm:text-sm text-brand-gray mt-1">Seleção voltada aos modelos mais recorrentes da prova.</p>
-            </div>
+            <h3 class="text-lg font-heading font-bold text-white mb-2">Leia a Questão</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Identifique as informações relevantes no enunciado e descubra exatamente o que o problema pede.
+            </p>
           </div>
 
-          <div class="flex items-start p-4 bg-brand-cream border-2 border-brand-black shadow-brutal-sm">
-            <div class="flex-shrink-0 w-10 h-10 bg-brand-purple border-2 border-brand-black flex items-center justify-center font-bold text-white mr-4 shadow-[2px_2px_0px_#171717]">
+          <div class="bg-dark-900 border border-white/10 rounded-2xl p-7 text-center relative">
+            <div class="w-12 h-12 rounded-full bg-accent-amber/10 border border-accent-amber/30 text-accent-yellow font-heading font-extrabold text-lg flex items-center justify-center mx-auto mb-5">
               02
             </div>
-            <div>
-              <h3 class="text-base font-bold text-brand-black">Alternativas organizadas e gabarito</h3>
-              <p class="text-xs sm:text-sm text-brand-gray mt-1">Confira rapidamente o acerto de cada questão proposta.</p>
-            </div>
+            <h3 class="text-lg font-heading font-bold text-white mb-2">Acompanhe o Raciocínio</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Veja como os dados se relacionam, quais operações são necessárias e quais fórmulas se aplicam.
+            </p>
           </div>
 
-          <div class="flex items-start p-4 bg-brand-cream border-2 border-brand-black shadow-brutal-sm">
-            <div class="flex-shrink-0 w-10 h-10 bg-brand-orange border-2 border-brand-black flex items-center justify-center font-bold text-brand-black mr-4 shadow-[2px_2px_0px_#171717]">
+          <div class="bg-dark-900 border border-white/10 rounded-2xl p-7 text-center relative">
+            <div class="w-12 h-12 rounded-full bg-accent-amber/10 border border-accent-amber/30 text-accent-yellow font-heading font-extrabold text-lg flex items-center justify-center mx-auto mb-5">
               03
             </div>
-            <div>
-              <h3 class="text-base font-bold text-brand-black">Resoluções comentadas</h3>
-              <p class="text-xs sm:text-sm text-brand-gray mt-1">Acompanhamento detalhado do desenvolvimento de cada item.</p>
-            </div>
-          </div>
-
-          <div class="flex items-start p-4 bg-brand-cream border-2 border-brand-black shadow-brutal-sm">
-            <div class="flex-shrink-0 w-10 h-10 bg-brand-purple border-2 border-brand-black flex items-center justify-center font-bold text-white mr-4 shadow-[2px_2px_0px_#171717]">
-              04
-            </div>
-            <div>
-              <h3 class="text-base font-bold text-brand-black">Explicações dos procedimentos matemáticos</h3>
-              <p class="text-xs sm:text-sm text-brand-gray mt-1">Entenda o porquê de cada etapa sem pular contas fundamentais.</p>
-            </div>
-          </div>
-
-          <div class="flex items-start p-4 bg-brand-cream border-2 border-brand-black shadow-brutal-sm">
-            <div class="flex-shrink-0 w-10 h-10 bg-brand-orange border-2 border-brand-black flex items-center justify-center font-bold text-brand-black mr-4 shadow-[2px_2px_0px_#171717]">
-              05
-            </div>
-            <div>
-              <h3 class="text-base font-bold text-brand-black">Fórmulas e macetes de resolução</h3>
-              <p class="text-xs sm:text-sm text-brand-gray mt-1">Dicas práticas do professor para economizar tempo na prova.</p>
-            </div>
-          </div>
-
-          <div class="flex items-start p-4 bg-brand-cream border-2 border-brand-black shadow-brutal-sm">
-            <div class="flex-shrink-0 w-10 h-10 bg-brand-purple border-2 border-brand-black flex items-center justify-center font-bold text-white mr-4 shadow-[2px_2px_0px_#171717]">
-              06
-            </div>
-            <div>
-              <h3 class="text-base font-bold text-brand-black">Páginas diagramadas em formato A5</h3>
-              <p class="text-xs sm:text-sm text-brand-gray mt-1">Tamanho ideal para visualização confortável no celular, tablet ou papel.</p>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Real Product Gallery Section (Click to Open Modal) -->
-        <div class="border-[3px] border-brand-black p-6 sm:p-8 bg-brand-lightOrange shadow-brutal-lg">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-6 pb-4 border-b-2 border-brand-black">
-            <div>
-              <span class="text-xs font-heading bg-brand-black text-white px-2.5 py-1 uppercase">Amostras Reais</span>
-              <h3 class="text-xl sm:text-2xl font-heading text-brand-black mt-2">Veja o interior do caderno de revisão</h3>
-            </div>
-            <p class="text-xs sm:text-sm font-semibold text-brand-gray mt-2 sm:mt-0">
-              Clique em qualquer página para ampliar em tela cheia ↗
-            </p>
-          </div>
-
-          <!-- Gallery 3 Images Grid -->
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
-            <!-- Sample 1 -->
-            <button type="button" class="gallery-trigger group text-left bg-white border-2 border-brand-black p-3 shadow-brutal card-brutal-interactive cursor-pointer focus:outline-none focus:ring-4 focus:ring-brand-purple" data-index="0" aria-label="Abrir Gabarito Questões 1 a 5">
-              <div class="relative overflow-hidden border border-brand-black bg-gray-100 aspect-[1/1.4] mb-3 flex items-center justify-center">
-                <img src="assets/gabarito-questoes-1-a-5.png" alt="Gabarito das Questões 1 a 5 do material Reta Final ENEM 2026" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200" loading="lazy">
-                <div class="absolute inset-0 bg-brand-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <span class="bg-brand-orange text-brand-black font-heading text-xs uppercase px-3 py-1.5 border-2 border-brand-black shadow-brutal-sm">
-                    Ampliar 🔍
-                  </span>
-                </div>
-              </div>
-              <div class="flex items-center justify-between">
-                <span class="font-bold text-sm text-brand-black">Gabarito • Questões 1 a 5</span>
-                <span class="text-xs font-mono font-bold text-brand-purple">Amostra #1</span>
-              </div>
-            </button>
-
-            <!-- Sample 2 -->
-            <button type="button" class="gallery-trigger group text-left bg-white border-2 border-brand-black p-3 shadow-brutal card-brutal-interactive cursor-pointer focus:outline-none focus:ring-4 focus:ring-brand-purple" data-index="1" aria-label="Abrir Gabarito Questões 6 a 10">
-              <div class="relative overflow-hidden border border-brand-black bg-gray-100 aspect-[1/1.4] mb-3 flex items-center justify-center">
-                <img src="assets/gabarito-questoes-6-a-10.png" alt="Gabarito das Questões 6 a 10 do material Reta Final ENEM 2026" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200" loading="lazy">
-                <div class="absolute inset-0 bg-brand-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <span class="bg-brand-orange text-brand-black font-heading text-xs uppercase px-3 py-1.5 border-2 border-brand-black shadow-brutal-sm">
-                    Ampliar 🔍
-                  </span>
-                </div>
-              </div>
-              <div class="flex items-center justify-between">
-                <span class="font-bold text-sm text-brand-black">Gabarito • Questões 6 a 10</span>
-                <span class="text-xs font-mono font-bold text-brand-purple">Amostra #2</span>
-              </div>
-            </button>
-
-            <!-- Sample 3 -->
-            <button type="button" class="gallery-trigger group text-left bg-white border-2 border-brand-black p-3 shadow-brutal card-brutal-interactive cursor-pointer focus:outline-none focus:ring-4 focus:ring-brand-purple" data-index="2" aria-label="Abrir Resolução Aprofundada">
-              <div class="relative overflow-hidden border border-brand-black bg-gray-100 aspect-[1/1.4] mb-3 flex items-center justify-center">
-                <img src="assets/resolucao-aprofundada.png" alt="Página de Resolução Aprofundada com comentários e macetes pedagógicos" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200" loading="lazy">
-                <div class="absolute inset-0 bg-brand-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <span class="bg-brand-orange text-brand-black font-heading text-xs uppercase px-3 py-1.5 border-2 border-brand-black shadow-brutal-sm">
-                    Ampliar 🔍
-                  </span>
-                </div>
-              </div>
-              <div class="flex items-center justify-between">
-                <span class="font-bold text-sm text-brand-black">Resolução Aprofundada</span>
-                <span class="text-xs font-mono font-bold text-brand-purple">Amostra #3</span>
-              </div>
-            </button>
-
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- =========================================================================
-         SECTION 4 — CONTENTS (Cream Background)
-         ========================================================================= -->
-    <section class="bg-brand-cream border-b-[3px] border-brand-black py-16 md:py-24">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <!-- Header -->
-        <div class="max-w-3xl mb-12">
-          <div class="inline-block transform rotate-1 mb-3">
-            <span class="bg-brand-purple text-white font-heading text-xs uppercase tracking-wider px-3.5 py-1.5 border-2 border-brand-black shadow-brutal-sm">
-              GRADE DE TÓPICOS ESSENCIAIS
-            </span>
-          </div>
-          <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading text-brand-black leading-tight mb-4">
-            Matemática fica mais clara quando você entende o caminho.
-          </h2>
-          <p class="text-base sm:text-lg text-brand-gray font-medium">
-            Assuntos com alta taxa de cobrança no ENEM organizados para você revisar com rapidez e foco prático.
-          </p>
-        </div>
-
-        <!-- 9 Topic Cards Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          
-          <!-- Card 1 -->
-          <div class="card-brutal-interactive bg-white border-[3px] border-brand-black p-6 shadow-brutal flex flex-col justify-between">
-            <div class="flex items-center justify-between mb-4">
-              <span class="w-10 h-10 bg-brand-lightOrange border-2 border-brand-black shadow-brutal-sm flex items-center justify-center font-heading text-xl text-brand-black">
-                ÷
-              </span>
-              <span class="text-xs font-mono font-extrabold text-brand-gray">TÓPICO 01</span>
-            </div>
-            <h3 class="text-lg font-bold text-brand-black leading-snug">
-              Razão, proporção e escala
-            </h3>
-            <p class="text-xs sm:text-sm text-brand-gray mt-2">
-              Relações diretas, conversões de mapas e proporcionalidade aplicada.
-            </p>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="card-brutal-interactive bg-white border-[3px] border-brand-black p-6 shadow-brutal flex flex-col justify-between">
-            <div class="flex items-center justify-between mb-4">
-              <span class="w-10 h-10 bg-brand-lightPurple border-2 border-brand-black shadow-brutal-sm flex items-center justify-center font-heading text-base text-brand-black">
-                m³
-              </span>
-              <span class="text-xs font-mono font-extrabold text-brand-gray">TÓPICO 02</span>
-            </div>
-            <h3 class="text-lg font-bold text-brand-black leading-snug">
-              Volume e conversão de unidades
-            </h3>
-            <p class="text-xs sm:text-sm text-brand-gray mt-2">
-              Transformações entre litros, cm³ e m³ sem perder pontos de bobeira.
-            </p>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="card-brutal-interactive bg-white border-[3px] border-brand-black p-6 shadow-brutal flex flex-col justify-between">
-            <div class="flex items-center justify-between mb-4">
-              <span class="w-10 h-10 bg-brand-cream border-2 border-brand-black shadow-brutal-sm flex items-center justify-center text-xl">
-                📊
-              </span>
-              <span class="text-xs font-mono font-extrabold text-brand-gray">TÓPICO 03</span>
-            </div>
-            <h3 class="text-lg font-bold text-brand-black leading-snug">
-              Estatística e mediana
-            </h3>
-            <p class="text-xs sm:text-sm text-brand-gray mt-2">
-              Leitura correta de rol, cálculo de média ponderada, moda e mediana.
-            </p>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="card-brutal-interactive bg-white border-[3px] border-brand-black p-6 shadow-brutal flex flex-col justify-between">
-            <div class="flex items-center justify-between mb-4">
-              <span class="w-10 h-10 bg-brand-lightOrange border-2 border-brand-black shadow-brutal-sm flex items-center justify-center font-heading text-lg text-brand-black">
-                %
-              </span>
-              <span class="text-xs font-mono font-extrabold text-brand-gray">TÓPICO 04</span>
-            </div>
-            <h3 class="text-lg font-bold text-brand-black leading-snug">
-              Porcentagem, preço e receita
-            </h3>
-            <p class="text-xs sm:text-sm text-brand-gray mt-2">
-              Aumentos e descontos sucessivos, faturamento e lucro comercial.
-            </p>
-          </div>
-
-          <!-- Card 5 -->
-          <div class="card-brutal-interactive bg-white border-[3px] border-brand-black p-6 shadow-brutal flex flex-col justify-between">
-            <div class="flex items-center justify-between mb-4">
-              <span class="w-10 h-10 bg-brand-lightPurple border-2 border-brand-black shadow-brutal-sm flex items-center justify-center font-heading text-lg text-brand-black">
-                △
-              </span>
-              <span class="text-xs font-mono font-extrabold text-brand-gray">TÓPICO 05</span>
-            </div>
-            <h3 class="text-lg font-bold text-brand-black leading-snug">
-              Geometria plana e áreas
-            </h3>
-            <p class="text-xs sm:text-sm text-brand-gray mt-2">
-              Figuras planas, decomposição de polígonos e cálculo de superfícies.
-            </p>
-          </div>
-
-          <!-- Card 6 -->
-          <div class="card-brutal-interactive bg-white border-[3px] border-brand-black p-6 shadow-brutal flex flex-col justify-between">
-            <div class="flex items-center justify-between mb-4">
-              <span class="w-10 h-10 bg-brand-cream border-2 border-brand-black shadow-brutal-sm flex items-center justify-center text-xl">
-                🔷
-              </span>
-              <span class="text-xs font-mono font-extrabold text-brand-gray">TÓPICO 06</span>
-            </div>
-            <h3 class="text-lg font-bold text-brand-black leading-snug">
-              Volume de cilindros e sólidos
-            </h3>
-            <p class="text-xs sm:text-sm text-brand-gray mt-2">
-              Capacidade volumétrica de prismas, cilindros e recipientes reais.
-            </p>
-          </div>
-
-          <!-- Card 7 -->
-          <div class="card-brutal-interactive bg-white border-[3px] border-brand-black p-6 shadow-brutal flex flex-col justify-between">
-            <div class="flex items-center justify-between mb-4">
-              <span class="w-10 h-10 bg-brand-lightOrange border-2 border-brand-black shadow-brutal-sm flex items-center justify-center text-xl">
-                💧
-              </span>
-              <span class="text-xs font-mono font-extrabold text-brand-gray">TÓPICO 07</span>
-            </div>
-            <h3 class="text-lg font-bold text-brand-black leading-snug">
-              Princípio de Arquimedes e volume deslocado
-            </h3>
-            <p class="text-xs sm:text-sm text-brand-gray mt-2">
-              Subida de nível de líquido e imersão de corpos sólidos no cálculo.
-            </p>
-          </div>
-
-          <!-- Card 8 -->
-          <div class="card-brutal-interactive bg-white border-[3px] border-brand-black p-6 shadow-brutal flex flex-col justify-between">
-            <div class="flex items-center justify-between mb-4">
-              <span class="w-10 h-10 bg-brand-lightPurple border-2 border-brand-black shadow-brutal-sm flex items-center justify-center text-xl">
-                📈
-              </span>
-              <span class="text-xs font-mono font-extrabold text-brand-gray">TÓPICO 08</span>
-            </div>
-            <h3 class="text-lg font-bold text-brand-black leading-snug">
-              Função afim e interpretação de gráficos
-            </h3>
-            <p class="text-xs sm:text-sm text-brand-gray mt-2">
-              Coeficiente angular, linear, taxa de variação e leitura de retas.
-            </p>
-          </div>
-
-          <!-- Card 9 -->
-          <div class="card-brutal-interactive bg-white border-[3px] border-brand-black p-6 shadow-brutal flex flex-col justify-between">
-            <div class="flex items-center justify-between mb-4">
-              <span class="w-10 h-10 bg-brand-cream border-2 border-brand-black shadow-brutal-sm flex items-center justify-center text-xl">
-                ⚡
-              </span>
-              <span class="text-xs font-mono font-extrabold text-brand-gray">TÓPICO 09</span>
-            </div>
-            <h3 class="text-lg font-bold text-brand-black leading-snug">
-              Funções definidas por faixas de consumo
-            </h3>
-            <p class="text-xs sm:text-sm text-brand-gray mt-2">
-              Cobrança progressiva, tarifas escalonadas de água e energia elétrica.
+            <h3 class="text-lg font-heading font-bold text-white mb-2">Revise o Procedimento</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Use os comentários e macetes para reconhecer estratégias semelhantes em outras questões da prova.
             </p>
           </div>
 
         </div>
 
-      </div>
-    </section>
-
-    <!-- =========================================================================
-         SECTION 5 — HOW IT HELPS (White Background)
-         ========================================================================= -->
-    <section class="bg-white border-b-[3px] border-brand-black py-16 md:py-24">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <!-- Header -->
-        <div class="text-center max-w-3xl mx-auto mb-16">
-          <div class="inline-block transform -rotate-1 mb-3">
-            <span class="bg-brand-orange text-brand-black font-heading text-xs uppercase tracking-wider px-3.5 py-1.5 border-2 border-brand-black shadow-brutal-sm">
-              MÉTODO DE ESTUDO
-            </span>
-          </div>
-          <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading text-brand-black leading-tight mb-4">
-            Não fique apenas olhando o gabarito. Entenda a resolução.
-          </h2>
-          <p class="text-base sm:text-lg text-brand-gray font-medium">
-            O diferencial para pontuar melhor na prova de Matemática do ENEM está em assimilar as etapas lógicas de cada exercício.
-          </p>
-        </div>
-
-        <!-- 3-Step Sequence with Numbered Circles and Connecting Lines -->
-        <div class="relative mb-16">
-          
-          <!-- Connecting Line (Desktop) -->
-          <div class="hidden md:block absolute top-10 left-[15%] right-[15%] h-1 bg-brand-black z-0" aria-hidden="true"></div>
-
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
-            
-            <!-- Step 1 -->
-            <div class="bg-white border-[3px] border-brand-black p-6 shadow-brutal text-center flex flex-col items-center">
-              <div class="w-16 h-16 rounded-full bg-brand-orange border-[3px] border-brand-black shadow-brutal-sm flex items-center justify-center font-heading text-2xl text-brand-black mb-5">
-                1
-              </div>
-              <h3 class="text-xl font-heading text-brand-black mb-3">
-                Leia a questão
-              </h3>
-              <p class="text-sm sm:text-base text-brand-gray leading-relaxed">
-                Identifique as informações relevantes e descubra o que o problema pede.
-              </p>
-            </div>
-
-            <!-- Step 2 -->
-            <div class="bg-white border-[3px] border-brand-black p-6 shadow-brutal text-center flex flex-col items-center">
-              <div class="w-16 h-16 rounded-full bg-brand-purple border-[3px] border-brand-black shadow-brutal-sm flex items-center justify-center font-heading text-2xl text-white mb-5">
-                2
-              </div>
-              <h3 class="text-xl font-heading text-brand-black mb-3">
-                Acompanhe o raciocínio
-              </h3>
-              <p class="text-sm sm:text-base text-brand-gray leading-relaxed">
-                Veja como os dados se relacionam, quais operações são necessárias e quais fórmulas se aplicam.
-              </p>
-            </div>
-
-            <!-- Step 3 -->
-            <div class="bg-white border-[3px] border-brand-black p-6 shadow-brutal text-center flex flex-col items-center">
-              <div class="w-16 h-16 rounded-full bg-brand-cream border-[3px] border-brand-black shadow-brutal-sm flex items-center justify-center font-heading text-2xl text-brand-black mb-5">
-                3
-              </div>
-              <h3 class="text-xl font-heading text-brand-black mb-3">
-                Revise o procedimento
-              </h3>
-              <p class="text-sm sm:text-base text-brand-gray leading-relaxed">
-                Use os comentários e macetes para reconhecer estratégias semelhantes em outras questões.
-              </p>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Highlight Card (Large Typography) -->
-        <div class="bg-brand-cream border-[3px] border-brand-black p-8 sm:p-12 shadow-brutal-lg max-w-4xl mx-auto text-center transform rotate-0 hover:rotate-[-0.5deg] transition-transform">
-          <span class="inline-block bg-brand-black text-white font-heading text-xs uppercase px-3 py-1 mb-4">
-            PRINCÍPIO FUNDAMENTAL
-          </span>
-          <p class="text-2xl sm:text-3xl md:text-4xl font-heading text-brand-black leading-snug">
+        <!-- Highlight Callout -->
+        <div class="bg-gradient-to-r from-dark-900 via-dark-850 to-dark-900 border border-accent-yellow/20 rounded-2xl p-8 sm:p-10 text-center max-w-3xl mx-auto shadow-glow-amber">
+          <p class="text-xl sm:text-2xl md:text-3xl font-heading font-extrabold text-white leading-snug">
             “Mais importante do que decorar uma fórmula é saber quando e como utilizá-la.”
           </p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- =========================================================================
-         SECTION 6 — VISUAL DEMO (Cream Background)
-         ========================================================================= -->
-    <section class="bg-brand-cream border-b-[3px] border-brand-black py-16 md:py-24">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <!-- Header -->
-        <div class="max-w-3xl mb-12">
-          <div class="inline-block transform rotate-1 mb-3">
-            <span class="bg-white text-brand-black font-heading text-xs uppercase tracking-wider px-3.5 py-1.5 border-2 border-brand-black shadow-brutal-sm">
-              DEMONSTRAÇÃO VISUAL
-            </span>
-          </div>
-          <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading text-brand-black leading-tight mb-4">
-            Veja como a revisão funciona na prática.
-          </h2>
-          <p class="text-base sm:text-lg text-brand-gray font-medium">
-            Confira as páginas com alta resolução e diagramação feita para focar no que realmente importa na prova.
+          <p class="text-xs font-semibold uppercase tracking-wider text-accent-yellow mt-4">
+            Princípio Fundamental • Prof. André Pedrosa
           </p>
         </div>
 
-        <!-- Large Product Images with Labels -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          
-          <!-- Image 1 -->
-          <div class="bg-white border-[3px] border-brand-black p-4 shadow-brutal card-brutal-interactive flex flex-col">
-            <div class="bg-brand-black text-white font-heading text-sm px-3 py-2 border-2 border-brand-black mb-3 flex items-center justify-between">
-              <span>Gabarito • Questões 1 a 5</span>
-              <span class="text-xs bg-brand-orange text-brand-black px-1.5 py-0.5">PDF</span>
-            </div>
-            <button type="button" class="gallery-trigger w-full block focus:outline-none focus:ring-4 focus:ring-brand-purple" data-index="0" aria-label="Abrir Gabarito Questões 1 a 5 em tela cheia">
-              <div class="border-2 border-brand-black overflow-hidden bg-gray-50 aspect-[1/1.41] flex items-center justify-center">
-                <img src="assets/gabarito-questoes-1-a-5.png" alt="Gabarito • Questões 1 a 5 do Prof. André Pedrosa" class="w-full h-full object-contain hover:scale-102 transition-transform duration-150" loading="lazy">
-              </div>
-            </button>
-            <div class="mt-4 pt-3 border-t-2 border-gray-100 flex items-center justify-between">
-              <span class="text-xs text-brand-gray font-semibold">Respostas organizadas</span>
-              <button type="button" class="gallery-trigger text-xs font-bold text-brand-purple hover:underline" data-index="0">
-                Ver ampliado 🔍
-              </button>
-            </div>
-          </div>
-
-          <!-- Image 2 -->
-          <div class="bg-white border-[3px] border-brand-black p-4 shadow-brutal card-brutal-interactive flex flex-col">
-            <div class="bg-brand-black text-white font-heading text-sm px-3 py-2 border-2 border-brand-black mb-3 flex items-center justify-between">
-              <span>Gabarito • Questões 6 a 10</span>
-              <span class="text-xs bg-brand-purple text-white px-1.5 py-0.5">PDF</span>
-            </div>
-            <button type="button" class="gallery-trigger w-full block focus:outline-none focus:ring-4 focus:ring-brand-purple" data-index="1" aria-label="Abrir Gabarito Questões 6 a 10 em tela cheia">
-              <div class="border-2 border-brand-black overflow-hidden bg-gray-50 aspect-[1/1.41] flex items-center justify-center">
-                <img src="assets/gabarito-questoes-6-a-10.png" alt="Gabarito • Questões 6 a 10 do Prof. André Pedrosa" class="w-full h-full object-contain hover:scale-102 transition-transform duration-150" loading="lazy">
-              </div>
-            </button>
-            <div class="mt-4 pt-3 border-t-2 border-gray-100 flex items-center justify-between">
-              <span class="text-xs text-brand-gray font-semibold">Conferência imediata</span>
-              <button type="button" class="gallery-trigger text-xs font-bold text-brand-purple hover:underline" data-index="1">
-                Ver ampliado 🔍
-              </button>
-            </div>
-          </div>
-
-          <!-- Image 3 -->
-          <div class="bg-white border-[3px] border-brand-black p-4 shadow-brutal card-brutal-interactive flex flex-col">
-            <div class="bg-brand-black text-white font-heading text-sm px-3 py-2 border-2 border-brand-black mb-3 flex items-center justify-between">
-              <span>Resolução Aprofundada</span>
-              <span class="text-xs bg-brand-orange text-brand-black px-1.5 py-0.5">COMENTADA</span>
-            </div>
-            <button type="button" class="gallery-trigger w-full block focus:outline-none focus:ring-4 focus:ring-brand-purple" data-index="2" aria-label="Abrir Resolução Aprofundada em tela cheia">
-              <div class="border-2 border-brand-black overflow-hidden bg-gray-50 aspect-[1/1.41] flex items-center justify-center">
-                <img src="assets/resolucao-aprofundada.png" alt="Página de Resolução Aprofundada do material" class="w-full h-full object-contain hover:scale-102 transition-transform duration-150" loading="lazy">
-              </div>
-            </button>
-            <div class="mt-4 pt-3 border-t-2 border-gray-100 flex items-center justify-between">
-              <span class="text-xs text-brand-gray font-semibold">Macetes e desenvolvimento</span>
-              <button type="button" class="gallery-trigger text-xs font-bold text-brand-purple hover:underline" data-index="2">
-                Ver ampliado 🔍
-              </button>
-            </div>
-          </div>
-
-        </div>
-
       </div>
     </section>
 
     <!-- =========================================================================
-         SECTION 7 — WHO IT'S FOR (White Background)
+         SECTION 8 — FOR WHO
          ========================================================================= -->
-    <section class="bg-white border-b-[3px] border-brand-black py-16 md:py-24">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="py-16 sm:py-24 bg-dark-900 border-b border-white/5">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
-          <!-- Left Column: Checkmarks -->
-          <div class="lg:col-span-7">
-            <div class="inline-block transform -rotate-1 mb-4">
-              <span class="bg-brand-purple text-white font-heading text-xs uppercase tracking-wider px-3.5 py-1.5 border-2 border-brand-black shadow-brutal-sm">
-                PERFIL DO ESTUDANTE
-              </span>
-            </div>
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading text-brand-black mb-8 leading-tight">
-              Este material é para você que...
-            </h2>
-
-            <ul class="space-y-4">
-              
-              <li class="flex items-start space-x-3.5 p-3.5 bg-brand-cream border-2 border-brand-black shadow-brutal-sm">
-                <span class="flex-shrink-0 w-7 h-7 bg-brand-orange border-2 border-brand-black flex items-center justify-center font-black text-brand-black text-base shadow-[1px_1px_0px_#171717]">
-                  ✓
-                </span>
-                <span class="text-base sm:text-lg font-semibold text-brand-black pt-0.5">
-                  Está se preparando para o ENEM 2026.
-                </span>
-              </li>
-
-              <li class="flex items-start space-x-3.5 p-3.5 bg-brand-cream border-2 border-brand-black shadow-brutal-sm">
-                <span class="flex-shrink-0 w-7 h-7 bg-brand-orange border-2 border-brand-black flex items-center justify-center font-black text-brand-black text-base shadow-[1px_1px_0px_#171717]">
-                  ✓
-                </span>
-                <span class="text-base sm:text-lg font-semibold text-brand-black pt-0.5">
-                  Quer revisar Matemática de forma organizada.
-                </span>
-              </li>
-
-              <li class="flex items-start space-x-3.5 p-3.5 bg-brand-cream border-2 border-brand-black shadow-brutal-sm">
-                <span class="flex-shrink-0 w-7 h-7 bg-brand-orange border-2 border-brand-black flex items-center justify-center font-black text-brand-black text-base shadow-[1px_1px_0px_#171717]">
-                  ✓
-                </span>
-                <span class="text-base sm:text-lg font-semibold text-brand-black pt-0.5">
-                  Precisa retomar fórmulas e procedimentos.
-                </span>
-              </li>
-
-              <li class="flex items-start space-x-3.5 p-3.5 bg-brand-cream border-2 border-brand-black shadow-brutal-sm">
-                <span class="flex-shrink-0 w-7 h-7 bg-brand-orange border-2 border-brand-black flex items-center justify-center font-black text-brand-black text-base shadow-[1px_1px_0px_#171717]">
-                  ✓
-                </span>
-                <span class="text-base sm:text-lg font-semibold text-brand-black pt-0.5">
-                  Aprende melhor acompanhando resoluções comentadas.
-                </span>
-              </li>
-
-              <li class="flex items-start space-x-3.5 p-3.5 bg-brand-cream border-2 border-brand-black shadow-brutal-sm">
-                <span class="flex-shrink-0 w-7 h-7 bg-brand-orange border-2 border-brand-black flex items-center justify-center font-black text-brand-black text-base shadow-[1px_1px_0px_#171717]">
-                  ✓
-                </span>
-                <span class="text-base sm:text-lg font-semibold text-brand-black pt-0.5">
-                  Quer praticar a interpretação de problemas matemáticos.
-                </span>
-              </li>
-
-            </ul>
-          </div>
-
-          <!-- Right Column: Honest Note Card -->
-          <div class="lg:col-span-5">
-            <div class="bg-brand-lightOrange border-[3px] border-brand-black p-6 sm:p-8 shadow-brutal-lg relative">
-              <div class="w-10 h-10 bg-brand-black text-white font-heading text-xl flex items-center justify-center border-2 border-brand-black mb-4">
-                ℹ️
-              </div>
-              <h3 class="text-lg font-heading text-brand-black mb-3 uppercase tracking-tight">
-                Nota de compromisso e honestidade
-              </h3>
-              <p class="text-base text-brand-black font-medium leading-relaxed mb-4">
-                O material é um apoio de revisão. O aproveitamento depende também da prática, da dedicação e da continuidade dos estudos.
-              </p>
-              <div class="pt-3 border-t-2 border-brand-black/20 text-xs font-bold text-brand-gray uppercase tracking-wider">
-                Estudo transparente • Sem falsas promessas
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- =========================================================================
-         SECTION 8 — PROFESSOR (Cream Background)
-         ========================================================================= -->
-    <section class="bg-brand-cream border-b-[3px] border-brand-black py-12 sm:py-16 md:py-24">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          
-          <!-- Professor Photo in Neobrutalist Frame (Contained for mobile) -->
-          <div class="lg:col-span-5 flex justify-center">
-            <div class="relative w-full max-w-[260px] xs:max-w-[290px] sm:max-w-[340px] mx-auto">
-              
-              <!-- Decorative background box -->
-              <div class="absolute inset-0 bg-brand-purple border-[2.5px] sm:border-[3px] border-brand-black transform rotate-2 sm:rotate-3 translate-x-1.5 sm:translate-x-3 translate-y-1.5 sm:translate-y-3 shadow-brutal-sm sm:shadow-brutal"></div>
-              
-              <!-- Foreground Photo Box -->
-              <div class="relative bg-white border-[2.5px] sm:border-[3px] border-brand-black p-2.5 sm:p-4 shadow-brutal sm:shadow-brutal-lg transform -rotate-1">
-                <div class="border-2 border-brand-black overflow-hidden bg-gray-100 aspect-square">
-                  <img src="assets/professor-andre-pedrosa.png" alt="Prof. André Pedrosa - Professor de Matemática" class="w-full h-full object-cover" loading="lazy">
-                </div>
-                <div class="mt-2.5 sm:mt-3 text-center border-t-2 border-brand-black pt-2">
-                  <p class="font-heading text-base sm:text-lg text-brand-black">Prof. André Pedrosa</p>
-                  <p class="text-[10px] sm:text-xs font-bold uppercase text-brand-purple tracking-wider">Matemática</p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- Professor Bio Text -->
-          <div class="lg:col-span-7">
-            <div class="inline-block transform rotate-1 mb-3 sm:mb-4">
-              <span class="bg-brand-orange text-brand-black font-heading text-[10px] sm:text-xs uppercase tracking-wider px-3 sm:px-3.5 py-1 sm:py-1.5 border-2 border-brand-black shadow-brutal-sm">
-                DOCÊNCIA & PREPARAÇÃO
-              </span>
-            </div>
-            
-            <h2 class="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-heading text-brand-black mb-4 sm:mb-6 leading-tight">
-              Quem acompanha sua revisão
-            </h2>
-
-            <!-- Exact specified quote text -->
-            <div class="bg-white border-[2.5px] sm:border-[3px] border-brand-black p-4 xs:p-6 sm:p-8 shadow-brutal mb-5 sm:mb-6">
-              <p class="text-base sm:text-lg md:text-xl text-brand-black font-medium leading-relaxed">
-                “Sou o Prof. André Pedrosa, e este material foi organizado para ajudar estudantes a revisar Matemática com mais clareza, atenção aos procedimentos e foco na preparação para o ENEM.”
-              </p>
-            </div>
-
-            <div class="flex flex-wrap gap-2 sm:gap-3">
-              <span class="inline-flex items-center text-[10px] sm:text-xs font-bold uppercase bg-white border-2 border-brand-black px-2.5 sm:px-3 py-1 sm:py-1.5 shadow-brutal-sm">
-                📐 Foco nos procedimentos
-              </span>
-              <span class="inline-flex items-center text-[10px] sm:text-xs font-bold uppercase bg-white border-2 border-brand-black px-2.5 sm:px-3 py-1 sm:py-1.5 shadow-brutal-sm">
-                📝 Resoluções passo a passo
-              </span>
-              <span class="inline-flex items-center text-[10px] sm:text-xs font-bold uppercase bg-white border-2 border-brand-black px-2.5 sm:px-3 py-1 sm:py-1.5 shadow-brutal-sm">
-                🎯 Linguagem direta
-              </span>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- =========================================================================
-         SECTION 9 — OFFER & PRICE (Orange/Cream Background with Black Borders)
-         ========================================================================= -->
-    <section class="bg-brand-orange border-y-[4px] border-brand-black py-12 sm:py-16 md:py-24 relative overflow-hidden" id="oferta">
-      <!-- Decorative brutalist pattern -->
-      <div class="absolute inset-0 opacity-10 bg-grid-dots pointer-events-none" aria-hidden="true"></div>
-
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        <!-- Header -->
-        <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-          <div class="inline-block transform -rotate-1 mb-2.5 sm:mb-3">
-            <span class="bg-brand-black text-white font-heading text-[10px] sm:text-xs uppercase tracking-wider px-3 sm:px-4 py-1 sm:py-1.5 border-2 border-brand-black shadow-brutal-white">
-              ACESSO IMEDIATO AO PDF
-            </span>
-          </div>
-          <h2 class="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-heading text-brand-black leading-tight">
-            Leve sua revisão de Matemática para a reta final.
+        <div class="text-center mb-14">
+          <span class="text-xs font-heading font-bold uppercase tracking-wider text-accent-yellow bg-accent-yellow/10 border border-accent-yellow/20 px-3.5 py-1.5 rounded-full">
+            PERFIL DO ESTUDANTE
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-white mt-4">
+            Este Material é Para Você Que...
           </h2>
         </div>
 
-        <!-- Centered Product Card -->
-        <div class="bg-white border-[3px] sm:border-[4px] border-brand-black p-4 xs:p-6 sm:p-10 shadow-brutal-lg sm:shadow-brutal-xl max-w-2xl mx-auto relative">
+        <div class="space-y-3.5 mb-10 max-w-2xl mx-auto">
           
-          <!-- Top Tag on Card -->
-          <div class="absolute -top-3.5 right-4 sm:right-6 transform rotate-2">
-            <span class="bg-brand-purple text-white text-[10px] sm:text-xs font-heading uppercase px-2.5 sm:px-3 py-0.5 sm:py-1 border-2 border-brand-black shadow-brutal-sm">
-              EDIÇÃO ENEM 2026
-            </span>
+          <div class="flex items-center space-x-3.5 bg-dark-950 border border-white/10 rounded-xl p-4">
+            <span class="w-6 h-6 rounded-full bg-accent-yellow/10 text-accent-yellow flex items-center justify-center font-bold text-sm flex-shrink-0">✓</span>
+            <span class="text-sm sm:text-base font-medium text-slate-200">Está se preparando para o ENEM 2026.</span>
           </div>
 
-          <!-- Product Titles -->
-          <div class="border-b-2 border-brand-black pb-4 sm:pb-6 mb-4 sm:mb-6 pt-1 sm:pt-0">
-            <h3 class="text-xl sm:text-2xl md:text-3xl font-heading text-brand-black leading-tight">
+          <div class="flex items-center space-x-3.5 bg-dark-950 border border-white/10 rounded-xl p-4">
+            <span class="w-6 h-6 rounded-full bg-accent-yellow/10 text-accent-yellow flex items-center justify-center font-bold text-sm flex-shrink-0">✓</span>
+            <span class="text-sm sm:text-base font-medium text-slate-200">Quer revisar Matemática de forma organizada.</span>
+          </div>
+
+          <div class="flex items-center space-x-3.5 bg-dark-950 border border-white/10 rounded-xl p-4">
+            <span class="w-6 h-6 rounded-full bg-accent-yellow/10 text-accent-yellow flex items-center justify-center font-bold text-sm flex-shrink-0">✓</span>
+            <span class="text-sm sm:text-base font-medium text-slate-200">Precisa retomar fórmulas e procedimentos com clareza.</span>
+          </div>
+
+          <div class="flex items-center space-x-3.5 bg-dark-950 border border-white/10 rounded-xl p-4">
+            <span class="w-6 h-6 rounded-full bg-accent-yellow/10 text-accent-yellow flex items-center justify-center font-bold text-sm flex-shrink-0">✓</span>
+            <span class="text-sm sm:text-base font-medium text-slate-200">Aprende melhor acompanhando resoluções comentadas.</span>
+          </div>
+
+          <div class="flex items-center space-x-3.5 bg-dark-950 border border-white/10 rounded-xl p-4">
+            <span class="w-6 h-6 rounded-full bg-accent-yellow/10 text-accent-yellow flex items-center justify-center font-bold text-sm flex-shrink-0">✓</span>
+            <span class="text-sm sm:text-base font-medium text-slate-200">Quer praticar a interpretação de problemas matemáticos contextualizados.</span>
+          </div>
+
+        </div>
+
+        <div class="bg-dark-950 border border-white/10 rounded-xl p-5 text-center max-w-xl mx-auto">
+          <p class="text-xs text-slate-400 leading-relaxed">
+            <strong class="text-slate-200">Nota de compromisso e honestidade:</strong> O material é um apoio de revisão. O aproveitamento depende também da prática, da dedicação e da continuidade dos estudos.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 9 — OFFER & PRICE
+         ========================================================================= -->
+    <section class="py-20 sm:py-28 bg-gradient-to-b from-dark-950 via-dark-900 to-dark-950 border-b border-white/5 relative" id="oferta">
+      
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <div class="text-center mb-12">
+          <span class="text-xs font-heading font-bold uppercase tracking-wider text-accent-yellow bg-accent-yellow/10 border border-accent-yellow/20 px-4 py-1.5 rounded-full">
+            OFERTA OFICIAL
+          </span>
+          <h2 class="text-3xl sm:text-5xl font-heading font-extrabold text-white mt-4">
+            Leve Sua Revisão de Matemática para a Reta Final
+          </h2>
+          <p class="text-slate-400 text-sm sm:text-base mt-2">
+            Material digital em PDF com acesso imediato após confirmação no checkout.
+          </p>
+        </div>
+
+        <!-- Premium Product Card -->
+        <div class="bg-gradient-to-b from-dark-900 to-dark-950 border-2 border-accent-yellow/40 rounded-3xl p-6 sm:p-12 shadow-glow-amber max-w-xl mx-auto relative overflow-hidden">
+          
+          <div class="absolute -top-12 -right-12 w-36 h-36 bg-accent-amber/20 rounded-full blur-2xl pointer-events-none"></div>
+
+          <div class="text-center border-b border-white/10 pb-8 mb-8">
+            <span class="text-xs font-heading font-bold uppercase text-accent-yellow tracking-wider">Edição Especial</span>
+            <h3 class="text-2xl sm:text-3xl font-heading font-extrabold text-white mt-1">
               Reta Final ENEM 2026 — Matemática
             </h3>
-            <p class="text-sm sm:text-base font-bold text-brand-purple mt-1">
-              Prof. André Pedrosa
-            </p>
+            <p class="text-slate-300 font-semibold text-sm mt-1">Prof. André Pedrosa</p>
           </div>
 
-          <!-- Included Items with Checkmarks -->
-          <div class="space-y-2.5 sm:space-y-3.5 mb-6 sm:mb-8">
-            <p class="text-[10px] sm:text-xs font-bold uppercase text-brand-gray tracking-wider mb-2">
-              O que você recebe no material:
-            </p>
+          <!-- Items list -->
+          <ul class="space-y-3.5 mb-8 text-sm sm:text-base">
+            <li class="flex items-center space-x-3 text-slate-200">
+              <span class="w-5 h-5 rounded-full bg-accent-yellow text-dark-950 flex items-center justify-center font-bold text-xs flex-shrink-0">✓</span>
+              <span>Material digital em PDF de alta qualidade</span>
+            </li>
+            <li class="flex items-center space-x-3 text-slate-200">
+              <span class="w-5 h-5 rounded-full bg-accent-yellow text-dark-950 flex items-center justify-center font-bold text-xs flex-shrink-0">✓</span>
+              <span>Questões de revisão selecionadas</span>
+            </li>
+            <li class="flex items-center space-x-3 text-slate-200">
+              <span class="w-5 h-5 rounded-full bg-accent-yellow text-dark-950 flex items-center justify-center font-bold text-xs flex-shrink-0">✓</span>
+              <span>Gabarito e resoluções comentadas</span>
+            </li>
+            <li class="flex items-center space-x-3 text-slate-200">
+              <span class="w-5 h-5 rounded-full bg-accent-yellow text-dark-950 flex items-center justify-center font-bold text-xs flex-shrink-0">✓</span>
+              <span>Macetes e procedimentos de cálculo do professor</span>
+            </li>
+          </ul>
 
-            <div class="flex items-center space-x-2.5 sm:space-x-3">
-              <span class="w-5 h-5 sm:w-6 sm:h-6 bg-brand-orange border-2 border-brand-black flex items-center justify-center font-bold text-brand-black text-xs sm:text-sm shadow-[1px_1px_0px_#171717]">
-                ✓
-              </span>
-              <span class="text-sm sm:text-base font-bold text-brand-black">Material digital em PDF</span>
-            </div>
-
-            <div class="flex items-center space-x-2.5 sm:space-x-3">
-              <span class="w-5 h-5 sm:w-6 sm:h-6 bg-brand-orange border-2 border-brand-black flex items-center justify-center font-bold text-brand-black text-xs sm:text-sm shadow-[1px_1px_0px_#171717]">
-                ✓
-              </span>
-              <span class="text-sm sm:text-base font-bold text-brand-black">Questões de revisão</span>
-            </div>
-
-            <div class="flex items-center space-x-2.5 sm:space-x-3">
-              <span class="w-5 h-5 sm:w-6 sm:h-6 bg-brand-orange border-2 border-brand-black flex items-center justify-center font-bold text-brand-black text-xs sm:text-sm shadow-[1px_1px_0px_#171717]">
-                ✓
-              </span>
-              <span class="text-sm sm:text-base font-bold text-brand-black">Gabarito</span>
-            </div>
-
-            <div class="flex items-center space-x-2.5 sm:space-x-3">
-              <span class="w-5 h-5 sm:w-6 sm:h-6 bg-brand-orange border-2 border-brand-black flex items-center justify-center font-bold text-brand-black text-xs sm:text-sm shadow-[1px_1px_0px_#171717]">
-                ✓
-              </span>
-              <span class="text-sm sm:text-base font-bold text-brand-black">Resoluções comentadas e macetes</span>
-            </div>
-          </div>
-
-          <!-- Price Display Section -->
-          <div class="bg-brand-cream border-2 border-brand-black p-3.5 sm:p-5 text-center mb-6 sm:mb-8 shadow-brutal-sm">
-            <p class="text-[10px] sm:text-xs font-bold text-brand-gray uppercase tracking-wider mb-1">
-              Investimento
-            </p>
-            <div id="product-price-display" class="text-xl sm:text-2xl md:text-3xl font-heading text-brand-black">
-              <!-- Dynamically populated from CONFIG.PRODUCT_PRICE -->
+          <!-- Price Box -->
+          <div class="bg-dark-850/80 border border-white/10 rounded-2xl p-5 text-center mb-8">
+            <p class="text-xs font-heading uppercase text-slate-400 tracking-wider">Investimento</p>
+            <div id="product-price-display" class="text-2xl sm:text-4xl font-heading font-extrabold text-white mt-1">
               ⚠️ CONFIGURAR PREÇO
             </div>
-            <div id="price-warning-badge" class="mt-2 inline-block bg-yellow-300 text-brand-black text-[10px] sm:text-xs font-bold px-2 py-0.5 border border-brand-black">
+            <div id="price-warning-badge" class="mt-2 text-xs text-accent-yellow font-medium">
               Consulte as condições atualizadas na página de checkout.
             </div>
           </div>
 
-          <!-- Main CTA Button -->
+          <!-- Checkout CTA -->
           <div class="flex flex-col items-center">
-            <a href="#checkout-placeholder" class="checkout-cta-btn btn-brutal w-full py-3.5 sm:py-5 px-4 bg-brand-orange text-brand-black font-heading text-base sm:text-lg md:text-xl uppercase tracking-wider border-[3px] border-brand-black shadow-brutal sm:shadow-brutal-md text-center" data-location="offer_section">
-              QUERO ACESSAR O MATERIAL
+            <a href="#checkout-placeholder" class="checkout-cta-btn w-full py-4 sm:py-5 bg-gradient-to-r from-accent-amber via-accent-yellow to-accent-amber text-dark-950 font-heading font-extrabold text-base sm:text-lg uppercase tracking-wider rounded-full shadow-glow-amber hover:brightness-110 active:scale-95 transition-all text-center flex items-center justify-center space-x-2" data-location="offer_section">
+              <span>QUERO ACESSAR O MATERIAL</span>
+              <span>↗</span>
             </a>
-            <p class="text-xs sm:text-sm text-brand-gray font-semibold mt-2.5 sm:mt-3 flex items-center gap-1.5 text-center">
-              <svg class="w-4 h-4 text-brand-black flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-              </svg>
-              Finalize sua compra pelo checkout seguro.
+            <p class="text-xs text-slate-400 mt-3 font-medium flex items-center gap-1.5">
+              <span>🔒</span> Finalize sua compra pelo checkout seguro.
             </p>
           </div>
 
@@ -1245,100 +912,90 @@
     </section>
 
     <!-- =========================================================================
-         SECTION 10 — FAQ (White Background)
+         SECTION 10 — FAQ (Accessible Accordions)
          ========================================================================= -->
-    <section class="bg-white border-b-[3px] border-brand-black py-16 md:py-24" id="faq">
+    <section class="py-16 sm:py-24 bg-dark-950 border-b border-white/5" id="faq">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <!-- Header -->
-        <div class="text-center max-w-2xl mx-auto mb-14">
-          <div class="inline-block transform rotate-1 mb-3">
-            <span class="bg-brand-purple text-white font-heading text-xs uppercase tracking-wider px-3.5 py-1.5 border-2 border-brand-black shadow-brutal-sm">
-              TIRA-DÚVIDAS
-            </span>
-          </div>
-          <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading text-brand-black">
-            Perguntas frequentes
+        <div class="text-center mb-14">
+          <span class="text-xs font-heading font-bold uppercase tracking-wider text-accent-yellow bg-accent-yellow/10 border border-accent-yellow/20 px-3.5 py-1.5 rounded-full">
+            TIRA-DÚVIDAS
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-white mt-4">
+            Perguntas Frequentes
           </h2>
         </div>
 
-        <!-- Accessible Accordion using <details> -->
         <div class="space-y-4">
           
-          <!-- Item 1 -->
-          <details class="faq-item group bg-brand-cream border-[3px] border-brand-black shadow-brutal open:shadow-brutal-md transition-all duration-150">
-            <summary class="flex items-center justify-between p-5 sm:p-6 cursor-pointer font-heading text-base sm:text-lg text-brand-black select-none focus:outline-none focus:ring-4 focus:ring-brand-purple">
+          <details class="faq-item group bg-dark-900 border border-white/10 rounded-2xl transition-all">
+            <summary class="flex items-center justify-between p-5 sm:p-6 cursor-pointer font-heading font-bold text-base sm:text-lg text-white select-none focus:outline-none">
               <span>1. O material é físico ou digital?</span>
-              <span class="ml-4 flex-shrink-0 w-8 h-8 bg-white border-2 border-brand-black flex items-center justify-center font-heading text-lg group-open:rotate-45 transition-transform duration-200">
+              <span class="ml-4 flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center font-bold text-accent-yellow group-open:rotate-45 transition-transform">
                 +
               </span>
             </summary>
-            <div class="px-5 pb-6 sm:px-6 sm:pb-6 pt-1 text-base text-brand-gray font-medium border-t-2 border-brand-black/20">
+            <div class="px-5 pb-6 sm:px-6 sm:pb-6 text-sm sm:text-base text-slate-300 leading-relaxed border-t border-white/5 pt-3">
               O produto é digital e disponibilizado em PDF.
             </div>
           </details>
 
-          <!-- Item 2 -->
-          <details class="faq-item group bg-brand-cream border-[3px] border-brand-black shadow-brutal open:shadow-brutal-md transition-all duration-150">
-            <summary class="flex items-center justify-between p-5 sm:p-6 cursor-pointer font-heading text-base sm:text-lg text-brand-black select-none focus:outline-none focus:ring-4 focus:ring-brand-purple">
+          <details class="faq-item group bg-dark-900 border border-white/10 rounded-2xl transition-all">
+            <summary class="flex items-center justify-between p-5 sm:p-6 cursor-pointer font-heading font-bold text-base sm:text-lg text-white select-none focus:outline-none">
               <span>2. O material é voltado para qual prova?</span>
-              <span class="ml-4 flex-shrink-0 w-8 h-8 bg-white border-2 border-brand-black flex items-center justify-center font-heading text-lg group-open:rotate-45 transition-transform duration-200">
+              <span class="ml-4 flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center font-bold text-accent-yellow group-open:rotate-45 transition-transform">
                 +
               </span>
             </summary>
-            <div class="px-5 pb-6 sm:px-6 sm:pb-6 pt-1 text-base text-brand-gray font-medium border-t-2 border-brand-black/20">
+            <div class="px-5 pb-6 sm:px-6 sm:pb-6 text-sm sm:text-base text-slate-300 leading-relaxed border-t border-white/5 pt-3">
               Ele foi preparado para apoiar a revisão de Matemática de estudantes que estão se preparando para o ENEM 2026.
             </div>
           </details>
 
-          <!-- Item 3 -->
-          <details class="faq-item group bg-brand-cream border-[3px] border-brand-black shadow-brutal open:shadow-brutal-md transition-all duration-150">
-            <summary class="flex items-center justify-between p-5 sm:p-6 cursor-pointer font-heading text-base sm:text-lg text-brand-black select-none focus:outline-none focus:ring-4 focus:ring-brand-purple">
+          <details class="faq-item group bg-dark-900 border border-white/10 rounded-2xl transition-all">
+            <summary class="flex items-center justify-between p-5 sm:p-6 cursor-pointer font-heading font-bold text-base sm:text-lg text-white select-none focus:outline-none">
               <span>3. O material substitui todas as aulas de Matemática?</span>
-              <span class="ml-4 flex-shrink-0 w-8 h-8 bg-white border-2 border-brand-black flex items-center justify-center font-heading text-lg group-open:rotate-45 transition-transform duration-200">
+              <span class="ml-4 flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center font-bold text-accent-yellow group-open:rotate-45 transition-transform">
                 +
               </span>
             </summary>
-            <div class="px-5 pb-6 sm:px-6 sm:pb-6 pt-1 text-base text-brand-gray font-medium border-t-2 border-brand-black/20">
+            <div class="px-5 pb-6 sm:px-6 sm:pb-6 text-sm sm:text-base text-slate-300 leading-relaxed border-t border-white/5 pt-3">
               Não. Ele é um apoio de revisão e deve ser utilizado junto aos estudos e à prática de questões.
             </div>
           </details>
 
-          <!-- Item 4 -->
-          <details class="faq-item group bg-brand-cream border-[3px] border-brand-black shadow-brutal open:shadow-brutal-md transition-all duration-150">
-            <summary class="flex items-center justify-between p-5 sm:p-6 cursor-pointer font-heading text-base sm:text-lg text-brand-black select-none focus:outline-none focus:ring-4 focus:ring-brand-purple">
+          <details class="faq-item group bg-dark-900 border border-white/10 rounded-2xl transition-all">
+            <summary class="flex items-center justify-between p-5 sm:p-6 cursor-pointer font-heading font-bold text-base sm:text-lg text-white select-none focus:outline-none">
               <span>4. Vou receber as resoluções?</span>
-              <span class="ml-4 flex-shrink-0 w-8 h-8 bg-white border-2 border-brand-black flex items-center justify-center font-heading text-lg group-open:rotate-45 transition-transform duration-200">
+              <span class="ml-4 flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center font-bold text-accent-yellow group-open:rotate-45 transition-transform">
                 +
               </span>
             </summary>
-            <div class="px-5 pb-6 sm:px-6 sm:pb-6 pt-1 text-base text-brand-gray font-medium border-t-2 border-brand-black/20">
+            <div class="px-5 pb-6 sm:px-6 sm:pb-6 text-sm sm:text-base text-slate-300 leading-relaxed border-t border-white/5 pt-3">
               Sim. O material inclui resoluções comentadas com macetes do professor para cada questão.
             </div>
           </details>
 
-          <!-- Item 5 -->
-          <details class="faq-item group bg-brand-cream border-[3px] border-brand-black shadow-brutal open:shadow-brutal-md transition-all duration-150">
-            <summary class="flex items-center justify-between p-5 sm:p-6 cursor-pointer font-heading text-base sm:text-lg text-brand-black select-none focus:outline-none focus:ring-4 focus:ring-brand-purple">
+          <details class="faq-item group bg-dark-900 border border-white/10 rounded-2xl transition-all">
+            <summary class="flex items-center justify-between p-5 sm:p-6 cursor-pointer font-heading font-bold text-base sm:text-lg text-white select-none focus:outline-none">
               <span>5. Como recebo o material após a compra?</span>
-              <span class="ml-4 flex-shrink-0 w-8 h-8 bg-white border-2 border-brand-black flex items-center justify-center font-heading text-lg group-open:rotate-45 transition-transform duration-200">
+              <span class="ml-4 flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center font-bold text-accent-yellow group-open:rotate-45 transition-transform">
                 +
               </span>
             </summary>
-            <div class="px-5 pb-6 sm:px-6 sm:pb-6 pt-1 text-base text-brand-gray font-medium border-t-2 border-brand-black/20">
+            <div class="px-5 pb-6 sm:px-6 sm:pb-6 text-sm sm:text-base text-slate-300 leading-relaxed border-t border-white/5 pt-3">
               As informações de entrega serão exibidas após a finalização do pagamento no checkout.
             </div>
           </details>
 
-          <!-- Item 6 -->
-          <details class="faq-item group bg-brand-cream border-[3px] border-brand-black shadow-brutal open:shadow-brutal-md transition-all duration-150">
-            <summary class="flex items-center justify-between p-5 sm:p-6 cursor-pointer font-heading text-base sm:text-lg text-brand-black select-none focus:outline-none focus:ring-4 focus:ring-brand-purple">
+          <details class="faq-item group bg-dark-900 border border-white/10 rounded-2xl transition-all">
+            <summary class="flex items-center justify-between p-5 sm:p-6 cursor-pointer font-heading font-bold text-base sm:text-lg text-white select-none focus:outline-none">
               <span>6. Quais formas de pagamento são aceitas?</span>
-              <span class="ml-4 flex-shrink-0 w-8 h-8 bg-white border-2 border-brand-black flex items-center justify-center font-heading text-lg group-open:rotate-45 transition-transform duration-200">
+              <span class="ml-4 flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center font-bold text-accent-yellow group-open:rotate-45 transition-transform">
                 +
               </span>
             </summary>
-            <div class="px-5 pb-6 sm:px-6 sm:pb-6 pt-1 text-base text-brand-gray font-medium border-t-2 border-brand-black/20">
+            <div class="px-5 pb-6 sm:px-6 sm:pb-6 text-sm sm:text-base text-slate-300 leading-relaxed border-t border-white/5 pt-3">
               As formas de pagamento disponíveis serão exibidas na página de checkout.
             </div>
           </details>
@@ -1349,48 +1006,35 @@
     </section>
 
     <!-- =========================================================================
-         SECTION 11 — FINAL CTA (Black Background)
+         SECTION 11 — FINAL CTA
          ========================================================================= -->
-    <section class="bg-brand-black text-white border-b-[3px] border-brand-black py-20 md:py-28 relative overflow-hidden">
+    <section class="py-20 sm:py-28 bg-gradient-to-t from-dark-950 via-dark-900 to-dark-950 border-b border-white/5 relative overflow-hidden">
       
-      <!-- Decorative math symbols in orange and purple -->
-      <div class="absolute -top-6 -left-6 text-7xl font-mono text-brand-orange/30 select-none pointer-events-none math-float-a" aria-hidden="true">
-        ∑
-      </div>
-      <div class="absolute top-1/2 -right-8 text-8xl font-mono text-brand-purple/40 select-none pointer-events-none math-float-b" aria-hidden="true">
-        ∫
-      </div>
-      <div class="absolute -bottom-8 left-1/3 text-7xl font-mono text-brand-orange/25 select-none pointer-events-none math-float-c" aria-hidden="true">
-        √x
-      </div>
-      <div class="absolute top-12 right-1/4 text-5xl font-mono text-brand-purple/30 select-none pointer-events-none" aria-hidden="true">
-        π
-      </div>
-
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         
-        <div class="inline-block transform -rotate-1 mb-6">
-          <span class="bg-brand-purple text-white font-heading text-xs sm:text-sm uppercase tracking-wider px-3.5 py-1.5 border-2 border-white shadow-[3px_3px_0px_#ffffff]">
-            PREPARAÇÃO INTELIGENTE
-          </span>
-        </div>
+        <span class="text-xs font-heading font-bold uppercase tracking-wider text-accent-yellow bg-accent-yellow/10 border border-accent-yellow/20 px-3.5 py-1.5 rounded-full">
+          PREPARAÇÃO INTELIGENTE
+        </span>
 
-        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading text-white leading-tight mb-6">
-          Sua revisão de Matemática pode começar agora.
+        <h2 class="text-3xl sm:text-5xl lg:text-6xl font-heading font-extrabold text-white leading-tight mt-5 mb-6">
+          Sua Revisão de Matemática <br>
+          <span class="bg-gradient-to-r from-accent-yellow to-accent-orange bg-clip-text text-transparent">
+            Pode Começar Agora.
+          </span>
         </h2>
 
-        <p class="text-base sm:text-xl text-gray-300 font-medium leading-relaxed max-w-2xl mx-auto mb-10">
+        <p class="text-base sm:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl mx-auto mb-10">
           Organize seus estudos, acompanhe as resoluções e pratique o raciocínio matemático na preparação para o ENEM 2026.
         </p>
 
-        <div class="flex flex-col items-center">
-          <a href="#oferta" class="checkout-cta-btn btn-brutal px-8 sm:px-12 py-5 bg-brand-orange text-brand-black font-heading text-lg sm:text-xl uppercase tracking-wider border-[3px] border-white shadow-[6px_6px_0px_#ffffff] hover:shadow-[8px_8px_0px_#ffffff]" data-location="final_cta">
-            QUERO MEU MATERIAL DE MATEMÁTICA
-          </a>
-          <p class="text-xs sm:text-sm text-gray-400 font-semibold mt-4 tracking-wide">
-            Reta Final ENEM 2026 • Prof. André Pedrosa
-          </p>
-        </div>
+        <a href="#oferta" class="checkout-cta-btn inline-flex items-center space-x-2 bg-gradient-to-r from-accent-amber via-accent-yellow to-accent-amber text-dark-950 font-heading font-extrabold text-base sm:text-xl px-10 py-5 rounded-full shadow-glow-amber hover:brightness-110 active:scale-95 transition-all" data-location="final_cta">
+          <span>QUERO MEU MATERIAL DE MATEMÁTICA</span>
+          <span>↗</span>
+        </a>
+
+        <p class="text-xs text-slate-400 mt-4 font-medium">
+          Reta Final ENEM 2026 • Prof. André Pedrosa
+        </p>
 
       </div>
     </section>
@@ -1398,24 +1042,24 @@
   </main>
 
   <!-- =========================================================================
-       SECTION 12 — FOOTER (Near-Black Background)
+       SECTION 12 — FOOTER
        ========================================================================= -->
-  <footer class="bg-[#111111] text-gray-400 border-t-[3px] border-brand-black py-12 md:py-16">
+  <footer class="bg-dark-950 text-slate-400 border-t border-white/10 py-12 md:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-gray-800">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-white/10">
         <div>
-          <h3 class="font-heading text-lg text-white">Reta Final ENEM 2026 — Matemática</h3>
-          <p class="text-sm font-semibold text-brand-orange mt-0.5">Prof. André Pedrosa</p>
+          <h3 class="font-heading font-bold text-lg text-white">Reta Final ENEM 2026 — Matemática</h3>
+          <p class="text-sm font-semibold text-accent-yellow mt-0.5">Prof. André Pedrosa</p>
         </div>
-        <div class="flex items-center space-x-6 text-sm">
-          <a href="#" class="hover:text-white transition-colors underline underline-offset-4">Política de privacidade</a>
-          <span class="text-gray-700">|</span>
-          <a href="#" class="hover:text-white transition-colors underline underline-offset-4">Termos de uso</a>
+        <div class="flex items-center space-x-6 text-xs sm:text-sm">
+          <a href="#" class="hover:text-white transition-colors">Política de Privacidade</a>
+          <span class="text-white/20">|</span>
+          <a href="#" class="hover:text-white transition-colors">Termos de Uso</a>
         </div>
       </div>
 
-      <div class="mt-8 flex flex-col md:flex-row md:items-center justify-between gap-4 text-xs text-gray-500">
+      <div class="mt-8 flex flex-col md:flex-row md:items-center justify-between gap-4 text-xs text-slate-500">
         <p>© 2026 Prof. André Pedrosa. Todos os direitos reservados.</p>
         <p class="max-w-xl text-left md:text-right leading-relaxed">
           Este material é um produto independente de revisão. Não representa o INEP nem é uma publicação oficial do ENEM.
@@ -1428,14 +1072,15 @@
   <!-- =========================================================================
        MOBILE STICKY CTA BAR (Hidden on md+ screens)
        ========================================================================= -->
-  <aside class="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-brand-orange border-t-[3px] border-brand-black px-3 py-2.5 shadow-brutal-xl" style="padding-bottom: max(0.65rem, env(safe-area-inset-bottom));">
-    <div class="max-w-md mx-auto flex items-center justify-between gap-2.5">
+  <aside class="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-dark-900/95 backdrop-blur-md border-t border-white/10 px-4 py-3 shadow-2xl" style="padding-bottom: max(0.75rem, env(safe-area-inset-bottom));">
+    <div class="max-w-md mx-auto flex items-center justify-between gap-3">
       <div class="min-w-0 flex-1">
-        <span class="block text-[11px] font-heading text-brand-black uppercase leading-tight truncate">Reta Final ENEM 2026</span>
-        <span class="block text-[10px] font-bold text-brand-black/80 truncate">PDF Digital • Prof. André Pedrosa</span>
+        <span class="block text-[11px] font-heading font-extrabold text-white uppercase leading-tight truncate">Reta Final ENEM 2026</span>
+        <span class="block text-[10px] font-semibold text-accent-yellow truncate">PDF Digital • Prof. André Pedrosa</span>
       </div>
-      <a href="#checkout-placeholder" class="checkout-cta-btn btn-brutal flex-shrink-0 bg-brand-black text-white px-3.5 py-2 font-heading text-[11px] uppercase tracking-wider border-2 border-brand-black shadow-[2px_2px_0px_#ffffff] whitespace-nowrap active:translate-x-0.5 active:translate-y-0.5" data-location="mobile_sticky_bar">
-        QUERO MEU MATERIAL
+      <a href="#checkout-placeholder" class="checkout-cta-btn inline-flex items-center space-x-1.5 flex-shrink-0 bg-gradient-to-r from-accent-amber to-accent-yellow text-dark-950 font-heading font-extrabold text-xs uppercase px-4 py-2.5 rounded-full shadow-md active:scale-95 transition-transform" data-location="mobile_sticky_bar">
+        <span>QUERO O MATERIAL</span>
+        <span>↗</span>
       </a>
     </div>
   </aside>
@@ -1443,45 +1088,45 @@
   <!-- =========================================================================
        IMAGE MODAL (Full Screen Sample Viewer with Touch Swipe)
        ========================================================================= -->
-  <div id="image-modal" class="fixed inset-0 z-50 hidden bg-brand-black/85 backdrop-blur-sm p-2 sm:p-6 flex items-center justify-center" role="dialog" aria-modal="true" aria-label="Visualizador de amostras do material">
+  <div id="image-modal" class="fixed inset-0 z-50 hidden bg-dark-950/90 backdrop-blur-md p-2 sm:p-6 flex items-center justify-center" role="dialog" aria-modal="true" aria-label="Visualizador de amostras do material">
     
-    <div class="relative w-full max-w-3xl bg-white border-[3px] sm:border-[4px] border-brand-black shadow-brutal-xl flex flex-col max-h-[94vh] overflow-hidden">
+    <div class="relative w-full max-w-4xl bg-dark-900 border border-white/15 rounded-2xl sm:rounded-3xl shadow-2xl flex flex-col max-h-[94vh] overflow-hidden">
       
       <!-- Modal Header -->
-      <div class="bg-brand-black text-white p-2.5 sm:p-4 flex items-center justify-between border-b-[3px] border-brand-black">
-        <div class="flex items-center space-x-1.5 sm:space-x-2 min-w-0">
-          <span id="modal-counter-badge" class="bg-brand-orange text-brand-black text-[10px] sm:text-xs font-heading px-1.5 sm:px-2 py-0.5 border border-brand-black flex-shrink-0">
+      <div class="bg-dark-950 text-white p-3 sm:p-4 flex items-center justify-between border-b border-white/10">
+        <div class="flex items-center space-x-2 min-w-0">
+          <span id="modal-counter-badge" class="bg-accent-yellow text-dark-950 text-[10px] sm:text-xs font-heading font-bold px-2 py-0.5 rounded-full flex-shrink-0">
             1 de 3
           </span>
-          <h3 id="modal-image-title" class="font-heading text-xs sm:text-base text-white truncate max-w-[200px] sm:max-w-md">
-            Gabarito • Questões 1 a 5
+          <h3 id="modal-image-title" class="font-heading font-bold text-xs sm:text-base text-white truncate max-w-[200px] sm:max-w-md">
+            Infográfico de Geometria Espacial
           </h3>
         </div>
-        <button id="modal-close-btn" type="button" class="btn-brutal bg-white text-brand-black font-heading text-xs sm:text-sm px-2.5 py-1 border-2 border-brand-black shadow-[2px_2px_0px_#ffffff] hover:bg-brand-orange" aria-label="Fechar visualização">
+        <button id="modal-close-btn" type="button" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white font-heading text-sm flex items-center justify-center transition-colors" aria-label="Fechar visualização">
           ✕
         </button>
       </div>
 
       <!-- Modal Image Viewer -->
-      <div class="relative flex-1 bg-gray-100 overflow-auto p-2 sm:p-4 flex items-center justify-center select-none touch-pan-y">
-        <img id="modal-image-elem" src="assets/gabarito-questoes-1-a-5.png" alt="Visualização da amostra do material" class="max-h-[58vh] sm:max-h-[68vh] w-auto max-w-full object-contain border-2 border-brand-black shadow-brutal-sm">
+      <div class="relative flex-1 bg-dark-950/60 overflow-auto p-2 sm:p-4 flex items-center justify-center select-none touch-pan-y">
+        <img id="modal-image-elem" src="assets/amostra-geometria-espacial.png" alt="Amostra do material Reta Final ENEM 2026" class="max-h-[60vh] sm:max-h-[70vh] w-auto max-w-full object-contain rounded-lg shadow-lg">
 
-        <!-- Navigation Buttons inside modal (responsive touch sizing) -->
-        <button id="modal-prev-btn" type="button" class="btn-brutal absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-11 sm:h-11 bg-white/95 text-brand-black font-heading text-base sm:text-xl border-2 sm:border-[3px] border-brand-black shadow-brutal-sm sm:shadow-brutal flex items-center justify-center hover:bg-brand-orange" aria-label="Imagem anterior">
+        <!-- Navigation Buttons inside modal -->
+        <button id="modal-prev-btn" type="button" class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-dark-900/90 hover:bg-accent-yellow hover:text-dark-950 text-white font-heading text-lg sm:text-2xl border border-white/20 flex items-center justify-center transition-all shadow-xl" aria-label="Imagem anterior">
           ‹
         </button>
-        <button id="modal-next-btn" type="button" class="btn-brutal absolute right-1 sm:right-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-11 sm:h-11 bg-white/95 text-brand-black font-heading text-base sm:text-xl border-2 sm:border-[3px] border-brand-black shadow-brutal-sm sm:shadow-brutal flex items-center justify-center hover:bg-brand-orange" aria-label="Próxima imagem">
+        <button id="modal-next-btn" type="button" class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-dark-900/90 hover:bg-accent-yellow hover:text-dark-950 text-white font-heading text-lg sm:text-2xl border border-white/20 flex items-center justify-center transition-all shadow-xl" aria-label="Próxima imagem">
           ›
         </button>
       </div>
 
       <!-- Modal Footer -->
-      <div class="bg-brand-cream border-t-2 border-brand-black p-2.5 sm:p-4 flex items-center justify-between text-xs sm:text-sm gap-2">
-        <p id="modal-image-desc" class="text-brand-gray font-medium text-[11px] sm:text-sm truncate">
-          Visualização oficial do material em formato digital A5.
+      <div class="bg-dark-950 border-t border-white/10 p-3 sm:p-4 flex items-center justify-between text-xs sm:text-sm gap-2">
+        <p id="modal-image-desc" class="text-slate-400 font-medium text-[11px] sm:text-sm truncate">
+          Página oficial de revisão desenvolvida pelo Prof. André Pedrosa.
         </p>
-        <a href="#oferta" id="modal-cta-btn" class="checkout-cta-btn btn-brutal flex-shrink-0 bg-brand-orange text-brand-black font-heading text-[10px] sm:text-xs uppercase px-2.5 sm:px-3 py-1 sm:py-1.5 border-2 border-brand-black shadow-brutal-sm whitespace-nowrap" data-location="modal_footer">
-          Quero o material
+        <a href="#oferta" id="modal-cta-btn" class="checkout-cta-btn flex-shrink-0 bg-gradient-to-r from-accent-amber to-accent-yellow text-dark-950 font-heading font-bold text-[11px] sm:text-xs uppercase px-3.5 sm:px-4 py-2 rounded-full whitespace-nowrap shadow-md" data-location="modal_footer">
+          Quero o material ↗
         </a>
       </div>
 
@@ -1512,7 +1157,6 @@
       if (typeof window.gtag === 'function') {
         window.gtag('event', eventName, params);
       }
-      // Developer / Debug trace
       console.debug(`[Analytics] ${eventName}:`, params);
     }
 
@@ -1533,7 +1177,6 @@
       }
     }
 
-    // Page view trigger
     window.addEventListener('DOMContentLoaded', () => {
       trackEvent('page_view', {
         page_title: document.title,
@@ -1542,10 +1185,9 @@
     });
 
     /* -------------------------------------------------------------------------
-       3. INJECT CONFIG VARIABLES (Price & Checkout URL)
+       3. INJECT CONFIG VARIABLES
        ------------------------------------------------------------------------- */
     document.addEventListener('DOMContentLoaded', () => {
-      // Set price
       const priceElement = document.getElementById('product-price-display');
       const warningBadge = document.getElementById('price-warning-badge');
       if (priceElement) {
@@ -1555,12 +1197,11 @@
         }
       }
 
-      // Bind ALL CTA buttons to CONFIG.CHECKOUT_URL and attach tracking (Rule 8)
       const ctaButtons = document.querySelectorAll('.checkout-cta-btn');
       ctaButtons.forEach(btn => {
         btn.setAttribute('href', CONFIG.CHECKOUT_URL);
 
-        btn.addEventListener('click', (e) => {
+        btn.addEventListener('click', () => {
           const location = btn.getAttribute('data-location') || 'unknown';
           const btnText = btn.innerText.trim();
 
@@ -1578,7 +1219,7 @@
     });
 
     /* -------------------------------------------------------------------------
-       4. OFFER VIEW TRACKING (IntersectionObserver)
+       4. OFFER VIEW TRACKING
        ------------------------------------------------------------------------- */
     document.addEventListener('DOMContentLoaded', () => {
       const offerSection = document.getElementById('oferta');
@@ -1618,23 +1259,23 @@
     });
 
     /* -------------------------------------------------------------------------
-       6. FULL-SCREEN IMAGE MODAL
+       6. FULL-SCREEN IMAGE MODAL WITH TOUCH SWIPE (Real Content Pages)
        ------------------------------------------------------------------------- */
     const GALLERY_DATA = [
       {
-        src: 'assets/gabarito-questoes-1-a-5.png',
-        title: 'Gabarito • Questões 1 a 5',
-        desc: 'Conferência direta das primeiras questões com visualização nítida de cada alternativa.'
+        src: 'assets/amostra-geometria-espacial.png',
+        title: 'Infográfico de Geometria Espacial',
+        desc: 'Mapeamento de 26 questões cobradas no ENEM com fórmulas de prisma, cilindro, pirâmide e cone.'
       },
       {
-        src: 'assets/gabarito-questoes-6-a-10.png',
-        title: 'Gabarito • Questões 6 a 10',
-        desc: 'Sequência completa do gabarito em layout limpo e otimizado para estudo.'
+        src: 'assets/amostra-funcao-quadratica.png',
+        title: 'Função Quadrática & Parábolas',
+        desc: 'Raízes por Bhaskara, interpretação de gráficos e determinação do vértice (Xv e Yv).'
       },
       {
-        src: 'assets/resolucao-aprofundada.png',
-        title: 'Resolução Aprofundada',
-        desc: 'Exemplo prático de desenvolvimento com fórmulas, etapas de conta e macetes do professor.'
+        src: 'assets/amostra-volume-esfera.png',
+        title: 'Volume da Esfera & Planificação',
+        desc: 'Fórmula volumétrica da esfera e exemplos de planificação de sólidos tridimensionais.'
       }
     ];
 
@@ -1678,7 +1319,6 @@
       document.body.classList.remove('modal-active');
     }
 
-    // Triggers in gallery and demo sections
     document.querySelectorAll('.gallery-trigger').forEach(trigger => {
       trigger.addEventListener('click', (e) => {
         e.preventDefault();
@@ -1691,7 +1331,7 @@
     modalPrevBtn?.addEventListener('click', () => updateModalContent(currentModalIndex - 1));
     modalNextBtn?.addEventListener('click', () => updateModalContent(currentModalIndex + 1));
 
-    // Mobile touch swipe gestures for image viewer
+    // Touch swipe gestures for smartphones
     let touchStartX = 0;
     let touchEndX = 0;
     const modalViewer = modalElem?.querySelector('.touch-pan-y');
@@ -1705,22 +1345,20 @@
         const diffX = touchEndX - touchStartX;
         if (Math.abs(diffX) > 40) {
           if (diffX < 0) {
-            updateModalContent(currentModalIndex + 1); // Swipe left = next
+            updateModalContent(currentModalIndex + 1);
           } else {
-            updateModalContent(currentModalIndex - 1); // Swipe right = prev
+            updateModalContent(currentModalIndex - 1);
           }
         }
       }, { passive: true });
     }
 
-    // Close when clicking outside dialog card
     modalElem?.addEventListener('click', (e) => {
       if (e.target === modalElem) {
         closeModal();
       }
     });
 
-    // Keyboard navigation (Escape, Left, Right)
     window.addEventListener('keydown', (e) => {
       if (modalElem && !modalElem.classList.contains('hidden')) {
         if (e.key === 'Escape') {
