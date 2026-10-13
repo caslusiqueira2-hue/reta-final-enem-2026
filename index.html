@@ -21,6 +21,13 @@
     tailwind.config = {
       theme: {
         extend: {
+          screens: {
+            'xs': '380px',
+            'sm': '640px',
+            'md': '768px',
+            'lg': '1024px',
+            'xl': '1280px',
+          },
           colors: {
             brand: {
               orange: '#FF7E00',
@@ -53,7 +60,7 @@
   </script>
 
   <style>
-    /* Neobrutalist Base Styles */
+    /* Neobrutalist Base Styles & Mobile Touch Optimizations */
     :root {
       --color-orange: #FF7E00;
       --color-purple: #6B1AFF;
@@ -62,16 +69,29 @@
       --color-gray: #5F5B62;
     }
 
+    html, body {
+      overflow-x: clip;
+      max-width: 100vw;
+      -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: transparent;
+    }
+
     body {
       background-color: #FFFFFF;
       color: #171717;
       font-family: 'Inter', sans-serif;
-      overflow-x: hidden;
     }
 
     h1, h2, h3, .font-heading {
       font-family: 'Archivo Black', sans-serif;
       letter-spacing: -0.02em;
+      text-wrap: balance;
+      word-break: break-word;
+      hyphens: auto;
+    }
+
+    button, a {
+      touch-action: manipulation;
     }
 
     /* Tactile Neobrutalist Buttons */
@@ -113,15 +133,15 @@
     /* Floating Math Symbols */
     @keyframes floatGentleA {
       0%, 100% { transform: translateY(0px) rotate(-3deg); }
-      50% { transform: translateY(-10px) rotate(2deg); }
+      50% { transform: translateY(-8px) rotate(2deg); }
     }
     @keyframes floatGentleB {
       0%, 100% { transform: translateY(0px) rotate(4deg); }
-      50% { transform: translateY(-12px) rotate(-1deg); }
+      50% { transform: translateY(-10px) rotate(-1deg); }
     }
     @keyframes floatGentleC {
       0%, 100% { transform: translateY(0px) rotate(-2deg); }
-      50% { transform: translateY(8px) rotate(3deg); }
+      50% { transform: translateY(6px) rotate(3deg); }
     }
     .math-float-a { animation: floatGentleA 6s ease-in-out infinite; }
     .math-float-b { animation: floatGentleB 7.5s ease-in-out infinite; }
@@ -159,7 +179,7 @@
     }
   </style>
 </head>
-<body class="selection:bg-brand-orange selection:text-brand-black pb-24 md:pb-0">
+<body class="selection:bg-brand-orange selection:text-brand-black pb-28 md:pb-0">
 
   <!-- Accessible Skip Link -->
   <a href="#conteudo-principal" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-brand-orange focus:text-brand-black focus:font-bold focus:px-4 focus:py-2 focus:border-2 focus:border-brand-black focus:shadow-brutal">
@@ -168,13 +188,13 @@
 
   <!-- TOP BRAND TICKER / HEADER -->
   <header class="w-full bg-brand-black text-white border-b-[3px] border-brand-black sticky top-0 z-30">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
-      <div class="flex items-center space-x-2">
-        <span class="bg-brand-orange text-brand-black text-xs font-heading px-2 py-0.5 border border-white">ENEM 2026</span>
-        <span class="text-xs sm:text-sm font-bold tracking-tight">Prof. André Pedrosa • Reta Final Matemática</span>
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-13 sm:h-14 flex items-center justify-between gap-2">
+      <div class="flex items-center space-x-1.5 sm:space-x-2 min-w-0">
+        <span class="bg-brand-orange text-brand-black text-[10px] sm:text-xs font-heading px-1.5 sm:px-2 py-0.5 border border-white flex-shrink-0">ENEM 2026</span>
+        <span class="text-xs sm:text-sm font-bold tracking-tight truncate">Prof. André Pedrosa <span class="hidden sm:inline">• Reta Final Matemática</span></span>
       </div>
-      <nav aria-label="Navegação rápida">
-        <a href="#oferta" class="checkout-cta-btn btn-brutal bg-brand-orange text-brand-black font-heading text-xs uppercase px-3 py-1.5 border-2 border-white shadow-[2px_2px_0px_#ffffff] hover:bg-white" data-location="header_nav">
+      <nav aria-label="Navegação rápida" class="flex-shrink-0">
+        <a href="#oferta" class="checkout-cta-btn btn-brutal bg-brand-orange text-brand-black font-heading text-[11px] sm:text-xs uppercase px-2.5 sm:px-3 py-1.5 border-2 border-white shadow-[2px_2px_0px_#ffffff] hover:bg-white" data-location="header_nav">
           Acessar Material
         </a>
       </nav>
@@ -186,69 +206,69 @@
     <!-- =========================================================================
          SECTION 1 — HERO
          ========================================================================= -->
-    <section class="relative bg-white border-b-[3px] border-brand-black py-12 md:py-20 lg:py-24 overflow-hidden">
+    <section class="relative bg-white border-b-[3px] border-brand-black py-10 sm:py-16 md:py-20 lg:py-24 overflow-hidden">
       <!-- Background subtle math symbols -->
-      <div class="absolute inset-0 pointer-events-none opacity-5 select-none font-heading text-6xl flex flex-wrap justify-between p-8" aria-hidden="true">
+      <div class="absolute inset-0 pointer-events-none opacity-5 select-none font-heading text-4xl sm:text-6xl flex flex-wrap justify-between p-4 sm:p-8" aria-hidden="true">
         <span>∫</span> <span>∑</span> <span>√</span> <span>π</span> <span>%</span> <span>Δ</span> <span>f(x)</span> <span>÷</span>
       </div>
 
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           
           <!-- Left Column: Copy & CTA -->
           <div class="lg:col-span-7 flex flex-col items-start">
             
             <!-- Tag/Label with slight rotation -->
-            <div class="inline-block transform -rotate-1 mb-5">
-              <span class="bg-brand-purple text-white font-heading text-xs sm:text-sm uppercase tracking-wider px-3.5 py-1.5 border-2 border-brand-black shadow-brutal">
+            <div class="inline-block transform -rotate-1 mb-4 sm:mb-5">
+              <span class="bg-brand-purple text-white font-heading text-[11px] sm:text-sm uppercase tracking-wider px-3 sm:px-3.5 py-1 sm:py-1.5 border-2 border-brand-black shadow-brutal-sm sm:shadow-brutal">
                 MATEMÁTICA • ENEM 2026
               </span>
             </div>
 
-            <!-- Main Title -->
-            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[2.9rem] leading-[1.08] font-heading text-brand-black mb-6">
+            <!-- Main Title (Fluid for mobile 320px+) -->
+            <h1 class="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[2.9rem] leading-[1.12] sm:leading-[1.08] font-heading text-brand-black mb-4 sm:mb-6">
               A reta final do ENEM não é hora de estudar no escuro.
             </h1>
 
             <!-- Subtitle -->
-            <p class="text-lg sm:text-xl text-brand-gray font-medium leading-relaxed mb-8 max-w-2xl">
+            <p class="text-base sm:text-lg md:text-xl text-brand-gray font-medium leading-relaxed mb-6 sm:mb-8 max-w-2xl">
               Revise Matemática com questões, gabarito e resoluções comentadas para entender os caminhos de cada problema e estudar com mais estratégia.
             </p>
 
             <!-- 3 Short Benefits -->
-            <ul class="space-y-3.5 mb-9 w-full max-w-xl">
-              <li class="flex items-start space-x-3">
-                <span class="flex-shrink-0 w-6 h-6 rounded-none bg-brand-orange border-2 border-brand-black shadow-[2px_2px_0px_#171717] flex items-center justify-center text-brand-black font-black text-sm mt-0.5">
+            <ul class="space-y-3 sm:space-y-3.5 mb-7 sm:mb-9 w-full max-w-xl">
+              <li class="flex items-start space-x-2.5 sm:space-x-3">
+                <span class="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-none bg-brand-orange border-2 border-brand-black shadow-[1.5px_1.5px_0px_#171717] flex items-center justify-center text-brand-black font-black text-xs sm:text-sm mt-0.5">
                   ✓
                 </span>
-                <span class="text-base sm:text-lg font-semibold text-brand-black">
+                <span class="text-sm sm:text-base md:text-lg font-semibold text-brand-black leading-snug">
                   Revise conteúdos importantes de Matemática.
                 </span>
               </li>
-              <li class="flex items-start space-x-3">
-                <span class="flex-shrink-0 w-6 h-6 rounded-none bg-brand-orange border-2 border-brand-black shadow-[2px_2px_0px_#171717] flex items-center justify-center text-brand-black font-black text-sm mt-0.5">
+              <li class="flex items-start space-x-2.5 sm:space-x-3">
+                <span class="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-none bg-brand-orange border-2 border-brand-black shadow-[1.5px_1.5px_0px_#171717] flex items-center justify-center text-brand-black font-black text-xs sm:text-sm mt-0.5">
                   ✓
                 </span>
-                <span class="text-base sm:text-lg font-semibold text-brand-black">
+                <span class="text-sm sm:text-base md:text-lg font-semibold text-brand-black leading-snug">
                   Entenda o raciocínio por trás das questões.
                 </span>
               </li>
-              <li class="flex items-start space-x-3">
-                <span class="flex-shrink-0 w-6 h-6 rounded-none bg-brand-orange border-2 border-brand-black shadow-[2px_2px_0px_#171717] flex items-center justify-center text-brand-black font-black text-sm mt-0.5">
+              <li class="flex items-start space-x-2.5 sm:space-x-3">
+                <span class="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-none bg-brand-orange border-2 border-brand-black shadow-[1.5px_1.5px_0px_#171717] flex items-center justify-center text-brand-black font-black text-xs sm:text-sm mt-0.5">
                   ✓
                 </span>
-                <span class="text-base sm:text-lg font-semibold text-brand-black">
+                <span class="text-sm sm:text-base md:text-lg font-semibold text-brand-black leading-snug">
                   Organize sua preparação com um material direto ao ponto.
                 </span>
               </li>
             </ul>
 
             <!-- CTA Button & Helper text -->
-            <div class="w-full sm:w-auto flex flex-col items-start gap-2.5">
-              <a href="#oferta" class="checkout-cta-btn btn-brutal w-full sm:w-auto px-8 py-4 bg-brand-orange text-brand-black font-heading text-base sm:text-lg uppercase tracking-wide border-[3px] border-brand-black shadow-brutal-md text-center" data-location="hero">
+            <div class="w-full sm:w-auto flex flex-col items-stretch sm:items-start gap-2.5">
+              <a href="#oferta" class="checkout-cta-btn btn-brutal w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-brand-orange text-brand-black font-heading text-sm sm:text-base md:text-lg uppercase tracking-wide border-[3px] border-brand-black shadow-brutal sm:shadow-brutal-md text-center" data-location="hero">
                 QUERO MEU MATERIAL DE REVISÃO
               </a>
-              <p class="text-xs sm:text-sm text-brand-gray font-semibold flex items-center gap-1.5 ml-1">
+              <p class="text-xs sm:text-sm text-brand-gray font-semibold flex items-center justify-center sm:justify-start gap-1.5 sm:ml-1">
                 <svg class="w-4 h-4 text-brand-black inline" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
@@ -258,97 +278,97 @@
 
           </div>
 
-          <!-- Right Column: High-Impact CSS Mockup of the PDF Product -->
-          <div class="lg:col-span-5 relative flex justify-center items-center py-6">
+          <!-- Right Column: High-Impact CSS Mockup of the PDF Product (Fluid Mobile Layout) -->
+          <div class="lg:col-span-5 relative flex justify-center items-center py-4 sm:py-6 w-full">
             
-            <!-- Floating Decorative Math Badges -->
-            <div class="absolute -top-3 left-4 z-20 math-float-a" aria-hidden="true">
-              <span class="inline-block bg-brand-purple text-white text-xs font-mono font-black px-3 py-1.5 border-2 border-brand-black shadow-brutal transform -rotate-6">
+            <!-- Floating Decorative Math Badges (Safe bounds on mobile) -->
+            <div class="absolute -top-2 left-2 sm:left-4 z-20 math-float-a" aria-hidden="true">
+              <span class="inline-block bg-brand-purple text-white text-[10px] sm:text-xs font-mono font-black px-2 sm:px-3 py-1 sm:py-1.5 border-2 border-brand-black shadow-brutal-sm transform -rotate-6">
                 f(x) = ax + b
               </span>
             </div>
             
-            <div class="absolute top-1/4 -right-2 z-20 math-float-b" aria-hidden="true">
-              <span class="inline-block bg-brand-orange text-brand-black text-xs font-mono font-black px-3 py-1 border-2 border-brand-black shadow-brutal transform rotate-6">
+            <div class="absolute top-1/4 right-1 sm:-right-2 z-20 math-float-b" aria-hidden="true">
+              <span class="inline-block bg-brand-orange text-brand-black text-[10px] sm:text-xs font-mono font-black px-2 sm:px-3 py-1 border-2 border-brand-black shadow-brutal-sm transform rotate-6">
                 π ≅ 3,14
               </span>
             </div>
 
-            <div class="absolute bottom-8 -left-3 z-20 math-float-c" aria-hidden="true">
-              <span class="inline-block bg-brand-cream text-brand-black text-xs font-mono font-black px-3 py-1 border-2 border-brand-black shadow-brutal transform rotate-3">
+            <div class="absolute bottom-6 left-1 sm:-left-3 z-20 math-float-c" aria-hidden="true">
+              <span class="inline-block bg-brand-cream text-brand-black text-[10px] sm:text-xs font-mono font-black px-2 sm:px-3 py-1 border-2 border-brand-black shadow-brutal-sm transform rotate-3">
                 % de Lucro
               </span>
             </div>
 
-            <div class="absolute -bottom-2 right-6 z-20 math-float-a" aria-hidden="true">
-              <span class="inline-block bg-white text-brand-purple text-xs font-mono font-black px-2.5 py-1 border-2 border-brand-black shadow-brutal transform -rotate-3">
+            <div class="absolute -bottom-2 right-3 sm:right-6 z-20 math-float-a" aria-hidden="true">
+              <span class="inline-block bg-white text-brand-purple text-[10px] sm:text-xs font-mono font-black px-2 sm:px-2.5 py-1 border-2 border-brand-black shadow-brutal-sm transform -rotate-3">
                 V = π · r² · h
               </span>
             </div>
 
             <!-- Layered PDF Stack Mockup -->
-            <div class="relative w-full max-w-[340px] sm:max-w-[370px]">
+            <div class="relative w-full max-w-[270px] xs:max-w-[310px] sm:max-w-[360px] mx-auto">
               
               <!-- Back Stack Sheet 2 -->
-              <div class="absolute inset-0 bg-[#D4C4FB] border-[3px] border-brand-black transform -rotate-6 translate-x-3 translate-y-3 shadow-brutal"></div>
+              <div class="absolute inset-0 bg-[#D4C4FB] border-[2.5px] sm:border-[3px] border-brand-black transform -rotate-3 sm:-rotate-6 translate-x-1.5 sm:translate-x-3 translate-y-1.5 sm:translate-y-3 shadow-brutal-sm sm:shadow-brutal"></div>
               
               <!-- Back Stack Sheet 1 -->
-              <div class="absolute inset-0 bg-brand-lightOrange border-[3px] border-brand-black transform rotate-3 translate-x-1 translate-y-1 shadow-brutal"></div>
+              <div class="absolute inset-0 bg-brand-lightOrange border-[2.5px] sm:border-[3px] border-brand-black transform rotate-2 sm:rotate-3 translate-x-1 sm:translate-x-1 translate-y-1 sm:translate-y-1 shadow-brutal-sm sm:shadow-brutal"></div>
 
               <!-- Main Front Sheet (A5 Ratio Book Cover) -->
-              <div class="relative bg-white border-[3px] border-brand-black p-5 sm:p-6 shadow-brutal-xl">
+              <div class="relative bg-white border-[2.5px] sm:border-[3px] border-brand-black p-4 sm:p-6 shadow-brutal-lg sm:shadow-brutal-xl">
                 
                 <!-- Top Ribbon of the PDF -->
-                <div class="flex items-center justify-between border-b-2 border-brand-black pb-3 mb-4">
-                  <span class="font-heading text-[10px] sm:text-xs uppercase tracking-wider text-brand-black bg-brand-orange px-2 py-0.5 border border-brand-black">
+                <div class="flex items-center justify-between border-b-2 border-brand-black pb-2.5 sm:pb-3 mb-3 sm:mb-4">
+                  <span class="font-heading text-[9px] sm:text-xs uppercase tracking-wider text-brand-black bg-brand-orange px-1.5 sm:px-2 py-0.5 border border-brand-black">
                     PDF DIGITAL A5
                   </span>
-                  <span class="text-[11px] font-bold text-brand-gray tracking-tight">
+                  <span class="text-[10px] sm:text-[11px] font-bold text-brand-gray tracking-tight">
                     ENEM 2026 • REVISÃO
                   </span>
                 </div>
 
                 <!-- Cover Badge & Seal -->
-                <div class="text-center my-3">
-                  <div class="inline-block bg-brand-black text-white px-3 py-1 text-xs font-heading tracking-widest uppercase mb-2 border border-brand-black">
+                <div class="text-center my-2 sm:my-3">
+                  <div class="inline-block bg-brand-black text-white px-2.5 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-heading tracking-widest uppercase mb-1.5 sm:mb-2 border border-brand-black">
                     PROF. ANDRÉ PEDROSA
                   </div>
-                  <div class="bg-brand-cream border-2 border-brand-black p-4 shadow-brutal-sm relative my-2">
-                    <p class="text-xs uppercase font-bold text-brand-purple tracking-wider mb-1">Caderno Estratégico</p>
-                    <h2 class="text-2xl sm:text-3xl font-heading text-brand-black leading-none">
+                  <div class="bg-brand-cream border-2 border-brand-black p-3 sm:p-4 shadow-brutal-sm relative my-1.5 sm:my-2">
+                    <p class="text-[10px] sm:text-xs uppercase font-bold text-brand-purple tracking-wider mb-0.5 sm:mb-1">Caderno Estratégico</p>
+                    <h2 class="text-xl sm:text-2xl md:text-3xl font-heading text-brand-black leading-none">
                       RETA FINAL<br>
                       <span class="text-brand-orange">ENEM 2026</span>
                     </h2>
-                    <p class="text-xs font-bold text-brand-black mt-2 tracking-tight">
+                    <p class="text-[11px] sm:text-xs font-bold text-brand-black mt-1.5 sm:mt-2 tracking-tight">
                       MATEMÁTICA COMENTADA
                     </p>
                   </div>
                 </div>
 
                 <!-- Graphic Schema inside cover -->
-                <div class="border-2 border-dashed border-brand-black p-3 my-4 bg-gray-50 flex items-center justify-between">
+                <div class="border-2 border-dashed border-brand-black p-2.5 sm:p-3 my-3 sm:my-4 bg-gray-50 flex items-center justify-between">
                   <div class="space-y-1 text-left">
-                    <div class="text-[10px] font-extrabold uppercase text-brand-black flex items-center gap-1">
-                      <span class="w-2 h-2 bg-brand-purple inline-block"></span> 10 Questões-Chave
+                    <div class="text-[9px] sm:text-[10px] font-extrabold uppercase text-brand-black flex items-center gap-1">
+                      <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-brand-purple inline-block"></span> 10 Questões-Chave
                     </div>
-                    <div class="text-[10px] font-extrabold uppercase text-brand-black flex items-center gap-1">
-                      <span class="w-2 h-2 bg-brand-orange inline-block"></span> Gabarito Detalhado
+                    <div class="text-[9px] sm:text-[10px] font-extrabold uppercase text-brand-black flex items-center gap-1">
+                      <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-brand-orange inline-block"></span> Gabarito Detalhado
                     </div>
-                    <div class="text-[10px] font-extrabold uppercase text-brand-black flex items-center gap-1">
-                      <span class="w-2 h-2 bg-brand-black inline-block"></span> Macetes & Procedimentos
+                    <div class="text-[9px] sm:text-[10px] font-extrabold uppercase text-brand-black flex items-center gap-1">
+                      <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-brand-black inline-block"></span> Macetes & Procedimentos
                     </div>
                   </div>
-                  <div class="w-14 h-14 bg-white border-2 border-brand-black flex items-center justify-center font-heading text-xl text-brand-purple shadow-[2px_2px_0px_#171717]">
+                  <div class="w-10 h-10 sm:w-14 sm:h-14 bg-white border-2 border-brand-black flex items-center justify-center font-heading text-base sm:text-xl text-brand-purple shadow-[1.5px_1.5px_0px_#171717] sm:shadow-[2px_2px_0px_#171717]">
                     ∑
                   </div>
                 </div>
 
                 <!-- Footer elements inside cover -->
                 <div class="flex items-center justify-between pt-2 border-t border-gray-200">
-                  <div class="text-[9px] text-brand-gray font-mono">
+                  <div class="text-[8px] sm:text-[9px] text-brand-gray font-mono">
                     ISBN DIGITAL • MAT-2026
                   </div>
-                  <span class="text-[10px] font-black bg-brand-purple text-white px-2 py-0.5 border border-brand-black">
+                  <span class="text-[9px] sm:text-[10px] font-black bg-brand-purple text-white px-1.5 sm:px-2 py-0.5 border border-brand-black">
                     RESOLUÇÕES COMPLETAS
                   </span>
                 </div>
@@ -1052,26 +1072,26 @@
     <!-- =========================================================================
          SECTION 8 — PROFESSOR (Cream Background)
          ========================================================================= -->
-    <section class="bg-brand-cream border-b-[3px] border-brand-black py-16 md:py-24">
+    <section class="bg-brand-cream border-b-[3px] border-brand-black py-12 sm:py-16 md:py-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          <!-- Professor Photo in Neobrutalist Frame -->
+          <!-- Professor Photo in Neobrutalist Frame (Contained for mobile) -->
           <div class="lg:col-span-5 flex justify-center">
-            <div class="relative w-full max-w-[320px] sm:max-w-[350px]">
+            <div class="relative w-full max-w-[260px] xs:max-w-[290px] sm:max-w-[340px] mx-auto">
               
               <!-- Decorative background box -->
-              <div class="absolute inset-0 bg-brand-purple border-[3px] border-brand-black transform rotate-3 translate-x-3 translate-y-3 shadow-brutal"></div>
+              <div class="absolute inset-0 bg-brand-purple border-[2.5px] sm:border-[3px] border-brand-black transform rotate-2 sm:rotate-3 translate-x-1.5 sm:translate-x-3 translate-y-1.5 sm:translate-y-3 shadow-brutal-sm sm:shadow-brutal"></div>
               
               <!-- Foreground Photo Box -->
-              <div class="relative bg-white border-[3px] border-brand-black p-3 sm:p-4 shadow-brutal-lg transform -rotate-1">
+              <div class="relative bg-white border-[2.5px] sm:border-[3px] border-brand-black p-2.5 sm:p-4 shadow-brutal sm:shadow-brutal-lg transform -rotate-1">
                 <div class="border-2 border-brand-black overflow-hidden bg-gray-100 aspect-square">
                   <img src="assets/professor-andre-pedrosa.png" alt="Prof. André Pedrosa - Professor de Matemática" class="w-full h-full object-cover" loading="lazy">
                 </div>
-                <div class="mt-3 text-center border-t-2 border-brand-black pt-2">
-                  <p class="font-heading text-lg text-brand-black">Prof. André Pedrosa</p>
-                  <p class="text-xs font-bold uppercase text-brand-purple tracking-wider">Matemática</p>
+                <div class="mt-2.5 sm:mt-3 text-center border-t-2 border-brand-black pt-2">
+                  <p class="font-heading text-base sm:text-lg text-brand-black">Prof. André Pedrosa</p>
+                  <p class="text-[10px] sm:text-xs font-bold uppercase text-brand-purple tracking-wider">Matemática</p>
                 </div>
               </div>
 
@@ -1080,31 +1100,31 @@
 
           <!-- Professor Bio Text -->
           <div class="lg:col-span-7">
-            <div class="inline-block transform 1 mb-4">
-              <span class="bg-brand-orange text-brand-black font-heading text-xs uppercase tracking-wider px-3.5 py-1.5 border-2 border-brand-black shadow-brutal-sm">
+            <div class="inline-block transform rotate-1 mb-3 sm:mb-4">
+              <span class="bg-brand-orange text-brand-black font-heading text-[10px] sm:text-xs uppercase tracking-wider px-3 sm:px-3.5 py-1 sm:py-1.5 border-2 border-brand-black shadow-brutal-sm">
                 DOCÊNCIA & PREPARAÇÃO
               </span>
             </div>
             
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading text-brand-black mb-6 leading-tight">
+            <h2 class="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-heading text-brand-black mb-4 sm:mb-6 leading-tight">
               Quem acompanha sua revisão
             </h2>
 
             <!-- Exact specified quote text -->
-            <div class="bg-white border-[3px] border-brand-black p-6 sm:p-8 shadow-brutal mb-6">
-              <p class="text-lg sm:text-xl text-brand-black font-medium leading-relaxed">
+            <div class="bg-white border-[2.5px] sm:border-[3px] border-brand-black p-4 xs:p-6 sm:p-8 shadow-brutal mb-5 sm:mb-6">
+              <p class="text-base sm:text-lg md:text-xl text-brand-black font-medium leading-relaxed">
                 “Sou o Prof. André Pedrosa, e este material foi organizado para ajudar estudantes a revisar Matemática com mais clareza, atenção aos procedimentos e foco na preparação para o ENEM.”
               </p>
             </div>
 
-            <div class="flex flex-wrap gap-3">
-              <span class="inline-flex items-center text-xs font-bold uppercase bg-white border-2 border-brand-black px-3 py-1.5 shadow-brutal-sm">
+            <div class="flex flex-wrap gap-2 sm:gap-3">
+              <span class="inline-flex items-center text-[10px] sm:text-xs font-bold uppercase bg-white border-2 border-brand-black px-2.5 sm:px-3 py-1 sm:py-1.5 shadow-brutal-sm">
                 📐 Foco nos procedimentos
               </span>
-              <span class="inline-flex items-center text-xs font-bold uppercase bg-white border-2 border-brand-black px-3 py-1.5 shadow-brutal-sm">
+              <span class="inline-flex items-center text-[10px] sm:text-xs font-bold uppercase bg-white border-2 border-brand-black px-2.5 sm:px-3 py-1 sm:py-1.5 shadow-brutal-sm">
                 📝 Resoluções passo a passo
               </span>
-              <span class="inline-flex items-center text-xs font-bold uppercase bg-white border-2 border-brand-black px-3 py-1.5 shadow-brutal-sm">
+              <span class="inline-flex items-center text-[10px] sm:text-xs font-bold uppercase bg-white border-2 border-brand-black px-2.5 sm:px-3 py-1 sm:py-1.5 shadow-brutal-sm">
                 🎯 Linguagem direta
               </span>
             </div>
@@ -1119,100 +1139,100 @@
     <!-- =========================================================================
          SECTION 9 — OFFER & PRICE (Orange/Cream Background with Black Borders)
          ========================================================================= -->
-    <section class="bg-brand-orange border-y-[4px] border-brand-black py-16 md:py-24 relative overflow-hidden" id="oferta">
+    <section class="bg-brand-orange border-y-[4px] border-brand-black py-12 sm:py-16 md:py-24 relative overflow-hidden" id="oferta">
       <!-- Decorative brutalist pattern -->
       <div class="absolute inset-0 opacity-10 bg-grid-dots pointer-events-none" aria-hidden="true"></div>
 
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <!-- Header -->
-        <div class="text-center max-w-3xl mx-auto mb-12">
-          <div class="inline-block transform -rotate-1 mb-3">
-            <span class="bg-brand-black text-white font-heading text-xs uppercase tracking-wider px-4 py-1.5 border-2 border-brand-black shadow-brutal-white">
+        <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+          <div class="inline-block transform -rotate-1 mb-2.5 sm:mb-3">
+            <span class="bg-brand-black text-white font-heading text-[10px] sm:text-xs uppercase tracking-wider px-3 sm:px-4 py-1 sm:py-1.5 border-2 border-brand-black shadow-brutal-white">
               ACESSO IMEDIATO AO PDF
             </span>
           </div>
-          <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading text-brand-black leading-tight">
+          <h2 class="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-heading text-brand-black leading-tight">
             Leve sua revisão de Matemática para a reta final.
           </h2>
         </div>
 
         <!-- Centered Product Card -->
-        <div class="bg-white border-[4px] border-brand-black p-6 sm:p-10 shadow-brutal-xl max-w-2xl mx-auto relative">
+        <div class="bg-white border-[3px] sm:border-[4px] border-brand-black p-4 xs:p-6 sm:p-10 shadow-brutal-lg sm:shadow-brutal-xl max-w-2xl mx-auto relative">
           
           <!-- Top Tag on Card -->
-          <div class="absolute -top-4 right-6 transform rotate-2">
-            <span class="bg-brand-purple text-white text-xs font-heading uppercase px-3 py-1 border-2 border-brand-black shadow-brutal-sm">
+          <div class="absolute -top-3.5 right-4 sm:right-6 transform rotate-2">
+            <span class="bg-brand-purple text-white text-[10px] sm:text-xs font-heading uppercase px-2.5 sm:px-3 py-0.5 sm:py-1 border-2 border-brand-black shadow-brutal-sm">
               EDIÇÃO ENEM 2026
             </span>
           </div>
 
           <!-- Product Titles -->
-          <div class="border-b-2 border-brand-black pb-6 mb-6">
-            <h3 class="text-2xl sm:text-3xl font-heading text-brand-black">
+          <div class="border-b-2 border-brand-black pb-4 sm:pb-6 mb-4 sm:mb-6 pt-1 sm:pt-0">
+            <h3 class="text-xl sm:text-2xl md:text-3xl font-heading text-brand-black leading-tight">
               Reta Final ENEM 2026 — Matemática
             </h3>
-            <p class="text-base font-bold text-brand-purple mt-1">
+            <p class="text-sm sm:text-base font-bold text-brand-purple mt-1">
               Prof. André Pedrosa
             </p>
           </div>
 
           <!-- Included Items with Checkmarks -->
-          <div class="space-y-3.5 mb-8">
-            <p class="text-xs font-bold uppercase text-brand-gray tracking-wider mb-2">
+          <div class="space-y-2.5 sm:space-y-3.5 mb-6 sm:mb-8">
+            <p class="text-[10px] sm:text-xs font-bold uppercase text-brand-gray tracking-wider mb-2">
               O que você recebe no material:
             </p>
 
-            <div class="flex items-center space-x-3">
-              <span class="w-6 h-6 bg-brand-orange border-2 border-brand-black flex items-center justify-center font-bold text-brand-black text-sm shadow-[1px_1px_0px_#171717]">
+            <div class="flex items-center space-x-2.5 sm:space-x-3">
+              <span class="w-5 h-5 sm:w-6 sm:h-6 bg-brand-orange border-2 border-brand-black flex items-center justify-center font-bold text-brand-black text-xs sm:text-sm shadow-[1px_1px_0px_#171717]">
                 ✓
               </span>
-              <span class="text-base font-bold text-brand-black">Material digital em PDF</span>
+              <span class="text-sm sm:text-base font-bold text-brand-black">Material digital em PDF</span>
             </div>
 
-            <div class="flex items-center space-x-3">
-              <span class="w-6 h-6 bg-brand-orange border-2 border-brand-black flex items-center justify-center font-bold text-brand-black text-sm shadow-[1px_1px_0px_#171717]">
+            <div class="flex items-center space-x-2.5 sm:space-x-3">
+              <span class="w-5 h-5 sm:w-6 sm:h-6 bg-brand-orange border-2 border-brand-black flex items-center justify-center font-bold text-brand-black text-xs sm:text-sm shadow-[1px_1px_0px_#171717]">
                 ✓
               </span>
-              <span class="text-base font-bold text-brand-black">Questões de revisão</span>
+              <span class="text-sm sm:text-base font-bold text-brand-black">Questões de revisão</span>
             </div>
 
-            <div class="flex items-center space-x-3">
-              <span class="w-6 h-6 bg-brand-orange border-2 border-brand-black flex items-center justify-center font-bold text-brand-black text-sm shadow-[1px_1px_0px_#171717]">
+            <div class="flex items-center space-x-2.5 sm:space-x-3">
+              <span class="w-5 h-5 sm:w-6 sm:h-6 bg-brand-orange border-2 border-brand-black flex items-center justify-center font-bold text-brand-black text-xs sm:text-sm shadow-[1px_1px_0px_#171717]">
                 ✓
               </span>
-              <span class="text-base font-bold text-brand-black">Gabarito</span>
+              <span class="text-sm sm:text-base font-bold text-brand-black">Gabarito</span>
             </div>
 
-            <div class="flex items-center space-x-3">
-              <span class="w-6 h-6 bg-brand-orange border-2 border-brand-black flex items-center justify-center font-bold text-brand-black text-sm shadow-[1px_1px_0px_#171717]">
+            <div class="flex items-center space-x-2.5 sm:space-x-3">
+              <span class="w-5 h-5 sm:w-6 sm:h-6 bg-brand-orange border-2 border-brand-black flex items-center justify-center font-bold text-brand-black text-xs sm:text-sm shadow-[1px_1px_0px_#171717]">
                 ✓
               </span>
-              <span class="text-base font-bold text-brand-black">Resoluções comentadas e macetes</span>
+              <span class="text-sm sm:text-base font-bold text-brand-black">Resoluções comentadas e macetes</span>
             </div>
           </div>
 
           <!-- Price Display Section -->
-          <div class="bg-brand-cream border-2 border-brand-black p-5 text-center mb-8 shadow-brutal-sm">
-            <p class="text-xs font-bold text-brand-gray uppercase tracking-wider mb-1">
+          <div class="bg-brand-cream border-2 border-brand-black p-3.5 sm:p-5 text-center mb-6 sm:mb-8 shadow-brutal-sm">
+            <p class="text-[10px] sm:text-xs font-bold text-brand-gray uppercase tracking-wider mb-1">
               Investimento
             </p>
-            <div id="product-price-display" class="text-2xl sm:text-3xl font-heading text-brand-black">
+            <div id="product-price-display" class="text-xl sm:text-2xl md:text-3xl font-heading text-brand-black">
               <!-- Dynamically populated from CONFIG.PRODUCT_PRICE -->
               ⚠️ CONFIGURAR PREÇO
             </div>
-            <div id="price-warning-badge" class="mt-2 inline-block bg-yellow-300 text-brand-black text-xs font-bold px-2 py-0.5 border border-brand-black">
+            <div id="price-warning-badge" class="mt-2 inline-block bg-yellow-300 text-brand-black text-[10px] sm:text-xs font-bold px-2 py-0.5 border border-brand-black">
               Consulte as condições atualizadas na página de checkout.
             </div>
           </div>
 
           <!-- Main CTA Button -->
           <div class="flex flex-col items-center">
-            <a href="#checkout-placeholder" class="checkout-cta-btn btn-brutal w-full py-4 sm:py-5 bg-brand-orange text-brand-black font-heading text-lg sm:text-xl uppercase tracking-wider border-[3px] border-brand-black shadow-brutal-md text-center" data-location="offer_section">
+            <a href="#checkout-placeholder" class="checkout-cta-btn btn-brutal w-full py-3.5 sm:py-5 px-4 bg-brand-orange text-brand-black font-heading text-base sm:text-lg md:text-xl uppercase tracking-wider border-[3px] border-brand-black shadow-brutal sm:shadow-brutal-md text-center" data-location="offer_section">
               QUERO ACESSAR O MATERIAL
             </a>
-            <p class="text-xs sm:text-sm text-brand-gray font-semibold mt-3 flex items-center gap-1.5">
-              <svg class="w-4 h-4 text-brand-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <p class="text-xs sm:text-sm text-brand-gray font-semibold mt-2.5 sm:mt-3 flex items-center gap-1.5 text-center">
+              <svg class="w-4 h-4 text-brand-black flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
               </svg>
               Finalize sua compra pelo checkout seguro.
@@ -1408,60 +1428,60 @@
   <!-- =========================================================================
        MOBILE STICKY CTA BAR (Hidden on md+ screens)
        ========================================================================= -->
-  <aside class="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-brand-orange border-t-[3px] border-brand-black p-3 shadow-brutal-xl" style="padding-bottom: max(0.75rem, env(safe-area-inset-bottom));">
-    <div class="max-w-md mx-auto flex items-center justify-between gap-3">
-      <div class="truncate">
+  <aside class="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-brand-orange border-t-[3px] border-brand-black px-3 py-2.5 shadow-brutal-xl" style="padding-bottom: max(0.65rem, env(safe-area-inset-bottom));">
+    <div class="max-w-md mx-auto flex items-center justify-between gap-2.5">
+      <div class="min-w-0 flex-1">
         <span class="block text-[11px] font-heading text-brand-black uppercase leading-tight truncate">Reta Final ENEM 2026</span>
-        <span class="block text-[10px] font-bold text-brand-black/80">PDF Digital • Prof. André Pedrosa</span>
+        <span class="block text-[10px] font-bold text-brand-black/80 truncate">PDF Digital • Prof. André Pedrosa</span>
       </div>
-      <a href="#checkout-placeholder" class="checkout-cta-btn btn-brutal flex-shrink-0 bg-brand-black text-white px-4 py-2.5 font-heading text-xs uppercase tracking-wider border-2 border-brand-black shadow-[2px_2px_0px_#ffffff]" data-location="mobile_sticky_bar">
+      <a href="#checkout-placeholder" class="checkout-cta-btn btn-brutal flex-shrink-0 bg-brand-black text-white px-3.5 py-2 font-heading text-[11px] uppercase tracking-wider border-2 border-brand-black shadow-[2px_2px_0px_#ffffff] whitespace-nowrap active:translate-x-0.5 active:translate-y-0.5" data-location="mobile_sticky_bar">
         QUERO MEU MATERIAL
       </a>
     </div>
   </aside>
 
   <!-- =========================================================================
-       IMAGE MODAL (Full Screen Sample Viewer)
+       IMAGE MODAL (Full Screen Sample Viewer with Touch Swipe)
        ========================================================================= -->
-  <div id="image-modal" class="fixed inset-0 z-50 hidden bg-brand-black/85 backdrop-blur-sm p-4 sm:p-6 flex items-center justify-center" role="dialog" aria-modal="true" aria-label="Visualizador de amostras do material">
+  <div id="image-modal" class="fixed inset-0 z-50 hidden bg-brand-black/85 backdrop-blur-sm p-2 sm:p-6 flex items-center justify-center" role="dialog" aria-modal="true" aria-label="Visualizador de amostras do material">
     
-    <div class="relative w-full max-w-3xl bg-white border-[4px] border-brand-black shadow-brutal-xl flex flex-col max-h-[92vh] overflow-hidden">
+    <div class="relative w-full max-w-3xl bg-white border-[3px] sm:border-[4px] border-brand-black shadow-brutal-xl flex flex-col max-h-[94vh] overflow-hidden">
       
       <!-- Modal Header -->
-      <div class="bg-brand-black text-white p-3 sm:p-4 flex items-center justify-between border-b-[3px] border-brand-black">
-        <div class="flex items-center space-x-2">
-          <span id="modal-counter-badge" class="bg-brand-orange text-brand-black text-xs font-heading px-2 py-0.5 border border-brand-black">
+      <div class="bg-brand-black text-white p-2.5 sm:p-4 flex items-center justify-between border-b-[3px] border-brand-black">
+        <div class="flex items-center space-x-1.5 sm:space-x-2 min-w-0">
+          <span id="modal-counter-badge" class="bg-brand-orange text-brand-black text-[10px] sm:text-xs font-heading px-1.5 sm:px-2 py-0.5 border border-brand-black flex-shrink-0">
             1 de 3
           </span>
-          <h3 id="modal-image-title" class="font-heading text-sm sm:text-base text-white truncate max-w-[220px] sm:max-w-md">
+          <h3 id="modal-image-title" class="font-heading text-xs sm:text-base text-white truncate max-w-[200px] sm:max-w-md">
             Gabarito • Questões 1 a 5
           </h3>
         </div>
-        <button id="modal-close-btn" type="button" class="btn-brutal bg-white text-brand-black font-heading text-sm px-2.5 py-1 border-2 border-brand-black shadow-[2px_2px_0px_#ffffff] hover:bg-brand-orange" aria-label="Fechar visualização">
+        <button id="modal-close-btn" type="button" class="btn-brutal bg-white text-brand-black font-heading text-xs sm:text-sm px-2.5 py-1 border-2 border-brand-black shadow-[2px_2px_0px_#ffffff] hover:bg-brand-orange" aria-label="Fechar visualização">
           ✕
         </button>
       </div>
 
       <!-- Modal Image Viewer -->
-      <div class="relative flex-1 bg-gray-100 overflow-auto p-2 sm:p-4 flex items-center justify-center select-none">
-        <img id="modal-image-elem" src="assets/gabarito-questoes-1-a-5.png" alt="Visualização da amostra do material" class="max-h-[68vh] w-auto max-w-full object-contain border-2 border-brand-black shadow-brutal-sm">
+      <div class="relative flex-1 bg-gray-100 overflow-auto p-2 sm:p-4 flex items-center justify-center select-none touch-pan-y">
+        <img id="modal-image-elem" src="assets/gabarito-questoes-1-a-5.png" alt="Visualização da amostra do material" class="max-h-[58vh] sm:max-h-[68vh] w-auto max-w-full object-contain border-2 border-brand-black shadow-brutal-sm">
 
-        <!-- Navigation Buttons inside modal -->
-        <button id="modal-prev-btn" type="button" class="btn-brutal absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white text-brand-black font-heading text-xl border-[3px] border-brand-black shadow-brutal flex items-center justify-center hover:bg-brand-orange" aria-label="Imagem anterior">
+        <!-- Navigation Buttons inside modal (responsive touch sizing) -->
+        <button id="modal-prev-btn" type="button" class="btn-brutal absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-11 sm:h-11 bg-white/95 text-brand-black font-heading text-base sm:text-xl border-2 sm:border-[3px] border-brand-black shadow-brutal-sm sm:shadow-brutal flex items-center justify-center hover:bg-brand-orange" aria-label="Imagem anterior">
           ‹
         </button>
-        <button id="modal-next-btn" type="button" class="btn-brutal absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white text-brand-black font-heading text-xl border-[3px] border-brand-black shadow-brutal flex items-center justify-center hover:bg-brand-orange" aria-label="Próxima imagem">
+        <button id="modal-next-btn" type="button" class="btn-brutal absolute right-1 sm:right-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-11 sm:h-11 bg-white/95 text-brand-black font-heading text-base sm:text-xl border-2 sm:border-[3px] border-brand-black shadow-brutal-sm sm:shadow-brutal flex items-center justify-center hover:bg-brand-orange" aria-label="Próxima imagem">
           ›
         </button>
       </div>
 
       <!-- Modal Footer -->
-      <div class="bg-brand-cream border-t-2 border-brand-black p-3 sm:p-4 flex items-center justify-between text-xs sm:text-sm">
-        <p id="modal-image-desc" class="text-brand-gray font-medium truncate mr-4">
+      <div class="bg-brand-cream border-t-2 border-brand-black p-2.5 sm:p-4 flex items-center justify-between text-xs sm:text-sm gap-2">
+        <p id="modal-image-desc" class="text-brand-gray font-medium text-[11px] sm:text-sm truncate">
           Visualização oficial do material em formato digital A5.
         </p>
-        <a href="#oferta" id="modal-cta-btn" class="checkout-cta-btn btn-brutal flex-shrink-0 bg-brand-orange text-brand-black font-heading text-xs uppercase px-3 py-1.5 border-2 border-brand-black shadow-brutal-sm" data-location="modal_footer">
-          Quero este material
+        <a href="#oferta" id="modal-cta-btn" class="checkout-cta-btn btn-brutal flex-shrink-0 bg-brand-orange text-brand-black font-heading text-[10px] sm:text-xs uppercase px-2.5 sm:px-3 py-1 sm:py-1.5 border-2 border-brand-black shadow-brutal-sm whitespace-nowrap" data-location="modal_footer">
+          Quero o material
         </a>
       </div>
 
@@ -1670,6 +1690,28 @@
     modalCloseBtn?.addEventListener('click', closeModal);
     modalPrevBtn?.addEventListener('click', () => updateModalContent(currentModalIndex - 1));
     modalNextBtn?.addEventListener('click', () => updateModalContent(currentModalIndex + 1));
+
+    // Mobile touch swipe gestures for image viewer
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const modalViewer = modalElem?.querySelector('.touch-pan-y');
+    if (modalViewer) {
+      modalViewer.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      modalViewer.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diffX = touchEndX - touchStartX;
+        if (Math.abs(diffX) > 40) {
+          if (diffX < 0) {
+            updateModalContent(currentModalIndex + 1); // Swipe left = next
+          } else {
+            updateModalContent(currentModalIndex - 1); // Swipe right = prev
+          }
+        }
+      }, { passive: true });
+    }
 
     // Close when clicking outside dialog card
     modalElem?.addEventListener('click', (e) => {
