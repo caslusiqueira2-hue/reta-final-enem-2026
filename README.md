@@ -7,14 +7,14 @@ Landing page de alta conversão para o material digital de revisão de Matemáti
 1. Abra `index.html` no navegador para visualizar localmente.
 2. Para deploy, conecte este repositório à Vercel.
 
-## ⚙️ Configurações obrigatórias antes de publicar
+## ⚙️ Configurações da Landing Page
 
-Edite as variáveis `CONFIG` no início do `<script>` dentro de `index.html`:
+As variáveis `CONFIG` estão configuradas no `<script>` dentro de `index.html`:
 
-| Variável | Descrição | Status |
+| Variável | Descrição | Valor / Status |
 |---|---|---|
-| `PRODUCT_PRICE` | Preço do produto (ex: `'R$ 29,90'`) | ⚠️ **Configurar** |
-| `CHECKOUT_URL` | URL do checkout real | ⚠️ **Configurar** |
+| `PRODUCT_PRICE` | Preço do produto | `R$ 19,90` ✅ |
+| `CHECKOUT_URL` | URL do checkout seguro | Configurado ✅ |
 | `GA4_ID` | ID do Google Analytics 4 (ex: `'G-XXXXXXXXXX'`) | Opcional |
 | `GADS_ID` | ID do Google Ads (ex: `'AW-XXXXXXXXXX'`) | Opcional |
 | `CONTACT_EMAIL` | E-mail de contato | Opcional |
@@ -23,25 +23,24 @@ Edite as variáveis `CONFIG` no início do `<script>` dentro de `index.html`:
 ## 📁 Estrutura
 
 ```
-├── index.html                          # Página principal
+├── index.html                          # Landing page completa
 ├── assets/
-│   ├── professor-andre-pedrosa.png     # Foto do professor
-│   ├── gabarito-questoes-1-a-5.png     # Gabarito Q1-5
-│   ├── gabarito-questoes-6-a-10.png    # Gabarito Q6-10
-│   └── resolucao-aprofundada.png       # Resolução detalhada
+│   ├── professor-andre-pedrosa.png     # Foto do professor (Retrato estúdio)
+│   ├── professor-andre-pedrosa-palco.png # Foto do professor (Auditório/Palco)
+│   ├── amostra-geometria-espacial.png  # Infográfico real: Geometria Espacial (26 questões)
+│   ├── amostra-funcao-quadratica.png   # Infográfico real: Função Quadrática e Raízes
+│   └── amostra-volume-esfera.png       # Infográfico real: Volume da Esfera e Tronco
 ├── vercel.json                         # Config de deploy
 ├── .gitignore
 └── README.md
 ```
 
-## 📋 Checklist pré-publicação
+## 📋 Checklist de Publicação
 
-- [ ] Definir `PRODUCT_PRICE` com o valor real
-- [ ] Definir `CHECKOUT_URL` com o link do checkout
-- [ ] Configurar `GA4_ID` se houver Google Analytics
-- [ ] Revisar textos e informações de contato
-- [ ] Testar no celular
-- [ ] Verificar se o checkout está funcional
+- [x] Definir `PRODUCT_PRICE` com o valor real (`R$ 19,90`)
+- [x] Redirecionar botões de CTA para o checkout seguro
+- [x] Otimizar para smartphones e telas touch
+- [x] Deploy conectado ao GitHub para Vercel
 
 ## 🎨 Design
 
