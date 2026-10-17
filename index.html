@@ -87,6 +87,32 @@
       box-shadow: 0 0 25px -4px rgba(251, 191, 36, 0.3);
     }
 
+    /* Infinite Marquee Animation */
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: flex;
+      width: max-content;
+      animation: marquee 32s linear infinite;
+    }
+    .animate-marquee:hover {
+      animation-play-state: paused;
+    }
+
+    /* Floating Badges */
+    @keyframes float-slow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-7px); }
+    }
+    .animate-float {
+      animation: float-slow 4s ease-in-out infinite;
+    }
+    .animate-float-delayed {
+      animation: float-slow 4.5s ease-in-out infinite 2s;
+    }
+
     /* Custom scrollbar for modal */
     ::-webkit-scrollbar {
       width: 6px;
@@ -113,9 +139,24 @@
   </a>
 
   <!-- =========================================================================
+       TOP ANNOUNCEMENT BANNER (pro-landing-bio skill)
+       ========================================================================= -->
+  <aside class="bg-gradient-to-r from-accent-amber/20 via-accent-yellow/20 to-accent-orange/20 border-b border-accent-yellow/30 py-2 px-3 text-center relative z-30">
+    <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 text-[11px] sm:text-xs font-medium text-slate-200">
+      <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-accent-yellow text-dark-950 uppercase tracking-wider animate-pulse">
+        RETA FINAL 2026
+      </span>
+      <span>Material Digital Oficial em PDF • <strong>R$ 19,90</strong></span>
+      <a href="https://checkoutseguro.info/checkout/cmvc9q3um0j8k01om69f3hvp1?offer=AIT9ILJ" class="checkout-cta-btn hidden sm:inline-flex items-center text-accent-yellow font-bold hover:underline ml-2" data-location="top_announcement">
+        Acessar Agora ↗
+      </a>
+    </div>
+  </aside>
+
+  <!-- =========================================================================
        FLOATING PILL NAVBAR (Inspired by Reference Design)
        ========================================================================= -->
-  <div class="fixed top-3 sm:top-5 left-0 right-0 z-40 px-3 sm:px-6 pointer-events-none">
+  <div class="fixed top-12 sm:top-14 left-0 right-0 z-40 px-3 sm:px-6 pointer-events-none">
     <div class="max-w-5xl mx-auto flex items-center justify-between pointer-events-auto bg-dark-900/90 backdrop-blur-md border border-white/10 rounded-full px-3.5 sm:px-6 py-2 sm:py-2.5 shadow-2xl">
       
       <!-- Brand Name / Logo -->
@@ -148,128 +189,238 @@
   <main id="conteudo-principal">
 
     <!-- =========================================================================
-         SECTION 1 — HERO SECTION (Reference-Inspired with Authority Focus)
+         SECTION 1 — HERO SECTION & INTEGRATED HOOK (pro-landing-bio skill)
          ========================================================================= -->
-    <section class="relative bg-gradient-to-b from-dark-900 via-dark-950 to-dark-900 pt-24 sm:pt-32 pb-16 sm:pb-24 overflow-hidden border-b border-white/5 hero-glow">
+    <section class="relative bg-gradient-to-b from-dark-900 via-dark-950 to-dark-900 pt-28 sm:pt-36 pb-14 sm:pb-20 overflow-hidden border-b border-white/5 hero-glow">
       
       <!-- Ambient Backlight -->
-      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-accent-amber/10 rounded-full blur-[100px] pointer-events-none" aria-hidden="true"></div>
+      <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[700px] h-[350px] sm:h-[700px] bg-accent-amber/12 rounded-full blur-[120px] pointer-events-none" aria-hidden="true"></div>
 
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        <!-- Top Pill Tag -->
-        <div class="text-center mb-6">
-          <div class="inline-flex items-center space-x-2 bg-white/5 border border-white/10 rounded-full px-3.5 py-1.5 backdrop-blur-sm">
-            <span class="w-2 h-2 rounded-full bg-accent-yellow animate-pulse"></span>
-            <span class="text-[11px] sm:text-xs font-heading font-semibold uppercase tracking-wider text-slate-200">
-              MATEMÁTICA • RETA FINAL ENEM 2026
-            </span>
-          </div>
-        </div>
-
-        <!-- Main Headline -->
-        <div class="max-w-4xl mx-auto text-center mb-8 sm:mb-12">
-          <h1 class="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-heading font-extrabold tracking-tight text-white leading-[1.12]">
-            Sua Preparação em Matemática na <br class="hidden sm:inline">
-            <span class="bg-gradient-to-r from-accent-yellow via-accent-amber to-accent-orange bg-clip-text text-transparent">
-              Reta Final do ENEM 2026
-            </span>
-          </h1>
-          <p class="mt-5 text-base sm:text-lg md:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl mx-auto">
-            Revise com teoria direta ao ponto, questões resolvidas passo a passo e o raciocínio prático que define a sua pontuação na prova.
-          </p>
-
-          <!-- Action Buttons -->
-          <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-            <a href="https://checkoutseguro.info/checkout/cmvc9q3um0j8k01om69f3hvp1?offer=AIT9ILJ" class="checkout-cta-btn w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-accent-amber via-accent-yellow to-accent-amber text-dark-950 font-heading font-extrabold text-sm sm:text-base px-8 py-4 rounded-full shadow-glow-amber hover:brightness-110 active:scale-95 transition-all" data-location="hero_primary">
-              <span>QUERO MEU MATERIAL DE REVISÃO</span>
-              <span class="text-lg">↗</span>
-            </a>
-            <a href="#amostras" class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-white/5 hover:bg-white/10 text-white border border-white/10 font-heading font-semibold text-sm sm:text-base px-6 py-4 rounded-full backdrop-blur-sm transition-colors">
-              <span>Ver Amostras Reais</span>
-              <span>↓</span>
-            </a>
-          </div>
-          <p class="text-xs text-slate-400 mt-3 font-medium">
-            Material digital em PDF de alta resolução • Acesso imediato
-          </p>
-        </div>
-
-        <!-- Central Authority Composition (Professor Front & Center with Badges) -->
-        <div class="relative max-w-4xl mx-auto mt-6 sm:mt-10">
+        <!-- Main Integrated 2-Column Grid: Text Hook + Professor Portrait -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           
-          <!-- Backing glow circle -->
-          <div class="absolute inset-0 bg-gradient-to-t from-dark-950 via-accent-amber/5 to-transparent rounded-3xl -z-10"></div>
-
-          <div class="relative flex flex-col items-center justify-center">
+          <!-- Column 1: Powerhouse Hook, Authority Chip & Action CTA (lg:col-span-7) -->
+          <div class="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
             
-            <!-- Floating Social Proof / Status Pills (Desktop & Mobile) -->
-            <div class="w-full flex items-center justify-between px-2 sm:px-6 mb-2 pointer-events-none">
-              <!-- Left Pill -->
-              <div class="hidden sm:inline-flex items-center space-x-2 bg-dark-900/90 border border-white/10 rounded-full px-4 py-2 shadow-xl backdrop-blur-md">
-                <span class="text-accent-yellow text-sm">🎯</span>
-                <span class="text-xs font-heading font-bold text-white">Método Comprovado ENEM</span>
+            <!-- Authority Pill with Professor Avatar & Rating -->
+            <div class="inline-flex items-center space-x-2.5 bg-white/5 border border-white/10 rounded-full px-3.5 py-1.5 backdrop-blur-md mb-5 hover:border-accent-yellow/40 transition-colors">
+              <img src="assets/professor-andre-pedrosa.png" alt="Prof. André Pedrosa" class="w-6 h-6 rounded-full object-cover border border-accent-yellow flex-shrink-0">
+              <span class="text-[11px] sm:text-xs font-heading font-semibold uppercase tracking-wider text-slate-200">
+                Prof. André Pedrosa • Matemática ENEM 2026
+              </span>
+              <span class="hidden xs:flex text-accent-yellow text-xs">★★★★★</span>
+            </div>
+
+            <!-- Main Power Hook Headline -->
+            <h1 class="text-3xl xs:text-4xl sm:text-5xl lg:text-[3.5rem] font-heading font-extrabold tracking-tight text-white leading-[1.14]">
+              A reta final do ENEM não é hora de <br class="hidden sm:inline">
+              <span class="bg-gradient-to-r from-accent-yellow via-accent-amber to-accent-orange bg-clip-text text-transparent">
+                estudar no escuro.
+              </span>
+            </h1>
+
+            <!-- Subtitle & Direct Response Hook Copy -->
+            <p class="mt-4 sm:mt-5 text-base sm:text-lg md:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl">
+              Revise Matemática com quem entende os padrões da prova. Tenha acesso a questões selecionadas, gabarito e resoluções comentadas passo a passo para entender os caminhos de cada problema e estudar com estratégia direta ao ponto.
+            </p>
+
+            <!-- 3 Dynamic Micro-Benefit Chips -->
+            <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 w-full max-w-xl text-left">
+              <div class="flex items-center space-x-2.5 bg-dark-850/90 border border-white/10 rounded-xl p-2.5 sm:p-3 backdrop-blur-sm hover:border-accent-yellow/30 transition-colors">
+                <span class="text-accent-yellow text-base flex-shrink-0">⚡</span>
+                <span class="text-xs font-heading font-semibold text-slate-200">26+ Questões Mapeadas</span>
               </div>
-              <!-- Right Pill -->
-              <div class="inline-flex items-center space-x-2 bg-dark-900/90 border border-white/10 rounded-full px-3.5 py-1.5 sm:px-4 sm:py-2 shadow-xl backdrop-blur-md mx-auto sm:mx-0">
-                <div class="flex text-accent-yellow text-xs">★★★★★</div>
-                <span class="text-[11px] sm:text-xs font-heading font-bold text-slate-200">100% Focado na Prova</span>
+              <div class="flex items-center space-x-2.5 bg-dark-850/90 border border-white/10 rounded-xl p-2.5 sm:p-3 backdrop-blur-sm hover:border-accent-yellow/30 transition-colors">
+                <span class="text-accent-yellow text-base flex-shrink-0">📐</span>
+                <span class="text-xs font-heading font-semibold text-slate-200">Resoluções Passo a Passo</span>
+              </div>
+              <div class="flex items-center space-x-2.5 bg-dark-850/90 border border-white/10 rounded-xl p-2.5 sm:p-3 backdrop-blur-sm hover:border-accent-yellow/30 transition-colors">
+                <span class="text-accent-yellow text-base flex-shrink-0">📱</span>
+                <span class="text-xs font-heading font-semibold text-slate-200">PDF Diagramado A5</span>
               </div>
             </div>
 
-            <!-- Master Image Frame -->
-            <div class="relative w-full max-w-[320px] xs:max-w-[380px] sm:max-w-[460px] md:max-w-[520px] rounded-2xl overflow-hidden border border-white/10 bg-dark-900/50 shadow-glow-card">
-              <img src="assets/professor-terno.png" alt="Prof. André Pedrosa - Professor de Matemática ENEM 2026" class="w-full h-auto object-cover transform hover:scale-102 transition-transform duration-300">
-              
-              <!-- Gradient Overlay at bottom for seamless blending -->
-              <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-dark-950 via-dark-950/70 to-transparent"></div>
+            <!-- Primary CTAs -->
+            <div class="mt-7 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto">
+              <a href="https://checkoutseguro.info/checkout/cmvc9q3um0j8k01om69f3hvp1?offer=AIT9ILJ" class="checkout-cta-btn w-full sm:w-auto inline-flex items-center justify-center space-x-2.5 bg-gradient-to-r from-accent-amber via-accent-yellow to-accent-amber text-dark-950 font-heading font-extrabold text-sm sm:text-base px-8 py-4 rounded-full shadow-glow-amber hover:brightness-110 active:scale-95 transition-all" data-location="hero_primary">
+                <span>QUERO MEU MATERIAL DE REVISÃO</span>
+                <span class="text-lg">↗</span>
+              </a>
+              <a href="#amostras" class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-white/5 hover:bg-white/10 text-white border border-white/10 font-heading font-semibold text-sm sm:text-base px-6 py-4 rounded-full backdrop-blur-sm transition-colors">
+                <span>Ver Amostras Reais</span>
+                <span>↓</span>
+              </a>
+            </div>
 
-              <!-- Name Plaque Overlay -->
-              <div class="absolute bottom-4 inset-x-4 text-center">
-                <p class="font-heading font-extrabold text-lg sm:text-xl text-white">Prof. André Pedrosa</p>
-                <p class="text-xs font-semibold uppercase tracking-wider text-accent-yellow">Especialista em Matemática ENEM</p>
-              </div>
+            <!-- Micro Trust & Price Badges -->
+            <div class="mt-4 flex flex-wrap items-center justify-center lg:justify-start gap-2.5 sm:gap-3 text-xs text-slate-400 font-medium">
+              <span class="inline-flex items-center gap-1 text-emerald-400 font-semibold bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 rounded-full">
+                <span>✓</span> Apenas R$ 19,90
+              </span>
+              <span>•</span>
+              <span>Material digital em PDF</span>
+              <span>•</span>
+              <span>Acesso imediato</span>
             </div>
 
           </div>
 
-          <!-- Bottom Stats Bar (Modeled Exactly after Reference Image) -->
-          <div class="mt-8 sm:mt-12 bg-dark-900/80 border border-white/10 rounded-2xl sm:rounded-full p-4 sm:p-6 backdrop-blur-md shadow-2xl">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-white/10">
-              
-              <div class="pt-2 sm:pt-0">
-                <div class="text-2xl sm:text-3xl font-heading font-extrabold text-white flex items-center justify-center gap-1">
-                  <span>10</span><span class="text-accent-yellow">+</span>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-400 font-medium mt-1">Tópicos Mais Cobrados</p>
-              </div>
+          <!-- Column 2: Professor Integrated Portrait with Dynamic Floating Badges (lg:col-span-5) -->
+          <div class="lg:col-span-5 relative flex flex-col items-center justify-center mt-6 lg:mt-0">
+            
+            <!-- Radial Backlight Glow behind Professor -->
+            <div class="absolute inset-0 bg-gradient-to-t from-accent-amber/20 via-accent-yellow/10 to-transparent rounded-full blur-3xl -z-10 scale-95 pointer-events-none"></div>
 
-              <div class="pt-2 sm:pt-0">
-                <div class="text-2xl sm:text-3xl font-heading font-extrabold text-white flex items-center justify-center gap-1">
-                  <span>26</span><span class="text-accent-yellow">+</span>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-400 font-medium mt-1">Questões Mapeadas Recentes</p>
+            <!-- Dynamic Floating Badge 1 (Top Right) -->
+            <div class="absolute -top-3 right-2 sm:right-4 z-20 animate-float bg-dark-900/95 border border-accent-yellow/40 rounded-2xl px-3.5 py-2 shadow-2xl backdrop-blur-md flex items-center space-x-2.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-accent-yellow animate-ping"></span>
+              <div>
+                <p class="text-[10px] text-slate-400 font-medium leading-none">Matemática Oficial</p>
+                <p class="text-xs font-heading font-extrabold text-white leading-tight mt-0.5">ENEM 2026</p>
               </div>
-
-              <div class="pt-2 sm:pt-0">
-                <div class="text-2xl sm:text-3xl font-heading font-extrabold text-white flex items-center justify-center gap-1">
-                  <span>100</span><span class="text-accent-yellow">%</span>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-400 font-medium mt-1">Resoluções Passo a Passo</p>
-              </div>
-
-              <div class="pt-2 sm:pt-0">
-                <div class="text-2xl sm:text-3xl font-heading font-extrabold text-white flex items-center justify-center gap-1">
-                  <span>A5</span>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-400 font-medium mt-1">Diagramação p/ Celular</p>
-              </div>
-
             </div>
+
+            <!-- Dynamic Floating Badge 2 (Bottom Left) -->
+            <div class="absolute bottom-14 -left-1 sm:left-2 z-20 animate-float-delayed bg-dark-900/95 border border-white/15 rounded-2xl px-3.5 py-2.5 shadow-2xl backdrop-blur-md flex items-center space-x-2.5">
+              <span class="text-xl">🎯</span>
+              <div>
+                <p class="text-[11px] font-heading font-bold text-white leading-tight">Resoluções Passo a Passo</p>
+                <p class="text-[10px] text-accent-yellow font-medium leading-none mt-0.5">Sem pular etapas de cálculo</p>
+              </div>
+            </div>
+
+            <!-- Master Integrated Frame -->
+            <div class="relative w-full max-w-[310px] xs:max-w-[350px] sm:max-w-[400px] rounded-3xl overflow-hidden border border-white/15 bg-gradient-to-b from-dark-850/80 to-dark-950/90 shadow-2xl p-2 group">
+              <div class="relative rounded-2xl overflow-hidden bg-dark-900">
+                <img src="assets/professor-terno.png" alt="Prof. André Pedrosa - Especialista em Matemática ENEM" class="w-full h-auto object-cover transform group-hover:scale-102 transition-transform duration-500">
+                
+                <!-- Bottom Fade Overlay -->
+                <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-dark-950 via-dark-950/80 to-transparent"></div>
+
+                <!-- Professor Name Plaque -->
+                <div class="absolute bottom-3 inset-x-3 text-center bg-dark-900/90 border border-white/10 rounded-xl p-2.5 backdrop-blur-md">
+                  <p class="font-heading font-extrabold text-base sm:text-lg text-white">Prof. André Pedrosa</p>
+                  <p class="text-[11px] font-semibold text-accent-yellow uppercase tracking-wider">Autor do Método • Reta Final ENEM</p>
+                </div>
+              </div>
+            </div>
+
           </div>
 
         </div>
 
+        <!-- Dynamic Live Ticker / Infinite Marquee Bar -->
+        <div class="mt-12 sm:mt-16 overflow-hidden rounded-2xl bg-dark-900/80 border border-white/10 py-3.5 backdrop-blur-md relative shadow-xl">
+          <div class="animate-marquee whitespace-nowrap flex items-center gap-8 text-xs sm:text-sm font-heading font-bold uppercase tracking-wider text-slate-300">
+            <span class="flex items-center gap-2 text-accent-yellow"><span>📐</span> Geometria Espacial (26 Questões Mapeadas)</span>
+            <span class="text-white/20">•</span>
+            <span class="flex items-center gap-2 text-slate-200"><span>📈</span> Função Quadrática, Vértice e Raízes</span>
+            <span class="text-white/20">•</span>
+            <span class="flex items-center gap-2 text-accent-amber"><span>📊</span> Estatística, Médias e Projeções</span>
+            <span class="text-white/20">•</span>
+            <span class="flex items-center gap-2 text-slate-200"><span>🔢</span> Aritmética e Razão Proporcional</span>
+            <span class="text-white/20">•</span>
+            <span class="flex items-center gap-2 text-accent-yellow"><span>🎯</span> Resoluções Detalhadas Passo a Passo</span>
+            <span class="text-white/20">•</span>
+            <span class="flex items-center gap-2 text-slate-200"><span>📱</span> Formato A5 Otimizado p/ Leitura no Celular</span>
+            <span class="text-white/20">•</span>
+            <span class="flex items-center gap-2 text-emerald-400 font-extrabold"><span>⚡</span> Apenas R$ 19,90 • Pagamento Único</span>
+            <span class="text-white/20">•</span>
+            <!-- Continuous Marquee Loop Duplicate -->
+            <span class="flex items-center gap-2 text-accent-yellow"><span>📐</span> Geometria Espacial (26 Questões Mapeadas)</span>
+            <span class="text-white/20">•</span>
+            <span class="flex items-center gap-2 text-slate-200"><span>📈</span> Função Quadrática, Vértice e Raízes</span>
+            <span class="text-white/20">•</span>
+            <span class="flex items-center gap-2 text-accent-amber"><span>📊</span> Estatística, Médias e Projeções</span>
+            <span class="text-white/20">•</span>
+            <span class="flex items-center gap-2 text-slate-200"><span>🔢</span> Aritmética e Razão Proporcional</span>
+            <span class="text-white/20">•</span>
+            <span class="flex items-center gap-2 text-accent-yellow"><span>🎯</span> Resoluções Detalhadas Passo a Passo</span>
+            <span class="text-white/20">•</span>
+            <span class="flex items-center gap-2 text-slate-200"><span>📱</span> Formato A5 Otimizado p/ Leitura no Celular</span>
+            <span class="text-white/20">•</span>
+            <span class="flex items-center gap-2 text-emerald-400 font-extrabold"><span>⚡</span> Apenas R$ 19,90 • Pagamento Único</span>
+          </div>
+        </div>
+
+        <!-- 4 Key Impact Metric Counters Bar -->
+        <div class="mt-5 bg-dark-900/60 border border-white/10 rounded-2xl p-4 sm:p-6 backdrop-blur-md shadow-2xl">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-white/10">
+            
+            <div class="pt-2 sm:pt-0">
+              <div class="text-2xl sm:text-3xl font-heading font-extrabold text-white flex items-center justify-center gap-1">
+                <span>26</span><span class="text-accent-yellow">+</span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-400 font-medium mt-1">Questões Chave Mapeadas</p>
+            </div>
+
+            <div class="pt-2 sm:pt-0">
+              <div class="text-2xl sm:text-3xl font-heading font-extrabold text-white flex items-center justify-center gap-1">
+                <span>100</span><span class="text-accent-yellow">%</span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-400 font-medium mt-1">Resoluções Passo a Passo</p>
+            </div>
+
+            <div class="pt-2 sm:pt-0">
+              <div class="text-2xl sm:text-3xl font-heading font-extrabold text-white flex items-center justify-center gap-1">
+                <span>A5</span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-400 font-medium mt-1">Diagramação p/ Celular</p>
+            </div>
+
+            <div class="pt-2 sm:pt-0">
+              <div class="text-2xl sm:text-3xl font-heading font-extrabold text-emerald-400 flex items-center justify-center gap-1">
+                <span>R$ 19</span><span class="text-xs font-bold text-slate-300">,90</span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-400 font-medium mt-1">Pagamento Único</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         MOBILE BIO HUB (Exclusive for Smartphones - pro-landing-bio skill)
+         ========================================================================= -->
+    <section class="block md:hidden py-6 bg-dark-900 border-b border-white/5">
+      <div class="max-w-md mx-auto px-4">
+        <div class="text-center mb-3">
+          <p class="text-[11px] font-heading font-bold uppercase tracking-wider text-slate-400">Atalhos Rápidos • Reta Final ENEM 2026</p>
+        </div>
+        <div class="grid grid-cols-2 gap-2.5">
+          <a href="https://checkoutseguro.info/checkout/cmvc9q3um0j8k01om69f3hvp1?offer=AIT9ILJ" class="checkout-cta-btn flex items-center space-x-2.5 p-3 rounded-xl bg-gradient-to-r from-accent-amber/20 to-accent-yellow/20 border border-accent-yellow/40 active:scale-95 transition-transform" data-location="mobile_hub_buy">
+            <span class="w-8 h-8 rounded-lg bg-accent-yellow text-dark-950 flex items-center justify-center font-bold text-sm flex-shrink-0">⚡</span>
+            <div class="min-w-0 text-left">
+              <span class="block text-xs font-heading font-bold text-white truncate">Comprar PDF</span>
+              <span class="block text-[10px] text-accent-yellow font-semibold truncate">R$ 19,90</span>
+            </div>
+          </a>
+          <a href="#amostras" class="flex items-center space-x-2.5 p-3 rounded-xl bg-dark-850 border border-white/10 active:scale-95 transition-transform">
+            <span class="w-8 h-8 rounded-lg bg-white/10 text-white flex items-center justify-center font-bold text-sm flex-shrink-0">📄</span>
+            <div class="min-w-0 text-left">
+              <span class="block text-xs font-heading font-bold text-white truncate">Ver Páginas</span>
+              <span class="block text-[10px] text-slate-400 truncate">Amostras Reais</span>
+            </div>
+          </a>
+          <a href="#sobre" class="flex items-center space-x-2.5 p-3 rounded-xl bg-dark-850 border border-white/10 active:scale-95 transition-transform">
+            <span class="w-8 h-8 rounded-lg bg-white/10 text-white flex items-center justify-center font-bold text-sm flex-shrink-0">👨‍🏫</span>
+            <div class="min-w-0 text-left">
+              <span class="block text-xs font-heading font-bold text-white truncate">Prof. André</span>
+              <span class="block text-[10px] text-slate-400 truncate">Sobre o Autor</span>
+            </div>
+          </a>
+          <a href="#faq" class="flex items-center space-x-2.5 p-3 rounded-xl bg-dark-850 border border-white/10 active:scale-95 transition-transform">
+            <span class="w-8 h-8 rounded-lg bg-white/10 text-white flex items-center justify-center font-bold text-sm flex-shrink-0">❓</span>
+            <div class="min-w-0 text-left">
+              <span class="block text-xs font-heading font-bold text-white truncate">Tira-Dúvidas</span>
+              <span class="block text-[10px] text-slate-400 truncate">Perguntas FAQ</span>
+            </div>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -331,50 +482,156 @@
               📖
             </div>
             <h3 class="text-lg font-heading font-bold text-white mb-2">
-              Aulas Diretas ao Ponto
+              Teoria Direta & Fórmulas
             </h3>
             <p class="text-sm text-slate-400 leading-relaxed">
-              Teoria essencial sem enrolação. Vá direto aos conceitos matemáticos fundamentais que o ENEM cobra todos os anos.
+              Conceitos essenciais sem rodeios. Fórmulas de Geometria, Funções e Estatística explicadas com sua aplicação prática no ENEM.
             </p>
           </div>
 
           <!-- Pillar 2 -->
           <div class="bg-dark-900 border border-white/10 rounded-2xl p-6 sm:p-7 hover:border-accent-yellow/40 transition-all hover:-translate-y-1 group">
             <div class="w-12 h-12 rounded-xl bg-accent-amber/10 border border-accent-amber/30 text-accent-yellow flex items-center justify-center font-heading text-xl mb-5 group-hover:bg-accent-amber group-hover:text-dark-950 transition-colors">
-              📝
+              🎯
             </div>
             <h3 class="text-lg font-heading font-bold text-white mb-2">
-              Questões Comentadas
+              26+ Questões Mapeadas
             </h3>
             <p class="text-sm text-slate-400 leading-relaxed">
-              Passo a passo detalhado com explicações claras e objetivas, mostrando onde a maioria erra e como acertar rápido.
+              Seleção criteriosa dos modelos de questão que mais se repetem na prova de Matemática, com alternativas e dados analisados.
             </p>
           </div>
 
           <!-- Pillar 3 -->
           <div class="bg-dark-900 border border-white/10 rounded-2xl p-6 sm:p-7 hover:border-accent-yellow/40 transition-all hover:-translate-y-1 group">
             <div class="w-12 h-12 rounded-xl bg-accent-amber/10 border border-accent-amber/30 text-accent-yellow flex items-center justify-center font-heading text-xl mb-5 group-hover:bg-accent-amber group-hover:text-dark-950 transition-colors">
-              📊
+              📐
             </div>
             <h3 class="text-lg font-heading font-bold text-white mb-2">
-              Simulados e Plano
+              Resoluções Passo a Passo
             </h3>
             <p class="text-sm text-slate-400 leading-relaxed">
-              Estrutura prática de estudos para você acompanhar sua evolução semanal e chegar seguro no dia do exame.
+              Procedimento visual completo sem pular linhas de cálculo. Saiba exatamente o raciocínio matemático por trás de cada problema.
             </p>
           </div>
 
           <!-- Pillar 4 -->
           <div class="bg-dark-900 border border-white/10 rounded-2xl p-6 sm:p-7 hover:border-accent-yellow/40 transition-all hover:-translate-y-1 group">
             <div class="w-12 h-12 rounded-xl bg-accent-amber/10 border border-accent-amber/30 text-accent-yellow flex items-center justify-center font-heading text-xl mb-5 group-hover:bg-accent-amber group-hover:text-dark-950 transition-colors">
-              💬
+              📱
             </div>
             <h3 class="text-lg font-heading font-bold text-white mb-2">
-              Suporte com o Professor
+              Diagramação em A5
             </h3>
             <p class="text-sm text-slate-400 leading-relaxed">
-              Tire suas dúvidas e mantenha o foco até a prova com a orientação de quem domina o padrão de questões do ENEM.
+              Diagramação limpa e proporcional desenvolvida para você revisar pelo celular, tablet ou imprimir confortavelmente.
             </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION 3.5 — COMPARISON (Estudo no Escuro vs Reta Final Estratégica)
+         Directly reinforces the hook from pro-landing-bio CRO principles
+         ========================================================================= -->
+    <section class="py-16 sm:py-20 bg-dark-900 border-b border-white/5 relative overflow-hidden">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <span class="text-xs font-heading font-bold uppercase tracking-wider text-accent-yellow bg-accent-yellow/10 border border-accent-yellow/20 px-3.5 py-1.5 rounded-full">
+            ESTRATÉGIA DE RETA FINAL
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-white mt-4">
+            A Diferença Entre Estudar no Escuro e Revisar com Estratégia
+          </h2>
+          <p class="text-slate-400 text-sm sm:text-base mt-2">
+            Na reta final do ENEM, tentar resolver tudo sem direcionamento só gera cansaço e ansiedade.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-stretch">
+          
+          <!-- Card 1: Sem Método (No Escuro) -->
+          <div class="bg-dark-950/80 border border-red-500/20 rounded-2xl p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-red-500/40"></div>
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-heading font-extrabold text-red-400 uppercase tracking-wider bg-red-500/10 px-3 py-1 rounded-full border border-red-500/20">
+                  ✕ Sem Direcionamento
+                </span>
+                <span class="text-slate-500 text-xs font-mono">ESTUDO NO ESCURO</span>
+              </div>
+              <h3 class="text-xl font-heading font-bold text-white mb-4">
+                Tentando Revisar Tudo de Qualquer Jeito
+              </h3>
+              <ul class="space-y-3.5 text-sm text-slate-400">
+                <li class="flex items-start space-x-3">
+                  <span class="text-red-400 font-bold flex-shrink-0 mt-0.5">✕</span>
+                  <span>Resolver centenas de exercícios sem entender o porquê da alternativa correta.</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                  <span class="text-red-400 font-bold flex-shrink-0 mt-0.5">✕</span>
+                  <span>Fórmulas decoradas sem aplicação que fogem da memória na hora da prova.</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                  <span class="text-red-400 font-bold flex-shrink-0 mt-0.5">✕</span>
+                  <span>Resoluções na internet que pulam etapas e deixam dúvidas de cálculo.</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                  <span class="text-red-400 font-bold flex-shrink-0 mt-0.5">✕</span>
+                  <span>Sensação de insegurança e cansaço a poucas semanas do ENEM.</span>
+                </li>
+              </ul>
+            </div>
+            <div class="mt-6 pt-4 border-t border-white/5 text-xs text-slate-500">
+              Resultado: Perda de tempo e risco de travar em questões fáceis.
+            </div>
+          </div>
+
+          <!-- Card 2: Com o Reta Final (Estratégico) -->
+          <div class="bg-gradient-to-b from-dark-850 to-dark-950 border border-accent-yellow/40 rounded-2xl p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden shadow-glow-amber">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent-amber via-accent-yellow to-accent-amber"></div>
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-heading font-extrabold text-accent-yellow uppercase tracking-wider bg-accent-yellow/15 px-3 py-1 rounded-full border border-accent-yellow/30">
+                  ✓ Método Estruturado
+                </span>
+                <span class="text-accent-yellow text-xs font-mono font-bold">PROF. ANDRÉ PEDROSA</span>
+              </div>
+              <h3 class="text-xl font-heading font-bold text-white mb-4">
+                Revisão Direta com Foco em Procedimentos
+              </h3>
+              <ul class="space-y-3.5 text-sm text-slate-200">
+                <li class="flex items-start space-x-3">
+                  <span class="text-accent-yellow font-bold flex-shrink-0 mt-0.5">✓</span>
+                  <span><strong>26+ questões mais recorrentes</strong> do ENEM mapeadas com foco estatístico.</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                  <span class="text-accent-yellow font-bold flex-shrink-0 mt-0.5">✓</span>
+                  <span><strong>Resoluções passo a passo</strong> sem saltos, explicando cada procedimento.</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                  <span class="text-accent-yellow font-bold flex-shrink-0 mt-0.5">✓</span>
+                  <span><strong>Macetes e atalhos visuais</strong> para economizar tempo no dia do exame.</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                  <span class="text-accent-yellow font-bold flex-shrink-0 mt-0.5">✓</span>
+                  <span><strong>Formato A5 otimizado</strong> para estudar confortavelmente direto no smartphone.</span>
+                </li>
+              </ul>
+            </div>
+            <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+              <span class="text-xs text-emerald-400 font-semibold flex items-center gap-1">
+                <span>✓</span> Acesso Imediato por R$ 19,90
+              </span>
+              <a href="https://checkoutseguro.info/checkout/cmvc9q3um0j8k01om69f3hvp1?offer=AIT9ILJ" class="checkout-cta-btn inline-flex items-center space-x-1.5 text-xs font-heading font-bold text-accent-yellow hover:underline" data-location="comparison_card">
+                <span>Garantir PDF</span>
+                <span>↗</span>
+              </a>
+            </div>
           </div>
 
         </div>
@@ -389,7 +646,7 @@
     <section class="py-16 sm:py-24 bg-dark-900 border-b border-white/5" id="amostras">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-4">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4">
           <div>
             <span class="text-xs font-heading font-bold uppercase tracking-wider text-accent-yellow bg-accent-yellow/10 border border-accent-yellow/20 px-3.5 py-1.5 rounded-full">
               AMOSTRAS DO MATERIAL
@@ -398,12 +655,26 @@
               Veja as Páginas Oficiais do Material
             </h2>
             <p class="text-slate-400 text-base mt-2 max-w-xl">
-              Confira a qualidade visual e didática das páginas desenvolvidas para acelerar sua compreensão.
+              Confira a qualidade visual e didática das páginas desenvolvidas pelo Prof. André Pedrosa para acelerar sua compreensão.
             </p>
           </div>
-          <div class="text-xs sm:text-sm text-slate-400 font-medium">
-            Toque em qualquer página para ampliar em tela cheia ↗
+          <div class="text-xs sm:text-sm text-slate-400 font-medium flex items-center gap-1.5">
+            <span>🔍</span> Toque em qualquer página para ampliar em alta definição
           </div>
+        </div>
+
+        <!-- Interactive Quick Jump Pills -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-3 mb-8 no-scrollbar">
+          <span class="text-xs text-slate-500 font-heading font-semibold mr-1 hidden sm:inline">Navegar por tema:</span>
+          <button type="button" class="gallery-trigger px-3.5 sm:px-4 py-2 rounded-full text-xs font-heading font-semibold bg-dark-850 hover:bg-dark-800 text-slate-200 border border-white/10 hover:border-accent-yellow/40 transition-all whitespace-nowrap flex items-center gap-1.5 active:scale-95" data-index="0">
+            <span>📐</span> <span>Geometria Espacial (26 Questões)</span>
+          </button>
+          <button type="button" class="gallery-trigger px-3.5 sm:px-4 py-2 rounded-full text-xs font-heading font-semibold bg-dark-850 hover:bg-dark-800 text-slate-200 border border-white/10 hover:border-accent-yellow/40 transition-all whitespace-nowrap flex items-center gap-1.5 active:scale-95" data-index="1">
+            <span>📈</span> <span>Função Quadrática & Parábolas</span>
+          </button>
+          <button type="button" class="gallery-trigger px-3.5 sm:px-4 py-2 rounded-full text-xs font-heading font-semibold bg-dark-850 hover:bg-dark-800 text-slate-200 border border-white/10 hover:border-accent-yellow/40 transition-all whitespace-nowrap flex items-center gap-1.5 active:scale-95" data-index="2">
+            <span>🌐</span> <span>Volume da Esfera & Planificação</span>
+          </button>
         </div>
 
         <!-- 3 Sample Cards Grid (Matching Reference Image Style) -->
@@ -1070,17 +1341,20 @@
   </footer>
 
   <!-- =========================================================================
-       MOBILE STICKY CTA BAR (Hidden on md+ screens)
+       MOBILE STICKY CTA BAR (Exclusive for Smartphones - pro-landing-bio skill)
        ========================================================================= -->
-  <aside class="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-dark-900/95 backdrop-blur-md border-t border-white/10 px-4 py-3 shadow-2xl" style="padding-bottom: max(0.75rem, env(safe-area-inset-bottom));">
+  <aside class="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-dark-900/95 backdrop-blur-md border-t border-white/10 px-3.5 py-2.5 shadow-2xl" style="padding-bottom: max(0.6rem, env(safe-area-inset-bottom));">
     <div class="max-w-md mx-auto flex items-center justify-between gap-3">
-      <div class="min-w-0 flex-1">
-        <span class="block text-[11px] font-heading font-extrabold text-white uppercase leading-tight truncate">Reta Final ENEM 2026</span>
-        <span class="block text-[10px] font-semibold text-accent-yellow truncate">PDF Digital • Prof. André Pedrosa</span>
+      <div class="flex items-center space-x-2.5 min-w-0 flex-1">
+        <img src="assets/professor-andre-pedrosa.png" alt="Prof. André Pedrosa" class="w-9 h-9 rounded-full object-cover border border-accent-yellow flex-shrink-0">
+        <div class="min-w-0">
+          <span class="block text-xs font-heading font-extrabold text-white leading-tight truncate">Reta Final ENEM 2026</span>
+          <span class="block text-[11px] font-bold text-emerald-400 truncate">R$ 19,90 • PDF Oficial</span>
+        </div>
       </div>
-      <a href="https://checkoutseguro.info/checkout/cmvc9q3um0j8k01om69f3hvp1?offer=AIT9ILJ" class="checkout-cta-btn inline-flex items-center space-x-1.5 flex-shrink-0 bg-gradient-to-r from-accent-amber to-accent-yellow text-dark-950 font-heading font-extrabold text-xs uppercase px-4 py-2.5 rounded-full shadow-md active:scale-95 transition-transform" data-location="mobile_sticky_bar">
-        <span>QUERO O MATERIAL</span>
-        <span>↗</span>
+      <a href="https://checkoutseguro.info/checkout/cmvc9q3um0j8k01om69f3hvp1?offer=AIT9ILJ" class="checkout-cta-btn inline-flex items-center space-x-1.5 flex-shrink-0 bg-gradient-to-r from-accent-amber to-accent-yellow text-dark-950 font-heading font-black text-xs uppercase px-4 py-2.5 rounded-full shadow-glow-amber active:scale-95 transition-transform" data-location="mobile_sticky_bar">
+        <span>ACESSAR PDF</span>
+        <span class="text-xs">↗</span>
       </a>
     </div>
   </aside>
