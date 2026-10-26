@@ -35,7 +35,7 @@ Os eventos locais podem ser acompanhados por `window.addEventListener('retafinal
 
 ## Direção editorial
 
-Paleta de papel, verde escuro e terracota; tipografia Manrope com itálicos Newsreader; layouts com divisórias e hierarquia editorial. O material é demonstrado antes da oferta. A capa do mockup é ilustrativa e sinalizada; as amostras são páginas reais existentes no repositório.
+Paleta de papel, verde escuro e terracota; tipografia Manrope com itálicos Newsreader; layouts com divisórias e hierarquia editorial. O material é demonstrado antes da oferta. A imagem de apresentação do professor foi fornecida pelo responsável pelo projeto e é exibida por inteiro, sem cortes; as amostras são páginas reais existentes no repositório.
 
 A copy apresenta o produto como apoio de revisão. Não usa avaliações inventadas, contagem regressiva, promessa de nota ou alegação de publicação oficial do ENEM.
 
