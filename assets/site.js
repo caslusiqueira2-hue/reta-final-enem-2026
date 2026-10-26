@@ -13,6 +13,15 @@ const SAMPLES = Object.freeze([
   {src:'assets/amostra-volume-esfera.webp',title:'Esfera e planificação',alt:'Página com volume da esfera e representações de planificação de sólidos',caption:'Volume da esfera e visualização das faces de sólidos planificados.'}
 ]);
 
+const bookMotionToggle=document.querySelector('.book-motion-toggle');
+bookMotionToggle?.addEventListener('click',()=>{
+  const paused=bookMotionToggle.getAttribute('aria-pressed')!=='true';
+  bookMotionToggle.setAttribute('aria-pressed',String(paused));
+  bookMotionToggle.closest('.hero-product').classList.toggle('is-paused',paused);
+  bookMotionToggle.querySelector('.book-motion-label').textContent=paused?'Retomar movimento':'Pausar movimento';
+  bookMotionToggle.querySelector('[aria-hidden]').textContent=paused?'▷':'Ⅱ';
+});
+
 function trackEvent(name,params={}) {
   if(typeof window.gtag === 'function') window.gtag('event',name,params);
   window.dispatchEvent(new CustomEvent('retafinal:event',{detail:{name,...params}}));
