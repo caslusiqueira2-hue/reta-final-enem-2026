@@ -1,57 +1,55 @@
-# Reta Final ENEM 2026 — Matemática | Prof. André Pedrosa
+# Reta Final ENEM 2026 · Matemática
 
-Landing page de alta conversão para o material digital de revisão de Matemática.
+Página de apresentação e venda do PDF de revisão do Prof. André Pedrosa. HTML, CSS e JavaScript nativos, sem etapa de compilação, frameworks ou dependências de execução.
 
-## 🚀 Como usar
+## Visualizar e publicar
 
-1. Abra `index.html` no navegador para visualizar localmente.
-2. Para deploy, conecte este repositório à Vercel.
+Abra `index.html` no navegador ou sirva a pasta com um servidor HTTP estático. A Vercel pode publicar o conteúdo da raiz sem comando de build. A configuração existente de hospedagem foi preservada.
 
-## ⚙️ Configurações da Landing Page
+Endereço de produção cadastrado no repositório: https://reta-final-enem-2026-xi.vercel.app/
 
-As variáveis `CONFIG` estão configuradas no `<script>` dentro de `index.html`:
+## Estrutura
 
-| Variável | Descrição | Valor / Status |
-|---|---|---|
-| `PRODUCT_PRICE` | Preço do produto | `R$ 19,90` ✅ |
-| `CHECKOUT_URL` | URL do checkout seguro | Configurado ✅ |
-| `GA4_ID` | ID do Google Analytics 4 (ex: `'G-XXXXXXXXXX'`) | Opcional |
-| `GADS_ID` | ID do Google Ads (ex: `'AW-XXXXXXXXXX'`) | Opcional |
-| `CONTACT_EMAIL` | E-mail de contato | Opcional |
-| `CONTACT_WHATSAPP` | Número WhatsApp com código do país | Opcional |
+- `index.html`: conteúdo, metadados e estrutura semântica.
+- `assets/site.css`: identidade visual, responsividade, impressão e preferência por movimento reduzido.
+- `assets/site.js`: menu, galeria, leitor ampliado, atribuição de campanhas e eventos de navegação.
+- `assets/*.webp`: versões otimizadas das imagens originais, que também foram mantidas.
+- `assets/fonts/`: fontes locais Manrope e Newsreader, com as respectivas licenças OFL.
+- `assets/social-cover.jpg`: imagem de compartilhamento de 1200 × 630 px.
+- `assets/favicon.svg`: ícone da identidade.
+- `vercel.json`: configuração de rotas, cache e cabeçalhos existente.
 
-## 📁 Estrutura
+## Oferta e checkout
 
-```
-├── index.html                          # Landing page completa
-├── assets/
-│   ├── professor-andre-pedrosa.png     # Foto do professor (Retrato estúdio)
-│   ├── professor-andre-pedrosa-palco.png # Foto do professor (Auditório/Palco)
-│   ├── amostra-geometria-espacial.png  # Infográfico real: Geometria Espacial (26 questões)
-│   ├── amostra-funcao-quadratica.png   # Infográfico real: Função Quadrática e Raízes
-│   └── amostra-volume-esfera.png       # Infográfico real: Volume da Esfera e Tronco
-├── vercel.json                         # Config de deploy
-├── .gitignore
-└── README.md
-```
+Preço preservado: **R$ 19,90**, pagamento único. O checkout e seu identificador de oferta originais foram mantidos. O endereço está presente nos links do HTML para funcionar mesmo sem JavaScript e no objeto `CONFIG` de `assets/site.js`. Atualize ambos se o checkout mudar.
 
-## 📋 Checklist de Publicação
+Parâmetros `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term`, `gclid` e `fbclid` recebidos pela página são repassados ao checkout sem apagar o parâmetro `offer`.
 
-- [x] Definir `PRODUCT_PRICE` com o valor real (`R$ 19,90`)
-- [x] Redirecionar botões de CTA para o checkout seguro
-- [x] Otimizar para smartphones e telas touch
-- [x] Deploy conectado ao GitHub para Vercel
+O site não processa pagamentos ou entrega arquivos: essas etapas pertencem ao checkout. Nenhuma compra foi feita durante a validação.
 
-## 🎨 Design
+## Analytics
 
-Neobrutalismo editorial com paleta:
-- 🟠 Laranja: `#FF7E00`
-- 🟣 Roxo: `#6B1AFF`
-- ⚫ Preto: `#171717`
-- 🟡 Creme: `#FFF8ED`
+Nenhum serviço de analytics é carregado por padrão. `GA4_ID` e `GADS_ID`, em `assets/site.js`, são opcionais e estão vazios. Antes de ativá-los, configure as informações e o consentimento de privacidade adequados ao uso pretendido.
 
-## ⚖️ Aviso Legal
+Os eventos locais podem ser acompanhados por `window.addEventListener('retafinal:event', handler)`: `cta_click`, `checkout_start`, `offer_view`, `sample_select`, `sample_open` e `faq_open`.
 
-Este material é um produto independente de revisão. Não representa o INEP nem é uma publicação oficial do ENEM.
+## Direção editorial
 
-© 2026 Prof. André Pedrosa. Todos os direitos reservados.
+Paleta de papel, verde escuro e terracota; tipografia Manrope com itálicos Newsreader; layouts com divisórias e hierarquia editorial. O material é demonstrado antes da oferta. A capa do mockup é ilustrativa e sinalizada; as amostras são páginas reais existentes no repositório.
+
+A copy apresenta o produto como apoio de revisão. Não usa avaliações inventadas, contagem regressiva, promessa de nota ou alegação de publicação oficial do ENEM.
+
+## Validação
+
+- JavaScript verificado com `node --check assets/site.js`.
+- Navegador: larguras de 320, 390, 768, 1024 e 1440 px, sem rolagem horizontal ou títulos fora da tela.
+- Menu mobile, navegação entre amostras, leitor modal, zoom, fechamento com Escape e restauração do foco conferidos.
+- Conteúdo programático, preço e checkout preservados a partir da página original.
+
+## Observações de publicação
+
+Ao trocar o domínio, atualize os endereços de `canonical`, `og:url` e `og:image` em `index.html`. Informações específicas de suporte, política de reembolso, privacidade e termos comerciais devem ser publicadas com os dados reais do responsável; links vazios da versão anterior foram removidos.
+
+Material independente de revisão, sem vínculo com o INEP ou com a organização do ENEM.
+
+© 2026 Prof. André Pedrosa.
