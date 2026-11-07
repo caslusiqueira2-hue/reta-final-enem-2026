@@ -1,8 +1,8 @@
 'use strict';
 
-// Keep the existing checkout and offer identifier. Analytics is opt-in.
+// Checkout for the Reta Final ENEM offer. Analytics is opt-in.
 const CONFIG = Object.freeze({
-  CHECKOUT_URL: 'https://checkoutseguro.info/checkout/cmvc9q3um0j8k01om69f3hvp1?offer=AIT9ILJ',
+  CHECKOUT_URL: 'https://checkoutseguro.info/checkout/cmw5ae5q1008p01oj8nem3ej7?offer=JEWR867',
   GA4_ID: '',
   GADS_ID: ''
 });
