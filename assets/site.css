@@ -231,15 +231,8 @@ h2{font-size:clamp(36px,4vw,58px);letter-spacing:-.055em;line-height:1.09}
 .lead-submit{width:100%;min-height:58px;font-size:12px}
 .lead-submit:disabled{opacity:.65}
 .lead-status{min-height:16px;font-size:10px;color:var(--accent);line-height:1.5}
-.lead-fallback{font-size:11px;font-weight:700;color:var(--accent);text-decoration:underline;text-underline-offset:3px}
 .lead-privacy{font-size:9px;line-height:1.6;color:var(--muted)}
 .lead-privacy a{text-decoration:underline;text-underline-offset:2px}
-.offer-unlocked{padding-top:22px;border-top:1px solid var(--line)}
-.unlock-kicker{font:700 9px var(--mono);letter-spacing:.08em;color:var(--accent)}
-.offer-unlocked h4{font-size:19px;line-height:1.35;letter-spacing:-.03em;margin:10px 0}
-.offer-unlocked>p:not(.unlock-kicker){font-size:11px;line-height:1.8;color:var(--muted)}
-.offer-unlocked>.button{width:100%;margin-top:18px;min-height:55px;font-size:12px}
-.offer-unlocked>.text-link{display:inline-flex;margin-top:19px;font-size:10px;text-decoration:underline;text-underline-offset:4px}
 @media(max-width:699px){.campaign-ribbon{margin-top:18px;font-size:8px}.lead-form-title{font-size:16px}.lead-form>input:not([type=hidden]){font-size:16px}.lead-consent{font-size:11px}}
 .faq{background:var(--white)}
 .faq-grid{display:grid;grid-template-columns:.95fr 1.1fr;gap:90px}
