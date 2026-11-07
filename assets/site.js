@@ -1,9 +1,8 @@
 'use strict';
 
-// Keep the approved offer URL here; enable payment only after Sigilo Pay releases the product.
+// Redirect to this checkout after Formspree confirms the lead was received.
 const CONFIG = Object.freeze({
   CHECKOUT_URL: 'https://checkoutseguro.info/checkout/cmw5ae5q1008p01oj8nem3ej7?offer=JEWR867',
-  CHECKOUT_ENABLED: false,
   GA4_ID: '',
   GADS_ID: ''
 });
@@ -44,20 +43,9 @@ const campaignKeys=['utm_source','utm_medium','utm_campaign','utm_content','utm_
 const incoming=new URLSearchParams(window.location.search);
 const checkout=new URL(CONFIG.CHECKOUT_URL);
 campaignKeys.forEach(key=>{if(incoming.has(key)) checkout.searchParams.set(key,incoming.get(key));});
-document.querySelectorAll('.checkout-link').forEach(link=>{
-  if(CONFIG.CHECKOUT_ENABLED) link.href=checkout.href;
-  link.addEventListener('click',()=>{
-    const params={location:link.dataset.location,button_text:link.textContent.trim(),value:19.90,currency:'BRL'};
-    trackEvent('cta_click',params);
-    trackEvent('checkout_start',params);
-  });
-});
-
 const leadForm=document.getElementById('lead-form');
 const leadStatus=document.getElementById('lead-status');
-const unlockedOffer=document.getElementById('offer-unlocked');
 const leadSubmit=leadForm.querySelector('button[type="submit"]');
-const leadFallback=document.getElementById('lead-fallback');
 leadForm.addEventListener('submit',async event=>{
   event.preventDefault();
   if(!leadForm.reportValidity()) return;
@@ -72,7 +60,6 @@ leadForm.addEventListener('submit',async event=>{
   payload.whatsapp=phone;
   campaignKeys.forEach(key=>{if(incoming.has(key)) payload[key]=String(incoming.get(key)).slice(0,160);});
   leadSubmit.disabled=true;
-  leadFallback.hidden=true;
   leadStatus.textContent='Enviando seu cadastro...';
   try{
     const timeout=AbortSignal.timeout(20000);
@@ -84,18 +71,12 @@ leadForm.addEventListener('submit',async event=>{
     });
     const result=await response.json();
     if(!response.ok||result.ok===false||result.success===false||result.success==='false') throw new Error('Falha no envio');
-    leadForm.hidden=true;
-    unlockedOffer.hidden=false;
-    if(CONFIG.CHECKOUT_ENABLED){
-      unlockedOffer.querySelector('h4').textContent='Sua oferta de R$ 19,90 está liberada.';
-      unlockedOffer.querySelector('p:not(.unlock-kicker)').textContent='Clique abaixo para ir ao checkout. Você também pode falar conosco pelo WhatsApp se tiver dúvidas.';
-      unlockedOffer.querySelector('.checkout-link').hidden=false;
-    }
+    leadStatus.textContent='Cadastro recebido. Abrindo o checkout...';
     trackEvent('lead_submit',{location:'offer',offer:'black_friday_antecipada'});
-    unlockedOffer.scrollIntoView({behavior:'smooth',block:'nearest'});
+    trackEvent('checkout_start',{location:'lead_form',value:19.90,currency:'BRL'});
+    window.location.assign(checkout.href);
   }catch(error){
     leadStatus.textContent='Não foi possível enviar agora. Verifique sua conexão e tente novamente.';
-    leadFallback.hidden=false;
     leadSubmit.disabled=false;
   }
 });
