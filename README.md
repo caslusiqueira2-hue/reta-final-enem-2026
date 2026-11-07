@@ -25,7 +25,7 @@ Endereço de produção: https://andreretafinal.vercel.app/
 
 Preço da oferta: **R$ 19,90**, pagamento único. Checkout configurado: `https://checkoutseguro.info/checkout/cmw5ae5q1008p01oj8nem3ej7?offer=JEWR867`. O produto ainda estava indisponível na Sigilo Pay em 07/11/2026. Por isso, `CHECKOUT_ENABLED` fica `false` em `assets/site.js` e nenhum botão envia visitantes ao checkout. Depois que o produto for aprovado e o link testado, altere essa opção para `true`; o botão de pagamento será exibido apenas após o cadastro enviado com sucesso.
 
-O formulário exige nome, e-mail, WhatsApp com DDD e autorização explícita para contato sobre a oferta. As submissões são encaminhadas ao endereço `caslusiqueira2@gmail.com` por [FormSubmit](https://formsubmit.co/). O primeiro envio dispara um e-mail de ativação que o titular precisa confirmar; o serviço informa que guarda submissões recebidas até a confirmação. Um teste real de envio e recebimento deve ser feito antes de dirigir tráfego para a página.
+O formulário exige nome, e-mail, WhatsApp com DDD e autorização explícita para contato sobre a oferta. As submissões são encaminhadas ao endereço `caslusiqueira2@gmail.com` pelo formulário `xpppejbd` do [Formspree](https://formspree.io/). O painel mantém um arquivo de respostas e a ação de e-mail está habilitada. Um teste real de envio e recebimento deve ser feito antes de dirigir tráfego para a página.
 
 Parâmetros `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term`, `gclid` e `fbclid` recebidos pela página são repassados ao checkout sem apagar o parâmetro `offer`.
 
