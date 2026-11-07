@@ -217,6 +217,29 @@ h2{font-size:clamp(36px,4vw,58px);letter-spacing:-.055em;line-height:1.09}
 .offer-card>.button{width:100%;font-size:12px;min-height:58px}
 .checkout-note{display:flex;align-items:center;justify-content:center;gap:8px;font-size:9px;margin-top:15px;color:var(--muted)}
 .delivery-note{font-size:9px;line-height:1.8;text-align:center;color:var(--muted);margin-top:15px;border-top:1px solid var(--line);padding-top:15px}
+.campaign-ribbon{display:inline-flex;align-items:center;gap:11px;margin-top:22px;padding:7px 11px;background:var(--accent);color:var(--white);font:700 9px/1.5 var(--mono);letter-spacing:.08em}
+.campaign-ribbon span{font-size:13px}
+.lead-form{display:grid;gap:7px;border-top:1px solid var(--line);padding-top:22px}
+.lead-form-title{font-size:15px;font-weight:700;letter-spacing:-.02em;margin-bottom:7px}
+.lead-form>label:not(.lead-consent){font-size:10px;font-weight:700;margin-top:7px}
+.lead-form>input:not([type=hidden]){width:100%;min-height:49px;border:1px solid #bcbdb2;border-radius:0;background:#fff;padding:11px 13px;color:var(--ink);font-size:13px}
+.lead-form>input:not([type=hidden]):focus{outline:2px solid var(--accent);outline-offset:2px}
+.lead-form>input::placeholder{color:#85877e}
+.lead-form .lead-honey{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none!important}
+.lead-consent{display:flex;align-items:flex-start;gap:10px;margin-block:11px 5px;font-size:10px;line-height:1.55;color:var(--muted)}
+.lead-consent input{flex:none;width:16px;height:16px;margin:1px 0 0;accent-color:var(--accent)}
+.lead-submit{width:100%;min-height:58px;font-size:12px}
+.lead-submit:disabled{opacity:.65}
+.lead-status{min-height:16px;font-size:10px;color:var(--accent);line-height:1.5}
+.lead-privacy{font-size:9px;line-height:1.6;color:var(--muted)}
+.lead-privacy a{text-decoration:underline;text-underline-offset:2px}
+.offer-unlocked{padding-top:22px;border-top:1px solid var(--line)}
+.unlock-kicker{font:700 9px var(--mono);letter-spacing:.08em;color:var(--accent)}
+.offer-unlocked h4{font-size:19px;line-height:1.35;letter-spacing:-.03em;margin:10px 0}
+.offer-unlocked>p:not(.unlock-kicker){font-size:11px;line-height:1.8;color:var(--muted)}
+.offer-unlocked>.button{width:100%;margin-top:18px;min-height:55px;font-size:12px}
+.offer-unlocked>.text-link{display:inline-flex;margin-top:19px;font-size:10px;text-decoration:underline;text-underline-offset:4px}
+@media(max-width:699px){.campaign-ribbon{margin-top:18px;font-size:8px}.lead-form-title{font-size:16px}.lead-form>input:not([type=hidden]){font-size:16px}.lead-consent{font-size:11px}}
 .faq{background:var(--white)}
 .faq-grid{display:grid;grid-template-columns:.95fr 1.1fr;gap:90px}
 .faq .eyebrow{margin-bottom:28px}
@@ -267,3 +290,4 @@ h2{font-size:clamp(36px,4vw,58px);letter-spacing:-.055em;line-height:1.09}
 
 @media(max-width:959px) and (min-width:700px){.hero-artwork{width:min(100%,230px)}.book-presentation{padding:35px 24px}}
 @media(max-width:699px){.hero-artwork{width:min(100%,270px)}.book-presentation{padding:34px 24px}.book-motion-toggle{min-height:44px}.book-preview-page{width:58%}}
+

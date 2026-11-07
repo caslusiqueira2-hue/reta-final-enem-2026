@@ -1,8 +1,9 @@
 'use strict';
 
-// Keep the existing checkout and offer identifier. Analytics is opt-in.
+// Keep the approved offer URL here; enable payment only after Sigilo Pay releases the product.
 const CONFIG = Object.freeze({
-  CHECKOUT_URL: 'https://checkoutseguro.info/checkout/cmvc9q3um0j8k01om69f3hvp1?offer=AIT9ILJ',
+  CHECKOUT_URL: 'https://checkoutseguro.info/checkout/cmw5ae5q1008p01oj8nem3ej7?offer=JEWR867',
+  CHECKOUT_ENABLED: false,
   GA4_ID: '',
   GADS_ID: ''
 });
@@ -44,12 +45,54 @@ const incoming=new URLSearchParams(window.location.search);
 const checkout=new URL(CONFIG.CHECKOUT_URL);
 campaignKeys.forEach(key=>{if(incoming.has(key)) checkout.searchParams.set(key,incoming.get(key));});
 document.querySelectorAll('.checkout-link').forEach(link=>{
-  link.href=checkout.href;
+  if(CONFIG.CHECKOUT_ENABLED) link.href=checkout.href;
   link.addEventListener('click',()=>{
     const params={location:link.dataset.location,button_text:link.textContent.trim(),value:19.90,currency:'BRL'};
     trackEvent('cta_click',params);
     trackEvent('checkout_start',params);
   });
+});
+
+const leadForm=document.getElementById('lead-form');
+const leadStatus=document.getElementById('lead-status');
+const unlockedOffer=document.getElementById('offer-unlocked');
+const leadSubmit=leadForm.querySelector('button[type="submit"]');
+leadForm.addEventListener('submit',async event=>{
+  event.preventDefault();
+  if(!leadForm.reportValidity()) return;
+  const formData=new FormData(leadForm);
+  const phone=String(formData.get('whatsapp')||'').replace(/\D/g,'');
+  if(phone.length<10||phone.length>13){
+    leadStatus.textContent='Confira o WhatsApp e inclua o DDD.';
+    leadForm.querySelector('#lead-phone').focus();
+    return;
+  }
+  const payload=Object.fromEntries(formData.entries());
+  payload.whatsapp=phone;
+  campaignKeys.forEach(key=>{if(incoming.has(key)) payload[key]=String(incoming.get(key)).slice(0,160);});
+  leadSubmit.disabled=true;
+  leadStatus.textContent='Enviando seu cadastro...';
+  try{
+    const response=await fetch(leadForm.action,{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify(payload)
+    });
+    const result=await response.json();
+    if(!response.ok||result.success===false||result.success==='false') throw new Error('Falha no envio');
+    leadForm.hidden=true;
+    unlockedOffer.hidden=false;
+    if(CONFIG.CHECKOUT_ENABLED){
+      unlockedOffer.querySelector('h4').textContent='Sua oferta de R$ 19,90 está liberada.';
+      unlockedOffer.querySelector('p:not(.unlock-kicker)').textContent='Clique abaixo para ir ao checkout. Você também pode falar conosco pelo WhatsApp se tiver dúvidas.';
+      unlockedOffer.querySelector('.checkout-link').hidden=false;
+    }
+    trackEvent('lead_submit',{location:'offer',offer:'black_friday_antecipada'});
+    unlockedOffer.scrollIntoView({behavior:'smooth',block:'nearest'});
+  }catch(error){
+    leadStatus.textContent='Não foi possível enviar agora. Verifique sua conexão e tente novamente.';
+    leadSubmit.disabled=false;
+  }
 });
 
 const menuButton=document.querySelector('.menu-toggle');
@@ -169,3 +212,4 @@ window.addEventListener('scroll',()=>{if(!framePending){framePending=true;reques
 window.addEventListener('resize',updateReadingProgress);
 window.addEventListener('load',updateReadingProgress);
 updateReadingProgress();
+
