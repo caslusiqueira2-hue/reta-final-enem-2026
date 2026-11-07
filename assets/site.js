@@ -57,6 +57,7 @@ const leadForm=document.getElementById('lead-form');
 const leadStatus=document.getElementById('lead-status');
 const unlockedOffer=document.getElementById('offer-unlocked');
 const leadSubmit=leadForm.querySelector('button[type="submit"]');
+const leadFallback=document.getElementById('lead-fallback');
 leadForm.addEventListener('submit',async event=>{
   event.preventDefault();
   if(!leadForm.reportValidity()) return;
@@ -71,15 +72,18 @@ leadForm.addEventListener('submit',async event=>{
   payload.whatsapp=phone;
   campaignKeys.forEach(key=>{if(incoming.has(key)) payload[key]=String(incoming.get(key)).slice(0,160);});
   leadSubmit.disabled=true;
+  leadFallback.hidden=true;
   leadStatus.textContent='Enviando seu cadastro...';
   try{
+    const timeout=AbortSignal.timeout(20000);
     const response=await fetch(leadForm.action,{
       method:'POST',
       headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify(payload)
+      body:JSON.stringify(payload),
+      signal:timeout
     });
     const result=await response.json();
-    if(!response.ok||result.success===false||result.success==='false') throw new Error('Falha no envio');
+    if(!response.ok||result.ok===false||result.success===false||result.success==='false') throw new Error('Falha no envio');
     leadForm.hidden=true;
     unlockedOffer.hidden=false;
     if(CONFIG.CHECKOUT_ENABLED){
@@ -91,6 +95,7 @@ leadForm.addEventListener('submit',async event=>{
     unlockedOffer.scrollIntoView({behavior:'smooth',block:'nearest'});
   }catch(error){
     leadStatus.textContent='Não foi possível enviar agora. Verifique sua conexão e tente novamente.';
+    leadFallback.hidden=false;
     leadSubmit.disabled=false;
   }
 });
