@@ -6,7 +6,7 @@ Página de apresentação e venda do PDF de revisão do Prof. André Pedrosa. HT
 
 Abra `index.html` no navegador ou sirva a pasta com um servidor HTTP estático. A Vercel pode publicar o conteúdo da raiz sem comando de build. A configuração existente de hospedagem foi preservada.
 
-Endereço de produção cadastrado no repositório: https://reta-final-enem-2026-xi.vercel.app/
+Endereço de produção cadastrado no repositório: https://andreretafinal.vercel.app/
 
 ## Estrutura
 
@@ -21,7 +21,7 @@ Endereço de produção cadastrado no repositório: https://reta-final-enem-2026
 
 ## Oferta e checkout
 
-Preço preservado: **R$ 19,90**, pagamento único. O checkout e seu identificador de oferta originais foram mantidos. O endereço está presente nos links do HTML para funcionar mesmo sem JavaScript e no objeto `CONFIG` de `assets/site.js`. Atualize ambos se o checkout mudar.
+Preço preservado: **R$ 19,90**, pagamento único. O checkout e o identificador de oferta foram atualizados para a oferta vigente na Sigilo Pay. O endereço está presente nos links do HTML para funcionar mesmo sem JavaScript e no objeto `CONFIG` de `assets/site.js`. Atualize ambos se o checkout mudar.
 
 Parâmetros `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term`, `gclid` e `fbclid` recebidos pela página são repassados ao checkout sem apagar o parâmetro `offer`.
 
