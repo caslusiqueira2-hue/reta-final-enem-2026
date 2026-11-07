@@ -23,9 +23,9 @@ Endereço de produção: https://andreretafinal.vercel.app/
 
 ## Oferta e checkout
 
-Preço da oferta: **R$ 19,90**, pagamento único. Checkout configurado: `https://checkoutseguro.info/checkout/cmw5ae5q1008p01oj8nem3ej7?offer=JEWR867`. O produto ainda estava indisponível na Sigilo Pay em 07/11/2026. Por isso, `CHECKOUT_ENABLED` fica `false` em `assets/site.js` e nenhum botão envia visitantes ao checkout. Depois que o produto for aprovado e o link testado, altere essa opção para `true`; o botão de pagamento será exibido apenas após o cadastro enviado com sucesso.
+Preço da oferta: **R$ 19,90**, pagamento único. Checkout configurado: `https://checkoutseguro.info/checkout/cmw5ae5q1008p01oj8nem3ej7?offer=JEWR867`. Após a confirmação de sucesso do Formspree, o navegador redireciona automaticamente para esse checkout; não há etapa de WhatsApp após o cadastro. Se o envio do formulário falhar, a pessoa permanece na página e pode tentar novamente. Antes de enviar tráfego pago, confirme que o produto está liberado na Sigilo Pay e que esse link aceita a compra.
 
-O formulário exige nome, e-mail, WhatsApp com DDD e autorização explícita para contato sobre a oferta. As submissões são encaminhadas ao endereço `caslusiqueira2@gmail.com` pelo formulário `xpppejbd` do [Formspree](https://formspree.io/). O painel mantém um arquivo de respostas e a ação de e-mail está habilitada. Um teste real de envio e recebimento deve ser feito antes de dirigir tráfego para a página.
+O formulário exige nome, e-mail, WhatsApp com DDD e autorização explícita para contato sobre a oferta. As submissões são encaminhadas ao endereço `caslusiqueira2@gmail.com` pelo formulário `xpppejbd` do [Formspree](https://formspree.io/). O painel mantém um arquivo de respostas e a ação de e-mail está habilitada. O recebimento de um cadastro real por e-mail foi confirmado pelo responsável; o redirecionamento após esta alteração ainda precisa de uma conferência real no navegador.
 
 Parâmetros `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term`, `gclid` e `fbclid` recebidos pela página são repassados ao checkout sem apagar o parâmetro `offer`.
 
@@ -35,7 +35,7 @@ O site não processa pagamentos ou entrega arquivos: essas etapas pertencem ao c
 
 Nenhum serviço de analytics é carregado por padrão. `GA4_ID` e `GADS_ID`, em `assets/site.js`, são opcionais e estão vazios. Antes de ativá-los, configure as informações e o consentimento de privacidade adequados ao uso pretendido. O Pixel da Meta está ligado ao checkout na Sigilo Pay; esta página ainda não envia eventos diretamente à Meta.
 
-Os eventos locais podem ser acompanhados por `window.addEventListener('retafinal:event', handler)`: `lead_submit`, `cta_click`, `checkout_start`, `offer_view`, `sample_select`, `sample_open` e `faq_open`.
+Os eventos locais podem ser acompanhados por `window.addEventListener('retafinal:event', handler)`: `lead_submit`, `checkout_start`, `offer_view`, `sample_select`, `sample_open` e `faq_open`.
 
 ## Direção editorial
 
