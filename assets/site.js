@@ -1,8 +1,8 @@
 'use strict';
 
-// Redirect to this checkout after Formspree confirms the lead was received.
+// Redirect to this checkout after visitor fills the form
 const CONFIG = Object.freeze({
-  CHECKOUT_URL: 'https://checkoutseguro.info/checkout/cmw5ae5q1008p01oj8nem3ej7?offer=JEWR867',
+  CHECKOUT_URL: 'https://checkoutseguro.info/checkout/cmvc9q3um0j8k01om69f3hvp1?offer=AIT9ILJ',
   GA4_ID: '',
   GADS_ID: ''
 });
@@ -41,44 +41,152 @@ if(CONFIG.GA4_ID) {
 
 const campaignKeys=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','fbclid'];
 const incoming=new URLSearchParams(window.location.search);
-const checkout=new URL(CONFIG.CHECKOUT_URL);
-campaignKeys.forEach(key=>{if(incoming.has(key)) checkout.searchParams.set(key,incoming.get(key));});
 const leadForm=document.getElementById('lead-form');
 const leadStatus=document.getElementById('lead-status');
-const leadSubmit=leadForm.querySelector('button[type="submit"]');
-leadForm.addEventListener('submit',async event=>{
-  event.preventDefault();
-  if(!leadForm.reportValidity()) return;
-  const formData=new FormData(leadForm);
-  const phone=String(formData.get('whatsapp')||'').replace(/\D/g,'');
-  if(phone.length<10||phone.length>13){
-    leadStatus.textContent='Confira o WhatsApp e inclua o DDD.';
-    leadForm.querySelector('#lead-phone').focus();
-    return;
-  }
-  const payload=Object.fromEntries(formData.entries());
-  payload.whatsapp=phone;
-  campaignKeys.forEach(key=>{if(incoming.has(key)) payload[key]=String(incoming.get(key)).slice(0,160);});
-  leadSubmit.disabled=true;
-  leadStatus.textContent='Enviando seu cadastro...';
-  try{
-    const timeout=AbortSignal.timeout(20000);
-    const response=await fetch(leadForm.action,{
-      method:'POST',
-      headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify(payload),
-      signal:timeout
+const leadSubmit=leadForm?.querySelector('button[type="submit"]');
+const phoneInput=document.getElementById('lead-phone');
+
+// Máscara automática de telefone para formato brasileiro: (XX) 9XXXX-XXXX
+if (phoneInput) {
+  phoneInput.addEventListener('input', (e) => {
+    let value = e.target.value.replace(/\D/g, '');
+    if (value.length > 11) value = value.slice(0, 11);
+
+    if (value.length > 10) {
+      e.target.value = `(${value.slice(0, 2)}) ${value.slice(2, 7)}-${value.slice(7)}`;
+    } else if (value.length > 6) {
+      e.target.value = `(${value.slice(0, 2)}) ${value.slice(2, 6)}-${value.slice(6)}`;
+    } else if (value.length > 2) {
+      e.target.value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
+    } else if (value.length > 0) {
+      e.target.value = `(${value}`;
+    }
+  });
+}
+
+// Intercepta e processa o envio do formulário de compra direta
+if (leadForm) {
+  leadForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!leadForm.reportValidity()) return;
+
+    const formData = new FormData(leadForm);
+    const name = String(formData.get('name') || '').trim();
+    const email = String(formData.get('email') || '').trim();
+    const rawPhone = String(formData.get('whatsapp') || '').trim();
+    const phone = rawPhone.replace(/\D/g, '');
+
+    if (phone.length < 10 || phone.length > 11) {
+      if (leadStatus) leadStatus.textContent = 'Por favor, informe seu WhatsApp completo com DDD.';
+      phoneInput?.focus();
+      return;
+    }
+
+    // Feedback imediato no botão
+    if (leadSubmit) {
+      leadSubmit.disabled = true;
+      leadSubmit.innerHTML = 'REDIRECIONANDO PARA O CHECKOUT... <span aria-hidden="true">⏳</span>';
+    }
+    if (leadStatus) {
+      leadStatus.textContent = 'Aguarde um instante, preparando seu pagamento com desconto...';
+    }
+
+    const eventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).substring(2, 9);
+
+    // 1. Disparo de Conversão Meta Pixel (Lead + InitiateCheckout)
+    if (typeof window.fbq === 'function') {
+      window.fbq('track', 'Lead', {
+        content_name: 'Reta Final ENEM 2026 — Matemática',
+        content_category: 'Material Digital',
+        value: 19.90,
+        currency: 'BRL'
+      }, { eventID: eventId });
+
+      window.fbq('track', 'InitiateCheckout', {
+        content_name: 'Reta Final ENEM 2026 — Matemática',
+        content_category: 'Material Digital',
+        value: 19.90,
+        currency: 'BRL',
+        num_items: 1
+      });
+    }
+
+    // 2. Disparo de Analytics
+    trackEvent('lead_submit', { location: 'offer', offer: 'black_friday_antecipada' });
+    trackEvent('begin_checkout', {
+      value: 19.90,
+      currency: 'BRL',
+      items: [{ item_name: 'Reta Final ENEM 2026 — Matemática', price: 19.90 }]
     });
-    const result=await response.json();
-    if(!response.ok||result.ok===false||result.success===false||result.success==='false') throw new Error('Falha no envio');
-    leadStatus.textContent='Cadastro recebido. Abrindo o checkout...';
-    trackEvent('lead_submit',{location:'offer',offer:'black_friday_antecipada'});
-    trackEvent('checkout_start',{location:'lead_form',value:19.90,currency:'BRL'});
-    window.location.assign(checkout.href);
-  }catch(error){
-    leadStatus.textContent='Não foi possível enviar agora. Verifique sua conexão e tente novamente.';
-    leadSubmit.disabled=false;
-  }
+
+    // 3. Captura resiliente de lead (LocalStorage + envio silencioso em background)
+    const payload = Object.fromEntries(formData.entries());
+    payload.whatsapp = phone;
+    campaignKeys.forEach(key => {
+      if (incoming.has(key)) payload[key] = String(incoming.get(key)).slice(0, 160);
+    });
+
+    try {
+      localStorage.setItem('enem_last_buyer', JSON.stringify({
+        name,
+        email,
+        phone,
+        date: new Date().toISOString()
+      }));
+
+      const bodyData = JSON.stringify(payload);
+      if (navigator.sendBeacon) {
+        const blob = new Blob([bodyData], { type: 'application/json' });
+        navigator.sendBeacon(leadForm.action, blob);
+      } else {
+        fetch(leadForm.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: bodyData,
+          keepalive: true
+        }).catch(() => {});
+      }
+    } catch (e) {
+      console.debug('[Lead capture]', e);
+    }
+
+    // 4. Montagem da URL de checkout com preenchimento automático para Sigilo Pay
+    let checkoutTarget = CONFIG.CHECKOUT_URL;
+    try {
+      const url = new URL(checkoutTarget);
+      url.searchParams.set('name', name);
+      url.searchParams.set('email', email);
+      url.searchParams.set('phone', phone);
+      url.searchParams.set('nome', name);
+      url.searchParams.set('telefone', phone);
+
+      campaignKeys.forEach(key => {
+        if (incoming.has(key)) url.searchParams.set(key, incoming.get(key));
+      });
+      checkoutTarget = url.toString();
+    } catch (e) {
+      checkoutTarget = CONFIG.CHECKOUT_URL;
+    }
+
+    // 5. Redirecionamento fluido para o checkout
+    setTimeout(() => {
+      window.location.href = checkoutTarget;
+    }, 200);
+  });
+}
+
+// Rolagem suave e foco no formulário para todos os botões que apontam para #oferta
+document.querySelectorAll('a[href="#oferta"]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    const offerSection = document.getElementById('oferta');
+    if (offerSection) {
+      e.preventDefault();
+      offerSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(() => {
+        document.getElementById('lead-name')?.focus();
+      }, 500);
+    }
+  });
 });
 
 const menuButton=document.querySelector('.menu-toggle');

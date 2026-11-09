@@ -20,6 +20,33 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/site.css?v=20261107-leads">
+
+  <!-- Meta Pixel Code (Rastreamento Oficial Sigilo Pay & Meta Ads) -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '1653915083061330');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent', {
+      content_name: 'Reta Final ENEM 2026 — Matemática',
+      content_category: 'Material Digital',
+      value: 19.90,
+      currency: 'BRL'
+    });
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none" 
+         src="https://www.facebook.com/tr?id=1653915083061330&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
+
   <script src="assets/site.js?v=20261107-checkout" defer></script>
 </head>
 <body>
@@ -117,7 +144,7 @@
           <input type="hidden" name="produto" value="Reta Final ENEM 2026 - Matemática">
           <input type="hidden" name="oferta" value="Black Friday antecipada - R$ 19,90">
           <label class="lead-consent"><input type="checkbox" name="autorizacao_contato" value="Sim, sobre esta oferta" required><span>Autorizo contato individual por WhatsApp ou e-mail sobre esta oferta. Posso pedir para parar a qualquer momento.</span></label>
-          <button class="button button-accent lead-submit" type="submit">Liberar oferta de R$ 19,90 <span aria-hidden="true">↗</span></button>
+          <button class="button button-accent lead-submit" type="submit" id="lead-submit-btn"><span id="lead-submit-text">COMPRAR AGORA • R$ 19,90</span> <span aria-hidden="true" id="lead-submit-icon">↗</span></button>
           <p id="lead-status" class="lead-status" role="status" aria-live="polite"></p>
           <p class="lead-privacy">Os dados são enviados ao nosso e-mail pelo Formspree. <a href="privacidade.html">Como usamos seus dados</a>.</p>
         </form>

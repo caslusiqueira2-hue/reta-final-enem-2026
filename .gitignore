@@ -3,3 +3,7 @@ Thumbs.db
 *.pdf
 .env
 node_modules/
+*.py
+*.docx
+aqui
+este
