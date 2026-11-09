@@ -168,6 +168,9 @@ if (leadForm) {
       if (incoming.has('utm_source')) {
         url.searchParams.set('src', incoming.get('utm_source'));
       }
+      if (incoming.has('utm_content')) {
+        url.searchParams.set('sck', incoming.get('utm_content'));
+      }
       checkoutTarget = url.toString();
     } catch (e) {
       checkoutTarget = CONFIG.CHECKOUT_URL;
