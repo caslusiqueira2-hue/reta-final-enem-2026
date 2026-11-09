@@ -2,7 +2,7 @@
 
 // Redirect to this checkout after visitor fills the form
 const CONFIG = Object.freeze({
-  CHECKOUT_URL: 'https://checkoutseguro.info/checkout/cmvc9q3um0j8k01om69f3hvp1?offer=AIT9ILJ',
+  CHECKOUT_URL: 'https://pay.lowify.com.br/checkout.php?product_id=fCjFAD',
   GA4_ID: '',
   GADS_ID: ''
 });
@@ -150,19 +150,24 @@ if (leadForm) {
       console.debug('[Lead capture]', e);
     }
 
-    // 4. Montagem da URL de checkout com preenchimento automático para Sigilo Pay
+    // 4. Montagem da URL de checkout com preenchimento automático para Lowify
     let checkoutTarget = CONFIG.CHECKOUT_URL;
     try {
       const url = new URL(checkoutTarget);
       url.searchParams.set('name', name);
       url.searchParams.set('email', email);
+      url.searchParams.set('whatsapp', phone);
       url.searchParams.set('phone', phone);
-      url.searchParams.set('nome', name);
       url.searchParams.set('telefone', phone);
+      url.searchParams.set('tel', phone);
+      url.searchParams.set('nome', name);
 
       campaignKeys.forEach(key => {
         if (incoming.has(key)) url.searchParams.set(key, incoming.get(key));
       });
+      if (incoming.has('utm_source')) {
+        url.searchParams.set('src', incoming.get('utm_source'));
+      }
       checkoutTarget = url.toString();
     } catch (e) {
       checkoutTarget = CONFIG.CHECKOUT_URL;
