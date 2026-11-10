@@ -183,6 +183,19 @@ if (leadForm) {
   });
 }
 
+// Atualiza links diretos de checkout da Lowify com parâmetros e UTMs
+document.querySelectorAll('a[href*="pay.lowify.com.br"]').forEach(link => {
+  try {
+    const url = new URL(link.href);
+    campaignKeys.forEach(key => {
+      if (incoming.has(key)) url.searchParams.set(key, incoming.get(key));
+    });
+    if (incoming.has('utm_source')) url.searchParams.set('src', incoming.get('utm_source'));
+    if (incoming.has('utm_content')) url.searchParams.set('sck', incoming.get('utm_content'));
+    link.href = url.toString();
+  } catch (e) {}
+});
+
 // Rolagem suave e foco no formulário para todos os botões que apontam para #oferta
 document.querySelectorAll('a[href="#oferta"]').forEach(link => {
   link.addEventListener('click', (e) => {
